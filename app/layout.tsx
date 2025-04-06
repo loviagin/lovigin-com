@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "LOVIGIN – IT-Developer Company",
-  description: "Lovign LTD is a software development company that provides custom software solutions to businesses of all sizes.",
+  description: "Lovigin LTD is a software development company that provides custom software solutions to businesses of all sizes.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
