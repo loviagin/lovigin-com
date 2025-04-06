@@ -1,0 +1,8 @@
+User-agent: Yandex
+Disallow: /
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lovigin.com/sitemap.xml
