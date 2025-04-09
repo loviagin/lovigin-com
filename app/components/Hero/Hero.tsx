@@ -60,7 +60,7 @@ const Hero = () => {
       const timer = setInterval(() => {
         setDirection(1);
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 5000);
+      }, 8000);
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'ArrowLeft') {

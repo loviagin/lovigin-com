@@ -29,7 +29,7 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.leftSection}>
           <Link href="/" className={styles.logo}>
-            {isScrolled ? (
+            {/* {isScrolled ? (
               <Image
                 src="/logo.webp"
                 alt="LOVIGIN"
@@ -37,7 +37,7 @@ const Header = () => {
                 height={30}
                 priority
               />
-            ) : (
+            ) : ( */}
               <Image
                 src="/logoWhite.webp"
                 alt="LOVIGIN"
@@ -45,36 +45,36 @@ const Header = () => {
                 height={30}
                 priority
               />
-            )}
+            {/* )} */}
           </Link>
         </div>
 
         <div className={styles.rightSection}>
           <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>Services</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>Products</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>Portfolio</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>News</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>About</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isScrolled ? styles.scrolled : ''}`}>
+            <Link href="/#" className={`${styles.navLink}`}>
               <span>Contacts</span>
             </Link>
           </nav>
 
           <div className={styles.actions}>
-            <button className={`${styles.accountButton} ${isScrolled ? styles.scrolled : ''}`}>
+            <button className={`${styles.accountButton}`}>
               <svg
-                className={`${styles.accountIcon} ${isScrolled ? styles.scrolled : ''}`}
+                className={`${styles.accountIcon}`}
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -91,7 +91,7 @@ const Header = () => {
           </div>
 
           <button
-            className={`${styles.menuButton} ${isMenuOpen ? styles.active : ''} ${isScrolled ? styles.scrolled : ''}`}
+            className={`${styles.menuButton} ${isMenuOpen ? styles.active : ''}`}
             onClick={toggleMenu}
             aria-label="Menu"
           >
