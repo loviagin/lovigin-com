@@ -345,6 +345,7 @@
     min-height: auto;
     height: auto;
     margin: 1.5rem 0 4rem;
+    position: relative;
   }
 
   .slide {
@@ -352,6 +353,8 @@
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem 0;
+    opacity: 1;
+    transform: none;
   }
 
   .leftColumn {
@@ -367,5 +370,13 @@
   .stats {
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .controls {
+    display: none;
   }
 } 
