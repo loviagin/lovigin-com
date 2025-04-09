@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PayPalScriptProvider, PayPalButtons, PayPalButtonsComponentProps } from '@paypal/react-paypal-js';
+// import { PayPalScriptProvider, PayPalButtons, PayPalButtonsComponentProps } from '@paypal/react-paypal-js';
 import styles from './page.module.css';
 
 export default function Checkout() {
@@ -25,38 +25,38 @@ export default function Checkout() {
     console.log('Form submitted:', formData);
   };
 
-  const createOrder: PayPalButtonsComponentProps['createOrder'] = (_, actions) => {
-    return actions.order.create({
-      intent: "CAPTURE",
-      purchase_units: [
-        {
-          amount: {
-            value: "44.00",
-            currency_code: "USD"
-          }
-        }
-      ]
-    });
-  };
+  // const createOrder: PayPalButtonsComponentProps['createOrder'] = (_, actions) => {
+  //   return actions.order.create({
+  //     intent: "CAPTURE",
+  //     purchase_units: [
+  //       {
+  //         amount: {
+  //           value: "44.00",
+  //           currency_code: "USD"
+  //         }
+  //       }
+  //     ]
+  //   });
+  // };
 
-  const onApprove: PayPalButtonsComponentProps['onApprove'] = (data, actions) => {
-    if (!actions.order) {
-      throw new Error('Order actions not available');
-    }
-    return actions.order.capture().then((details) => {
-      console.log('Payment completed:', { data, details });
-    });
-  };
+  // const onApprove: PayPalButtonsComponentProps['onApprove'] = (data, actions) => {
+  //   if (!actions.order) {
+  //     throw new Error('Order actions not available');
+  //   }
+  //   return actions.order.capture().then((details) => {
+  //     console.log('Payment completed:', { data, details });
+  //   });
+  // };
 
   return (
     <div className={styles.checkout}>
       <div className={styles.container}>
         <h1 className={styles.mainTitle}>Checkout</h1>
-        
+
         <div className={styles.checkoutWrapper}>
           <form onSubmit={handleSubmit} className={styles.checkoutForm}>
             <h2 className={styles.sectionTitle}>Contact information</h2>
-            
+
             <div className={styles.formGroup}>
               <label htmlFor="firstName" className={styles.label}>Name</label>
               <input
@@ -138,13 +138,13 @@ export default function Checkout() {
 
           <div className={styles.summary}>
             <h2 className={styles.summaryTitle}>Your order</h2>
-            
+
             <div className={styles.summaryItem}>
-              <span>Product 1</span>
-              <span>9 999 ₽</span>
+              <span>Nothing to show</span>
+              {/* <span>9 999 ₽</span> */}
             </div>
-            
-            <div className={styles.summaryItem}>
+
+            {/* <div className={styles.summaryItem}>
               <span>Product 2</span>
               <span>4 999 ₽</span>
             </div>
@@ -157,9 +157,9 @@ export default function Checkout() {
             <div className={styles.summaryTotal}>
               <span>Total</span>
               <span>14 998 ₽</span>
-            </div>
+            </div> */}
 
-            <div className={styles.buttons}>
+            {/* <div className={styles.buttons}>
             <PayPalScriptProvider options={{ 
                 clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
                 currency: "USD"
@@ -177,7 +177,7 @@ export default function Checkout() {
                   />
                 </div>
               </PayPalScriptProvider>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

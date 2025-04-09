@@ -3,6 +3,8 @@ Disallow: /
 
 User-agent: *
 Allow: /
+Disallow: /checkout
+Disallow: /ip
 
 # Sitemap location
 Sitemap: https://lovigin.com/sitemap.xml

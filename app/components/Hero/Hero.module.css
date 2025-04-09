@@ -1,0 +1,371 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  color: white;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.slidesContainer {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  margin: 3rem 0 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.leftColumn {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.rightColumn {
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.statValue {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.ctaButton {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 3;
+  margin-bottom: 2rem;
+}
+
+.arrowButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.arrowButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.arrowButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.controlDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controlDot.active {
+  background: #2563eb;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    padding: 0 2rem;
+  }
+
+  .slidesContainer {
+    margin: 1.5rem 0 4rem;
+    min-height: 400px;
+  }
+
+  .slide {
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .stats {
+    padding: 1.2rem;
+  }
+
+  .statValue {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .ctaButton {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .navigation {
+    margin-bottom: 1rem;
+    gap: 1.5rem;
+  }
+
+  .arrowButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .arrowButton svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .controls {
+    gap: 0.8rem;
+  }
+
+  .controlDot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 0 2rem;
+  }
+
+  .slidesContainer {
+    margin: 1.5rem 0 4rem;
+    min-height: 400px;
+  }
+
+  .slide {
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .stats {
+    padding: 1.2rem;
+  }
+
+  .statValue {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .ctaButton {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .navigation {
+    margin-bottom: 1rem;
+    gap: 1.5rem;
+  }
+
+  .arrowButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .arrowButton svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .controls {
+    gap: 0.8rem;
+  }
+
+  .controlDot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 650px) {
+  .heroContent {
+    min-height: auto;
+    height: auto;
+  }
+
+  .slidesContainer {
+    min-height: auto;
+    height: auto;
+    margin: 1.5rem 0 4rem;
+  }
+
+  .slide {
+    position: relative;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .leftColumn {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .rightColumn {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .stats {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+} 

@@ -12,7 +12,8 @@
 
 .header.scrolled {
   padding: 0.5rem 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.766);
+  backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -195,9 +196,13 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: #333;
+  background: #fff;
   border-radius: var(--radius);
   transition: all 0.3s ease;
+}
+
+.menuButton.scrolled span {
+  background: #333;
 }
 
 .menuButton.active span:nth-child(1) {
@@ -222,9 +227,9 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0.35rem 2rem;
   }
 
   .menuButton {
@@ -233,16 +238,32 @@
 
   .nav {
     position: fixed;
-    top: 0;
+    top: 60px;
     right: -100%;
-    width: 100%;
-    height: 100vh;
+    width: 300px;
+    height: auto;
     background: white;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
     transition: right 0.3s ease;
+    padding: 1.5rem;
+    border-radius: 0 0 0 var(--radius);
+    box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav .navLink {
+    color: #333;
+    width: 100%;
+  }
+
+  .nav .navLink:hover {
+    color: #0070f3;
+  }
+
+  .nav .navLink span::after {
+    background: #0070f3;
   }
 
   .nav.active {

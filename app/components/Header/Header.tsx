@@ -12,12 +12,12 @@ const Header = () => {
     setIsScrolled(false);
     setIsMenuOpen(false);
 
-    // const handleScroll = () => {
-    //   setIsScrolled(window.scrollY > 50);
-    // };
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    // window.addEventListener('scroll', handleScroll);
-    // return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => {
@@ -91,7 +91,7 @@ const Header = () => {
           </div>
 
           <button
-            className={`${styles.menuButton} ${isMenuOpen ? styles.active : ''}`}
+            className={`${styles.menuButton} ${isMenuOpen ? styles.active : ''} ${isScrolled ? styles.scrolled : ''}`}
             onClick={toggleMenu}
             aria-label="Menu"
           >

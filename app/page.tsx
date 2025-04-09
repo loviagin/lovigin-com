@@ -1,13 +1,12 @@
 import React from 'react';
-// import styles from './page.module.css';
 import Maintenance from './maintenance/page';
+import Hero from './components/Hero/Hero';
+
 const Home = () => {
   return (
     <main>
+      <Hero />
       <Maintenance />
-      {/* <div className={styles.container}>
-
-      </div> */}
     </main>
   );
 };
