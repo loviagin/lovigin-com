@@ -7,38 +7,38 @@ import styles from './Hero.module.css';
 const slides = [
   {
     id: 1,
-    title: 'Создаем современные digital-решения под ключ',
-    subtitle: 'Сайты, мобильные приложения и кастомные разработки для бизнеса',
-    description: 'От идеи до реализации - полный цикл разработки с гарантией качества',
-    buttonText: 'Оставить заявку',
+    title: 'Digital Engineering for the Modern World',
+    subtitle: 'Innovative digital solutions for forward-thinking businesses',
+    description: 'We design and develop smart, scalable digital products that accelerate growth, streamline operations, and keep you ahead of the competition.',
+    buttonText: 'Discover More',
     stats: [
-      { value: '10+', label: 'Лет опыта' },
-      { value: '100+', label: 'Успешных проектов' },
-      { value: '50+', label: 'Довольных клиентов' }
+      { value: '10+', label: 'Industries served' },
+      { value: '300K+', label: 'End users engaged' },
+      { value: '100%', label: 'Projects delivered on time' }
     ]
   },
   {
     id: 2,
-    title: 'Разработка мобильных приложений',
-    subtitle: 'iOS и Android приложения для вашего бизнеса',
-    description: 'Создаем нативные и кроссплатформенные приложения с учетом всех требований рынка',
-    buttonText: 'Узнать подробнее',
+    title: 'Custom Software That Works for You',
+    subtitle: 'Tailored mobile and web apps built around your needs',
+    description: 'From concept to launch, we build high-performance platforms that seamlessly integrate into your workflow and evolve with your business.',
+    buttonText: 'Start Your Project',
     stats: [
-      { value: '30+', label: 'Мобильных приложений' },
-      { value: '4.8', label: 'Средний рейтинг' },
-      { value: '1M+', label: 'Установок' }
+      { value: '30+', label: 'Apps in production' },
+      { value: '4.9★', label: 'Average client rating' },
+      { value: '100%', label: 'Ongoing support included' }
     ]
   },
   {
     id: 3,
-    title: 'Веб-разработка и дизайн',
-    subtitle: 'Современные сайты и веб-приложения',
-    description: 'От лендингов до сложных корпоративных порталов с интеграцией любых систем',
-    buttonText: 'Посмотреть кейсы',
+    title: 'AI-Powered Business Solutions',
+    subtitle: 'Data-driven automation with real-world impact',
+    description: 'We bring artificial intelligence into your operations to cut costs, enhance productivity, and turn data into actionable insights — at scale.',
+    buttonText: 'Explore AI Use Cases',
     stats: [
-      { value: '70+', label: 'Веб-проектов' },
-      { value: '95%', label: 'Удовлетворенность' },
-      { value: '24/7', label: 'Техподдержка' }
+      { value: '10x', label: 'Efficiency boost' },
+      { value: '90%', label: 'Less manual workload' },
+      { value: '24/7', label: 'Uninterrupted performance' }
     ]
   }
 ];
