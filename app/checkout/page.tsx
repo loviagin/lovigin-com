@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { PayPalScriptProvider, PayPalButtons, PayPalButtonsComponentProps } from '@paypal/react-paypal-js';
 import styles from './page.module.css';
 
 export default function Checkout() {
@@ -25,8 +25,9 @@ export default function Checkout() {
     console.log('Form submitted:', formData);
   };
 
-  const createOrder = (data: any, actions: any) => {
+  const createOrder: PayPalButtonsComponentProps['createOrder'] = (_, actions) => {
     return actions.order.create({
+      intent: "CAPTURE",
       purchase_units: [
         {
           amount: {
@@ -38,10 +39,12 @@ export default function Checkout() {
     });
   };
 
-  const onApprove = (data: any, actions: any) => {
-    return actions.order.capture().then((details: any) => {
+  const onApprove: PayPalButtonsComponentProps['onApprove'] = (data, actions) => {
+    if (!actions.order) {
+      throw new Error('Order actions not available');
+    }
+    return actions.order.capture().then((details) => {
       console.log('Payment completed:', { data, details });
-      // Здесь будет логика после успешной оплаты
     });
   };
 
