@@ -31,7 +31,7 @@ export default function Checkout() {
       purchase_units: [
         {
           amount: {
-            value: "5.00",
+            value: "45.00",
             currency_code: "USD"
           }
         }
