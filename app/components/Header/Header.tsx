@@ -7,10 +7,12 @@ import styles from './Header.module.css';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
   useEffect(() => {
     setIsScrolled(false);
     setIsMenuOpen(false);
+    setIsSubmenuOpen(false);
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -22,6 +24,14 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      setIsSubmenuOpen(false);
+    }
+  };
+
+  const toggleSubmenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsSubmenuOpen(!isSubmenuOpen);
   };
 
   return (
@@ -29,31 +39,41 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.leftSection}>
           <Link href="/" className={styles.logo}>
-            {/* {isScrolled ? (
-              <Image
-                src="/logo.webp"
-                alt="LOVIGIN"
-                width={120}
-                height={30}
-                priority
-              />
-            ) : ( */}
-              <Image
-                src="/logoWhite.webp"
-                alt="LOVIGIN"
-                width={120}
-                height={30}
-                priority
-              />
-            {/* )} */}
+            <Image
+              src="/logoWhite.webp"
+              alt="LOVIGIN"
+              width={120}
+              height={30}
+              priority
+            />
           </Link>
         </div>
 
         <div className={styles.rightSection}>
           <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
-            <Link href="/#" className={`${styles.navLink}`}>
-              <span>Services</span>
-            </Link>
+            <div className={styles.navItem}>
+              <Link
+                href="/#"
+                className={`${styles.navLink}`}
+                onClick={toggleSubmenu}
+              >
+                <span>Services</span>
+              </Link>
+              <div className={`${styles.submenu} ${isSubmenuOpen ? styles.active : ''}`}>
+                <Link href="/#" className={styles.submenuLink}>
+                  <span>– Web Development</span>
+                  <p className={styles.submenuDescription}>Reactive corporate websites, landing pages, online stores and more</p>
+                </Link>
+                <Link href="/#" className={styles.submenuLink}>
+                  <span>– Mobile Apps</span>
+                  <p className={styles.submenuDescription}>Development of mobile applications for iOS and Android</p>
+                </Link>
+                <Link href="/#" className={styles.submenuLink}>
+                  <span>– UI/UX Design</span>
+                  <p className={styles.submenuDescription}>Creating convenient and beautiful interfaces</p>
+                </Link>
+              </div>
+            </div>
             <Link href="/#" className={`${styles.navLink}`}>
               <span>Products</span>
             </Link>

@@ -273,7 +273,7 @@
   }
 
   .slidesContainer {
-    margin: 1.5rem 0 4rem;
+    margin: 2.5rem 0 4rem;
     min-height: 400px;
   }
 
@@ -344,7 +344,7 @@
   .slidesContainer {
     min-height: auto;
     height: auto;
-    margin: 1.5rem 0 4rem;
+    margin: 2.5rem 0 4rem;
     position: relative;
   }
 
