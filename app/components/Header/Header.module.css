@@ -87,7 +87,8 @@
   transition: width 0.3s ease;
 }
 
-.navLink:hover span::after {
+.navLink:hover span::after,
+.navLink.active span::after {
   width: 100%;
 }
 
@@ -182,6 +183,30 @@
   align-items: center;
 }
 
+.navItem .navLink {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.navItem .navLink::after {
+  content: '▼';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.navItem:hover .navLink::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.navItem:hover .navLink span::after {
+  width: 100%;
+}
+
 .submenu {
   position: absolute;
   top: 100%;
@@ -249,7 +274,7 @@
 }
 
 /* Мобильные стили */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .container {
     padding: 0.35rem 2rem;
   }
@@ -307,6 +332,26 @@
   .navItem {
     width: 100%;
     display: block;
+  }
+
+  .navItem .navLink {
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .navItem .navLink::after {
+    content: '▼';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: #333;
+    transition: transform 0.3s ease;
+  }
+
+  .submenu.active+.navLink::after {
+    transform: translateY(-50%) rotate(180deg);
   }
 
   .submenu {

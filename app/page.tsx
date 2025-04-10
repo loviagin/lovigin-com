@@ -1,5 +1,5 @@
 import React from 'react';
-import Maintenance from './maintenance/page';
+import Maintenance from './components/Maintenance/Maintenance';
 import Hero from './components/Hero/Hero';
 
 const Home = () => {

@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsScrolled(false);
@@ -34,6 +36,10 @@ const Header = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
   };
 
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
@@ -54,7 +60,7 @@ const Header = () => {
             <div className={styles.navItem}>
               <Link
                 href="/#"
-                className={`${styles.navLink}`}
+                className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}
                 onClick={toggleSubmenu}
               >
                 <span>Services</span>
@@ -74,19 +80,19 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <Link href="/#" className={`${styles.navLink}`}>
+            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Products</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink}`}>
+            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Portfolio</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink}`}>
+            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>News</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink}`}>
+            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>About</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink}`}>
+            <Link href="/contacts" className={`${styles.navLink} ${isActive('/contacts') ? styles.active : ''}`}>
               <span>Contacts</span>
             </Link>
           </nav>

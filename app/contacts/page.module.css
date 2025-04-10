@@ -1,0 +1,466 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 4rem 0;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  border-radius: 2px;
+}
+
+.grid {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.contactInfo {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  z-index: 2;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.contactInfo h2,
+.contactForm h2 {
+    padding-bottom: 1rem;
+}
+
+.infoItem {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.infoItem:hover {
+  background: #0f0f0f;
+}
+
+.infoItem h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #2563eb;
+}
+
+.infoItem p {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.socialLink {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.contactForm {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.map {
+  max-width: 1400px;
+  width: 100%;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+.map iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  pointer-events: auto;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.legalInfo {
+  max-width: 1400px;
+  width: 100%;
+  margin: 4rem auto 0;
+  padding: 0 2rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.legalInfo h2 {
+  padding-bottom: 1rem;
+}
+
+.legalSection {
+  margin-bottom: 2.5rem;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.legalSection h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.legalDetails {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+  user-select: text;
+}
+
+.legalDetails p {
+  margin: 0.5rem 0;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.legalDetails strong {
+  color: #ffffff;
+  font-weight: 600;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  pointer-events: auto;
+}
+
+.legalLink {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  pointer-events: auto;
+}
+
+.legalLink:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .grid {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 2rem;
+  }
+
+  .infoItem {
+    padding: 1.2rem;
+  }
+
+  .infoItem h3 {
+    font-size: 1.1rem;
+  }
+
+  .infoItem p {
+    font-size: 1rem;
+  }
+
+  .socialLinks {
+    margin-top: 2rem;
+  }
+
+  .socialLink {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .map {
+    margin: 2rem auto 0;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid {
+    width: 100%;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 1.5rem;
+  }
+
+  .infoItem {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .infoItem h3 {
+    font-size: 1rem;
+    gap: 0.6rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .infoItem p {
+    font-size: 0.95rem;
+  }
+
+  .socialLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .socialLink {
+    width: 100%;
+    text-align: center;
+  }
+
+  .map {
+    width: 100%;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+    z-index: 1;
+  }
+
+  .map iframe {
+    height: 350px;
+  }
+
+  .legalInfo {
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+
+  .legalSection {
+    margin-bottom: 2rem;
+  }
+
+  .legalDetails {
+    padding: 1.2rem;
+  }
+
+  .legalLinks {
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid {
+    width: 100%;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 1.2rem;
+  }
+
+  .infoItem {
+    padding: 0.8rem;
+  }
+
+  .infoItem h3 {
+    font-size: 0.95rem;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .infoItem p {
+    font-size: 0.9rem;
+  }
+
+  .socialLinks {
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .socialLink {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .map {
+    width: 100%;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+    z-index: 1;
+  }
+
+  .map iframe {
+    height: 300px;
+  }
+
+  .legalInfo {
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+    font-size: 0.8rem;
+  }
+
+  .legalSection h3 {
+    font-size: 1rem;
+  }
+
+  .legalDetails {
+    padding: 1rem;
+  }
+
+  .legalLinks {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
