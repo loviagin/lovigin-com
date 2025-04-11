@@ -9,7 +9,7 @@ export default function ContactForm() {
         email: '',
         message: '',
     });
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -32,8 +32,11 @@ export default function ContactForm() {
             } else {
                 alert('Failed to send message');
             }
-        } catch (error) {
+        } catch (error: unknown) {
+            console.error('Error sending message:', error);
             alert('Failed to send message');
+        } finally {
+            setStatus('idle');
         }
     };
 
