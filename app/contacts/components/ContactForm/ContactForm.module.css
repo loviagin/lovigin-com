@@ -1,7 +1,9 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .formGroup {

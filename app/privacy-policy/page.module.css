@@ -1,188 +1,188 @@
 .container {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #0a0a0a;
-  color: #ffffff;
-  padding: 4rem 0;
-  overflow: hidden;
-  pointer-events: auto;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 4rem 0;
+    overflow: hidden;
+    pointer-events: auto;
 }
 
 .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
-  z-index: 1;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .content {
-  position: relative;
-  z-index: 2;
-  max-width: 1400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .headerSection {
-  position: relative;
-  padding: 3rem 0;
-  margin-bottom: 4rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .headerSection::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 200px;
-  height: 2px;
-  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
 }
 
 .title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
 }
 
 .effectiveDate {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  display: inline-block;
-  backdrop-filter: blur(10px);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
 }
 
 .section {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 .sectionTitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 .sectionContent {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .list {
-  list-style-type: none;
-  padding-left: 1.5rem;
+    list-style-type: none;
+    padding-left: 1.5rem;
 }
 
 .listItem {
-  position: relative;
-  margin-bottom: 0.8rem;
-  padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
 }
 
 .listItem::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: #2563eb;
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
 }
 
 .contactInfo {
-  background: rgba(255, 255, 255, 0.05);
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 @media (max-width: 1024px) {
-  .container {
-    padding: 3rem 0;
-  }
+    .container {
+        padding: 3rem 0;
+    }
 
-  .headerSection {
-    padding: 2.5rem 0;
-    margin-bottom: 3rem;
-  }
+    .headerSection {
+        padding: 2.5rem 0;
+        margin-bottom: 3rem;
+    }
 
-  .title {
-    font-size: 2.8rem;
-  }
+    .title {
+        font-size: 2.8rem;
+    }
 
-  .sectionTitle {
-    font-size: 1.6rem;
-  }
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
 }
 
 @media (max-width: 768px) {
-  .content {
-    padding: 0 2rem;
-  }
+    .content {
+        padding: 0 2rem;
+    }
 
-  .title {
-    font-size: 2.4rem;
-  }
+    .title {
+        font-size: 2.4rem;
+    }
 
-  .title::after {
-    width: 80px;
-    height: 3px;
-  }
+    .title::after {
+        width: 80px;
+        height: 3px;
+    }
 
-  .sectionTitle {
-    font-size: 1.4rem;
-  }
+    .sectionTitle {
+        font-size: 1.4rem;
+    }
 
-  .sectionContent {
-    font-size: 1rem;
-  }
+    .sectionContent {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 3.5rem 0;
-  }
+    .container {
+        padding: 3.5rem 0;
+    }
 
-  .headerSection {
-    padding: 1.5rem 0;
-    margin-bottom: 2rem;
-  }
+    .headerSection {
+        padding: 1.5rem 0;
+        margin-bottom: 2rem;
+    }
 
-  .content {
-    padding: 0 1rem;
-  }
+    .content {
+        padding: 0 1rem;
+    }
 
-  .title {
-    font-size: 2rem;
-    padding: 0;
-    margin-bottom: 0.75rem;
-  }
+    .title {
+        font-size: 2rem;
+        padding: 0;
+        margin-bottom: 0.75rem;
+    }
 
-  .effectiveDate {
-    font-size: 1rem;
-    padding: 0;
-  }
+    .effectiveDate {
+        font-size: 1rem;
+        padding: 0;
+    }
 }

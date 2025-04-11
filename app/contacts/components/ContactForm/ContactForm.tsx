@@ -9,11 +9,32 @@ export default function ContactForm() {
         email: '',
         message: '',
     });
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Здесь будет логика отправки формы
-        console.log('Form submitted:', formData);
+        setStatus('loading');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Message sent successfully');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                alert('Failed to send message');
+            }
+        } catch (error) {
+            alert('Failed to send message');
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,6 +56,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    disabled={status === 'loading'}
                 />
             </div>
             <div className={styles.formGroup}>
@@ -46,6 +68,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Your email"
                     required
+                    disabled={status === 'loading'}
                 />
             </div>
             <div className={styles.formGroup}>
@@ -56,10 +79,15 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Your message"
                     required
+                    disabled={status === 'loading'}
                 />
             </div>
-            <button type="submit" className={styles.submitButton}>
-                Send
+            <button 
+                type="submit" 
+                className={styles.submitButton}
+                disabled={status === 'loading'}
+            >
+                {status === 'loading' ? 'Sending...' : 'Send'}
             </button>
         </form>
     );
