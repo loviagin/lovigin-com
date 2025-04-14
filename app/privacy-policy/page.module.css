@@ -110,8 +110,7 @@
     background: var(--background);
     margin-top: 1.5rem;
     padding: 1.5rem;
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
     backdrop-filter: blur(10px);
     color: var(--foreground);
 }

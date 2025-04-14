@@ -48,7 +48,7 @@
 .contactInfo {
   background: var(--radial-gradient);
   padding: 2.5rem;
-  border-radius: 20px;
+  border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease;
   z-index: 2;
@@ -68,7 +68,7 @@
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   background: var(--radial-gradient);
-  border-radius: 15px;
+  border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
@@ -103,7 +103,7 @@
 .socialLink {
   text-decoration: none;
   padding: 0.8rem 1.5rem;
-  border-radius: 50px;
+  border-radius: var(--radius);
   font-weight: 500;
   color: #fff;
   transition: all 0.3s ease;
@@ -119,7 +119,7 @@
 .contactForm {
   background: var(--radial-gradient);
   padding: 2.5rem;
-  border-radius: 20px;
+  border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 2;
   position: relative;
@@ -131,7 +131,7 @@
   width: 100%;
   margin: 3rem auto 0;
   padding: 0 2rem;
-  border-radius: 20px;
+  border-radius: var(--radius);
   overflow: hidden;
   z-index: 1;
   position: relative;
@@ -198,7 +198,7 @@
 .legalDetails {
   background: var(--radial-gradient);
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   pointer-events: auto;
   user-select: text;
