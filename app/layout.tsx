@@ -36,8 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${nunito.variable}`}>
-      <body>
-        <Header />
+      <body>        <Header />
         {children}
         <Footer />
       </body>
