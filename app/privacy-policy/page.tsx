@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
             <div className={styles.content}>
                 <div className={styles.section}>
                     <p className={styles.sectionContent}>
-                        LOVIGIN LTD (&quot;we&quot;, "our", or "us") is committed to protecting your privacy.
+                        LOVIGIN LTD (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
                         This Privacy Policy explains how we collect, use, disclose, and safeguard your
                         information when you visit our website.
                     </p>

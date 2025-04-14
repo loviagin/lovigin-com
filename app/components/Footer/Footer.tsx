@@ -8,9 +8,6 @@ const Footer = () => {
             </div>
             <div className={styles.copyright}>
                 <p>© 2025 LOVIGIN LTD. All rights reserved.</p>
-                <p>
-                    <a href="/privacy-policy">Privacy Policy</a>
-                </p>
             </div>
         </footer>
     )
