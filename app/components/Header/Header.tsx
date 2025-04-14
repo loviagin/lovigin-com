@@ -69,15 +69,15 @@ const Header = () => {
                 <span>Services</span>
               </Link>
               <div className={`${styles.submenu} ${isSubmenuOpen ? styles.active : ''}`}>
-                <Link href="/#" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink}>
                   <span>– Web Development</span>
                   <p className={styles.submenuDescription}>Reactive corporate websites, landing pages, online stores and more</p>
                 </Link>
-                <Link href="/#" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink}>
                   <span>– Mobile Apps</span>
                   <p className={styles.submenuDescription}>Development of mobile applications for iOS and Android</p>
                 </Link>
-                <Link href="/#" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink}>
                   <span>– UI/UX Design</span>
                   <p className={styles.submenuDescription}>Creating convenient and beautiful interfaces</p>
                 </Link>
