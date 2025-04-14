@@ -32,6 +32,8 @@
 }
 
 .copyright {
+    display: flex;
+    flex-direction: row;
     position: relative;
     z-index: 2;
     max-width: 1400px;
@@ -40,7 +42,7 @@
     padding: 0 2rem;
     color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -59,6 +61,10 @@
 @media (max-width: 768px) {
     .container {
         padding: 2rem 0rem;
+    }
+
+    .copyright {
+        flex-direction: column;
     }
 }
 

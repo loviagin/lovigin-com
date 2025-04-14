@@ -6,7 +6,7 @@
   width: 100%;
   padding: 2rem 0;
   overflow: hidden;
-  background-color: #0a0a0a;
+  background-color: var(--hero-color);
 }
 
 .heroContent {
@@ -27,7 +27,7 @@
   position: relative;
   width: 100%;
   min-height: 500px;
-  margin: 3rem 0 7rem;
+  margin: 6rem 0 7rem;
   display: flex;
   align-items: center;
   justify-content: center;

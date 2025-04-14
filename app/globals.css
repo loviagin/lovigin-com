@@ -1,7 +1,17 @@
 :root {
-  --background: #ffffff;
   --foreground: #171717;
+  --background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --hero-color: #2d3748;
+  --radial-gradient: radial-gradient(circle at center, rgba(236, 236, 236, 0.1) 0%, rgba(219, 215, 215, 0.8) 100%);
   --radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #d8d7d7;
+    --background: linear-gradient(135deg, #000000bf 0%, #1a1a1a 100%);
+    --radial-gradient: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+  }
 }
 
 html,

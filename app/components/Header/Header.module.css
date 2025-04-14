@@ -12,7 +12,7 @@
 
 .header.scrolled {
   padding: 0.5rem 0;
-  background: #000111a8;
+  background: #2d3748af; 
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);

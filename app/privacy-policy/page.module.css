@@ -2,11 +2,19 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background-color: #0a0a0a;
-    color: #ffffff;
-    padding: 4rem 0;
+    background: var(--background);
+    padding: 0 0 4rem 0;
     overflow: hidden;
     pointer-events: auto;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 2rem 0 2rem;
 }
 
 .background {
@@ -17,43 +25,33 @@
     bottom: 0;
     z-index: 1;
     pointer-events: none;
-}
-
-.gradient {
+  }
+  
+  .gradient {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
+    background: var(--radial-gradient);
     z-index: 1;
     pointer-events: none;
+  }
+
+.headerSection {
+    position: relative;
+    width: 100%;
+    padding: 8rem 0;
+    background-color: var(--hero-color);
+    color: #ffffff;
+    z-index: 2;
 }
 
-.content {
-    position: relative;
-    z-index: 2;
+.headerSection .content {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
-}
-
-.headerSection {
-    position: relative;
-    padding: 3rem 0;
-    margin-bottom: 4rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.headerSection::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
 }
 
 .title {
@@ -83,13 +81,11 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #ffffff;
 }
 
 .sectionContent {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
 }
 
 .list {
@@ -111,22 +107,27 @@
 }
 
 .contactInfo {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--background);
     margin-top: 1.5rem;
     padding: 1.5rem;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    color: var(--foreground);
 }
 
 @media (max-width: 1024px) {
     .container {
-        padding: 3rem 0;
+        padding: 0 0 3rem 0;
+    }
+
+    .content {
+        padding: 3rem 2rem 0 2rem;
     }
 
     .headerSection {
-        padding: 2.5rem 0;
-        margin-bottom: 3rem;
+        padding: 8rem 0;
+        margin-bottom: 1rem;
     }
 
     .title {
@@ -140,6 +141,10 @@
 
 @media (max-width: 768px) {
     .content {
+        padding: 0 2rem;
+    }
+
+    .headerSection .content {
         padding: 0 2rem;
     }
 
@@ -163,15 +168,14 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 3.5rem 0;
-    }
-
-    .headerSection {
-        padding: 1.5rem 0;
-        margin-bottom: 2rem;
+        padding: 0 0 3.5rem 0;
     }
 
     .content {
+        padding: 3.5rem 1rem 0 1rem;
+    }
+
+    .headerSection .content {
         padding: 0 1rem;
     }
 

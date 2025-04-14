@@ -12,15 +12,16 @@ export default function PrivacyPolicy() {
             <div className={styles.background}>
                 <div className={styles.gradient} />
             </div>
-            <div className={styles.content}>
-                <div className={styles.headerSection}>
+            <div className={styles.headerSection}>
+                <div className={styles.content}>
                     <h1 className={styles.title}>Privacy Policy</h1>
                     <p className={styles.effectiveDate}><strong>Effective date:</strong> 10 April 2025</p>
                 </div>
-
+            </div>
+            <div className={styles.content}>
                 <div className={styles.section}>
                     <p className={styles.sectionContent}>
-                        LOVIGIN LTD (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
+                        LOVIGIN LTD (&quot;we&quot;, "our", or "us") is committed to protecting your privacy.
                         This Privacy Policy explains how we collect, use, disclose, and safeguard your
                         information when you visit our website.
                     </p>
