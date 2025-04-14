@@ -83,7 +83,7 @@
   gap: 1.8rem;
   padding: 1.8rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  border-radius: var(--radius);
   backdrop-filter: blur(10px);
 }
 
@@ -113,7 +113,7 @@
   color: white;
   background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
   border: none;
-  border-radius: 50px;
+  border-radius: var(--radius);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

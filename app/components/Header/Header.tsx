@@ -86,10 +86,10 @@ const Header = () => {
             <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Portfolio</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            {/* <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>News</span>
-            </Link>
-            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            </Link> */}
+            <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>About</span>
             </Link>
             <Link href="/contacts" className={`${styles.navLink} ${isActive('/contacts') ? styles.active : ''}`}>

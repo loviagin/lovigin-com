@@ -149,9 +149,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <button className={styles.ctaButton}>
+          <a href='#about' className={styles.ctaButton}>
             {slide.buttonText}
-          </button>
+          </a>
         </motion.div>
       </div>
 
