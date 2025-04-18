@@ -11,6 +11,9 @@ const Footer = () => {
                 <p>
                     <a href="/privacy-policy">Privacy Policy</a>
                 </p>
+                <p className={styles.cookies}>
+                    This website uses cookies to enhance your experience.
+                </p>
             </div>
         </footer>
     )

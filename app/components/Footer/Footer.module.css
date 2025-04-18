@@ -53,6 +53,21 @@
     user-select: text;
 }
 
+.copyright a {
+    color: #999;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+.cookies {
+    font-size: 0.75rem;
+    color: #757575;
+    margin-top: 0.25rem !important;
+}
+
 @media (max-width: 1024px) {
     .container {
       padding: 3rem 0;

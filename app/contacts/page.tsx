@@ -94,8 +94,8 @@ export default function ContactsPage() {
                 <div className={styles.legalLinks}>
                     <a href="/privacy-policy" className={styles.legalLink}>Privacy Policy</a>
                     <a href="/terms-of-service" className={styles.legalLink}>Terms of Service</a>
-                    {/*<a href="/cookies" className={styles.legalLink}>Политика использования файлов cookie</a>
-                    <a href="/disclaimer" className={styles.legalLink}>Отказ от ответственности</a>
+                    <a href="/cookie-policy" className={styles.legalLink}>Cookie Policy</a>
+                    {/*<a href="/disclaimer" className={styles.legalLink}>Отказ от ответственности</a>
                     <a href="/complaints" className={styles.legalLink}>Политика рассмотрения жалоб</a>
                     <a href="/aml" className={styles.legalLink}>Политика противодействия отмыванию денег</a> */}
                 </div>

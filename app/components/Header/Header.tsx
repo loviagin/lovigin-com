@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
-import IPWarning from '../IPWarning/IPWarning';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,8 +42,6 @@ const Header = () => {
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <IPWarning />
-
       <div className={`${styles.container} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.leftSection}>
           <Link href="/" className={styles.logo}>
