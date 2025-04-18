@@ -23,5 +23,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
+
+    {
+      url: 'https://lovigin.com/terms-of-service',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+
+    {
+      url: 'https://lovigin.com/cookie-policy',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
   ]
 }

@@ -83,7 +83,7 @@ const Header = () => {
             <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Products</span>
             </Link>
-            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Portfolio</span>
             </Link>
             {/* <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
