@@ -50,67 +50,75 @@ export default async function ProjectPage({ params }: PageProps) {
                     </div>
 
                     {/* Project Description */}
-                    <div className={styles.description}>
-                        <h2 className={styles.sectionTitle}>About the Project</h2>
-                        <p>{project.description}</p>
-                    </div>
+                    {project.description && (
+                        <div className={styles.description}>
+                            <h2 className={styles.sectionTitle}>About the Project</h2>
+                            <p>{project.description}</p>
+                        </div>
+                    )}
 
                     {/* Project Timeline */}
-                    <div className={styles.timeline}>
-                        <h2 className={styles.sectionTitle}>What we built</h2>
-                        <div className={styles.timelineContent}>
-                            {project.projectTimeline.map((item, index) => (
-                                <div key={index} className={styles.timelineItem}>
-                                    <span className={styles.timelineLabel}>{item.label}</span>
-                                    <span className={styles.timelineValue}>{item.description}</span>
-                                </div>
-                            ))}
+                    {project.projectTimeline && project.projectTimeline.length > 0 && (
+                        <div className={styles.timeline}>
+                            <h2 className={styles.sectionTitle}>Project Timeline</h2>
+                            <div className={styles.timelineContent}>
+                                {project.projectTimeline.map((item, index) => (
+                                    <div key={index} className={styles.timelineItem}>
+                                        <span className={styles.timelineLabel}>{item.label}</span>
+                                        <span className={styles.timelineValue}>{item.description}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* Tech Stack */}
-                    <div className={styles.stack}>
-                        <h2 className={styles.sectionTitle}>Tech Stack</h2>
-                        <div className={styles.stackItems}>
-                            {project.stack.map((tech, index) => (
-                                <div key={index} className={styles.stackItem}>
-                                    <h3 className={styles.techName}>{tech.name}</h3>
-                                    <p className={styles.techDescription}>{tech.description}</p>
-                                </div>
-                            ))}
+                    {project.stack && project.stack.length > 0 && (
+                        <div className={styles.stack}>
+                            <h2 className={styles.sectionTitle}>Tech Stack</h2>
+                            <div className={styles.stackItems}>
+                                {project.stack.map((tech, index) => (
+                                    <div key={index} className={styles.stackItem}>
+                                        <h3 className={styles.techName}>{tech.name}</h3>
+                                        <p className={styles.techDescription}>{tech.description}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* Project Duration */}
-                    <div className={styles.timeline}>
-                        <h2 className={styles.sectionTitle}>Project Duration</h2>
-                        <div className={styles.timelineContent}>
-                            <div className={styles.timelineItem}>
-                                <span className={styles.timelineLabel}>Start Date</span>
-                                <span className={styles.timelineValue}>
-                                    {new Date(project.timeline.start).toLocaleDateString('en-US', {
-                                        day: 'numeric',
-                                        month: 'long',
-                                        year: 'numeric'
-                                    })}
-                                </span>
-                            </div>
-                            <div className={styles.timelineItem}>
-                                <span className={styles.timelineLabel}>End Date</span>
-                                <span className={styles.timelineValue}>
-                                    {new Date(project.timeline.end).toLocaleDateString('en-US', {
-                                        day: 'numeric',
-                                        month: 'long',
-                                        year: 'numeric'
-                                    })}
-                                </span>
-                            </div>
-                            <div className={styles.timelineItem}>
-                                <span className={styles.timelineLabel}>Duration</span>
-                                <span className={styles.timelineValue}>{project.timeline.duration}</span>
+                    {project.timeline && (
+                        <div className={styles.timeline}>
+                            <h2 className={styles.sectionTitle}>Project Duration</h2>
+                            <div className={styles.timelineContent}>
+                                <div className={styles.timelineItem}>
+                                    <span className={styles.timelineLabel}>Start Date</span>
+                                    <span className={styles.timelineValue}>
+                                        {new Date(project.timeline.start).toLocaleDateString('en-US', {
+                                            day: 'numeric',
+                                            month: 'long',
+                                            year: 'numeric'
+                                        })}
+                                    </span>
+                                </div>
+                                <div className={styles.timelineItem}>
+                                    <span className={styles.timelineLabel}>End Date</span>
+                                    <span className={styles.timelineValue}>
+                                        {new Date(project.timeline.end).toLocaleDateString('en-US', {
+                                            day: 'numeric',
+                                            month: 'long',
+                                            year: 'numeric'
+                                        })}
+                                    </span>
+                                </div>
+                                <div className={styles.timelineItem}>
+                                    <span className={styles.timelineLabel}>Duration</span>
+                                    <span className={styles.timelineValue}>{project.timeline.duration}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* Client Info */}
                     {project.client && (
@@ -143,16 +151,18 @@ export default async function ProjectPage({ params }: PageProps) {
                     )}
 
                     {/* Features */}
-                    <div className={styles.features}>
-                        <h2 className={styles.sectionTitle}>Key Features</h2>
-                        <ul className={styles.featuresList}>
-                            {project.features.map((feature, index) => (
-                                <li key={index} className={styles.featureItem}>
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    {project.features && project.features.length > 0 && (
+                        <div className={styles.features}>
+                            <h2 className={styles.sectionTitle}>Key Features</h2>
+                            <ul className={styles.featuresList}>
+                                {project.features.map((feature, index) => (
+                                    <li key={index} className={styles.featureItem}>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
 
                     {/* Tags */}
                     <div className={styles.tags}>

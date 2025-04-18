@@ -17,16 +17,16 @@ export const portfolioItems: PortfolioItem[] = [
         tags: ['UI/UX', 'WEB', 'IOS'],
         status: 'completed',
         date: '2025-02-25'
-    }
-    // {
-    //     id: '2',
-    //     title: 'Project Name 2',
-    //     description: 'Another project description showcasing our capabilities.',
-    //     image: '/images/portfolio/project2.jpg',
-    //     tags: ['MOBILE', 'BACKEND'],
-    //     status: 'in-progress',
-    //     date: '2024-03-20'
-    // },
+    },
+    {
+        id: 'unifood',
+        title: 'Uni Food',
+        description: 'Loyalty program for a university cafeteria.',
+        image: '/portfolio/unifood.webp',
+        tags: ['UI/UX', 'WEB', 'IOS'],
+        status: 'completed',
+        date: '2025-03-05'
+    },
     // {
     //     id: '3',
     //     title: 'Project Name 3',

@@ -1,8 +1,8 @@
 export interface Project {
     id: string;
     title: string;
-    description: string;
-    shortDescription: string;
+    description?: string;
+    shortDescription?: string;
     status: 'completed' | 'in-progress';
     date: string;
     tags: string[];
@@ -11,7 +11,7 @@ export interface Project {
         title: string;
         url: string;
     }[];
-    stack: {
+    stack?: {
         name: string;
         description: string;
     }[];
@@ -21,16 +21,16 @@ export interface Project {
         logo?: string;
         link?: string;
     };
-    timeline: {
+    timeline?: {
         start: string;
         end: string;
         duration: string;
     };
-    projectTimeline: {
+    projectTimeline?: {
         label: string;
         description: string;
     }[];
-    features: string[];
+    features?: string[];
 }
 
 export const projects: Project[] = [
@@ -141,5 +141,27 @@ export const projects: Project[] = [
             'Admin panel',
             'Google Analytics',
         ]
-    }
+    },
+    {
+        id: 'unifood',
+        title: 'Uni Food',
+        shortDescription: 'Loyalty program for a university cafeteria.',
+        status: 'completed',
+        date: '2025-03-05',
+        tags: ['UI/UX', 'WEB', 'IOS'],
+        screenshots: [
+            '/portfolio/unifood.webp',
+        ],
+        links: [
+            {
+                title: 'Web site',
+                url: 'https://unifood.space/en'
+            }
+        ],
+        timeline: {
+            start: '2025-03-05',
+            end: '2025-04-05',
+            duration: '1 month'
+        },
+    },
 ]; 
