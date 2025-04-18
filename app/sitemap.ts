@@ -17,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
+      url: 'https://lovigin.com/portfolio',
+      lastModified: new Date(),
+      changeFrequency: 'hourly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
       url: 'https://lovigin.com/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'monthly',

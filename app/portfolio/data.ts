@@ -10,13 +10,13 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
     {
-        id: '1',
+        id: 'irisprophoto',
         title: 'Iris Pro Photo',
         description: 'The website of an American company that creates portraits of the iris of the eye',
         image: '/portfolio/irisprophoto.webp',
         tags: ['UI/UX', 'WEB', 'IOS'],
         status: 'completed',
-        date: '2024-03-15'
+        date: '2025-02-25'
     }
     // {
     //     id: '2',

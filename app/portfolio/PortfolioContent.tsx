@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { portfolioItems } from './data';
+import Link from 'next/link';
 
 const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -21,8 +22,8 @@ export default function PortfolioContent() {
     const [selectedStatus, setSelectedStatus] = useState<'all' | 'completed' | 'in-progress'>('all');
 
     const handleTagClick = (tag: string) => {
-        setSelectedTags(prev => 
-            prev.includes(tag) 
+        setSelectedTags(prev =>
+            prev.includes(tag)
                 ? prev.filter(t => t !== tag)
                 : [...prev, tag]
         );
@@ -50,19 +51,19 @@ export default function PortfolioContent() {
                 <div className={styles.filterGroup}>
                     <div className={styles.filterTitle}>Status</div>
                     <div className={styles.statusFilters}>
-                        <button 
+                        <button
                             className={`${styles.statusFilter} ${selectedStatus === 'all' ? styles.active : ''}`}
                             onClick={() => handleStatusClick('all')}
                         >
                             All
                         </button>
-                        <button 
+                        <button
                             className={`${styles.statusFilter} ${selectedStatus === 'completed' ? styles.active : ''}`}
                             onClick={() => handleStatusClick('completed')}
                         >
                             Completed
                         </button>
-                        <button 
+                        <button
                             className={`${styles.statusFilter} ${selectedStatus === 'in-progress' ? styles.active : ''}`}
                             onClick={() => handleStatusClick('in-progress')}
                         >
@@ -100,7 +101,9 @@ export default function PortfolioContent() {
                             </div>
                         </div>
                         <div className={styles.portfolioInfo}>
-                            <h3 className={styles.portfolioTitle}>{item.title}</h3>
+                            <Link href={`/portfolio/${item.id}`}>
+                                <h3 className={styles.portfolioTitle}>{item.title}</h3>
+                            </Link>
                             <p className={styles.portfolioDescription}>
                                 {item.description}
                             </p>
