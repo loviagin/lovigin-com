@@ -6,11 +6,6 @@ import {
   FaTelegram, 
   FaWhatsapp, 
   FaMailBulk, 
-  FaSkype,
-  FaDiscord,
-  FaSlack,
-  FaWeixin,
-  FaLine,
   FaFacebookMessenger
 } from 'react-icons/fa';
 
