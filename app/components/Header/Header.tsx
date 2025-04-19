@@ -103,7 +103,7 @@ const Header = () => {
           </nav>
 
           <div className={styles.actions}>
-            <button className={`${styles.accountButton}`}>
+            <Link href="/account" className={`${styles.accountButton}`}>
               <svg
                 className={`${styles.accountIcon}`}
                 width="20"
@@ -118,7 +118,7 @@ const Header = () => {
                 />
               </svg>
               <span>Account</span>
-            </button>
+            </Link>
           </div>
 
           <button
