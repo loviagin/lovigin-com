@@ -1,8 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import styles from './Services.module.css';
 import { FaCode, FaMobileAlt, FaCogs } from 'react-icons/fa';
+import OrderForm from '../OrderForm/OrderForm';
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
   const services = [
     {
       title: 'Web Development',
@@ -39,6 +44,14 @@ const Services = () => {
     }
   ];
 
+  const handleOrderClick = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+  };
+
+  const handleCloseForm = () => {
+    setSelectedService(null);
+  };
+
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
@@ -59,10 +72,23 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
+              <button 
+                className={styles.orderButton}
+                onClick={() => handleOrderClick(service.title)}
+              >
+                Order Now
+              </button>
             </div>
           ))}
         </div>
       </div>
+      {selectedService && (
+        <OrderForm
+          serviceTitle={selectedService}
+          isOpen={true}
+          onClose={handleCloseForm}
+        />
+      )}
     </section>
   );
 };
