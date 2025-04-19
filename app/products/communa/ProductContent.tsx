@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'react-photo-view/dist/react-photo-view.css';
+import Link from 'next/link';
 
 export default function ProductContent() {
     const [activeScreenshot, setActiveScreenshot] = useState(0);
@@ -70,6 +71,9 @@ export default function ProductContent() {
                 <div className={styles.heroSection}>
                     <div className={styles.heroContent}>
                         <div className={styles.productHeader}>
+                            <Link href="/products" className={styles.backButton}>
+                                ← Back to Products
+                            </Link>
                             <h1 className={styles.title}>{product.title}</h1>
                             <div className={styles.categories}>
                                 {product.categories.map((category, index) => (

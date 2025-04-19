@@ -31,6 +31,11 @@ const Header = () => {
     }
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    setIsSubmenuOpen(false);
+  };
+
   const toggleSubmenu = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsSubmenuOpen(!isSubmenuOpen);
@@ -66,24 +71,24 @@ const Header = () => {
                 <span>Services</span>
               </Link>
               <div className={`${styles.submenu} ${isSubmenuOpen ? styles.active : ''}`}>
-                <Link href="/#services" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink} onClick={handleLinkClick}>
                   <span>– Web Development</span>
                   <p className={styles.submenuDescription}>Reactive corporate websites, landing pages, online stores and more</p>
                 </Link>
-                <Link href="/#services" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink} onClick={handleLinkClick}>
                   <span>– Mobile Apps</span>
                   <p className={styles.submenuDescription}>Development of mobile applications for iOS and Android</p>
                 </Link>
-                <Link href="/#services" className={styles.submenuLink}>
+                <Link href="/#services" className={styles.submenuLink} onClick={handleLinkClick}>
                   <span>– UI/UX Design</span>
                   <p className={styles.submenuDescription}>Creating convenient and beautiful interfaces</p>
                 </Link>
               </div>
             </div>
-            <Link href="/products" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            <Link href="/products" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Products</span>
             </Link>
-            <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Portfolio</span>
             </Link>
             {/* <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
@@ -92,7 +97,7 @@ const Header = () => {
             {/* <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>About</span>
             </Link> */}
-            <Link href="/contacts" className={`${styles.navLink} ${isActive('/contacts') ? styles.active : ''}`}>
+            <Link href="/contacts" className={`${styles.navLink} ${isActive('/contacts') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Contacts</span>
             </Link>
           </nav>

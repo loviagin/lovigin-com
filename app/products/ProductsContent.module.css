@@ -216,6 +216,10 @@
     .productImage {
         height: 280px;
     }
+
+    .productImage img {
+        object-position: left center !important;
+    }
     
     .productInfo {
         padding: 1.25rem;
