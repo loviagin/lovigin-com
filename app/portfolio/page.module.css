@@ -288,6 +288,23 @@
     font-weight: 500;
 }
 
+.disclaimer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.disclaimer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
 @media (max-width: 1024px) {
     .container {
         padding: 0 0 3rem 0;
@@ -325,6 +342,12 @@
 
     .portfolioGrid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .disclaimer {
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: 0.85rem;
     }
 }
 

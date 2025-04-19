@@ -145,7 +145,7 @@ export const projects: Project[] = [
     {
         id: 'unifood',
         title: 'Uni Food',
-        shortDescription: 'Loyalty program for a university cafeteria.',
+        shortDescription: 'Loyalty program for a university cafeteria with a mobile Admin app.',
         status: 'completed',
         date: '2025-03-05',
         tags: ['UI/UX', 'WEB', 'IOS'],
@@ -161,6 +161,50 @@ export const projects: Project[] = [
         timeline: {
             start: '2025-03-05',
             end: '2025-04-05',
+            duration: '1 month'
+        },
+    },
+    {
+        id: 'voroninsfamilyllc',
+        title: 'Voronin\'s Family LLC',
+        shortDescription: 'The website of a family business that offers a wide range of handyman services.',
+        status: 'completed',
+        date: '2025-03-05',
+        tags: ['UI/UX', 'WEB'],
+        screenshots: [
+            '/portfolio/voroninsfamilyllc.webp',
+        ],
+        links: [
+            {
+                title: 'Web site',
+                url: 'https://voroninsfamilyllc.com'
+            }
+        ],
+        timeline: {
+            start: '2024-10-26',
+            end: '2024-11-13',
+            duration: '2 weeks'
+        },
+    },
+    {
+        id: 'annaloviagina',
+        title: 'Anna Loviagina',
+        shortDescription: 'The website of a professional artist including a portfolio, blog, and contact form.',
+        status: 'in-progress',
+        date: '2025-03-29',
+        tags: ['UI/UX', 'WEB'],
+        screenshots: [
+            '/portfolio/annaloviagina.webp',
+        ],
+        links: [
+            {
+                title: 'Web site',
+                url: 'https://annaloviagina.art'
+            }
+        ],
+        timeline: {
+            start: '2025-03-29',
+            end: '2025-04-29',
             duration: '1 month'
         },
     },

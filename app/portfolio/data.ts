@@ -21,19 +21,28 @@ export const portfolioItems: PortfolioItem[] = [
     {
         id: 'unifood',
         title: 'Uni Food',
-        description: 'Loyalty program for a university cafeteria.',
+        description: 'Loyalty program for a university cafeteria with a mobile Admin app.',
         image: '/portfolio/unifood.webp',
         tags: ['UI/UX', 'WEB', 'IOS'],
         status: 'completed',
         date: '2025-03-05'
     },
-    // {
-    //     id: '3',
-    //     title: 'Project Name 3',
-    //     description: 'Description of our third project and its impact.',
-    //     image: '/images/portfolio/project3.jpg',
-    //     tags: ['ECOMMERCE', 'FULL STACK'],
-    //     status: 'completed',
-    //     date: '2024-03-10'
-    // }
+    {
+        id: 'voroninsfamilyllc',
+        title: 'Voronin\'s Family LLC',
+        description: 'The website of a family business that offers a wide range of handyman services.',
+        image: '/portfolio/voroninsfamilyllc.webp',
+        tags: ['UI/UX', 'WEB'],
+        status: 'completed',
+        date: '2024-10-26'
+    },
+    {
+        id: 'annaloviagina',
+        title: 'Anna Loviagina',
+        description: 'The website of a professional artist including a portfolio, blog, and contact form.',
+        image: '/portfolio/annaloviagina.webp',
+        tags: ['UI/UX', 'WEB'],
+        status: 'in-progress',
+        date: '2025-03-29'
+    },
 ]; 

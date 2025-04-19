@@ -31,6 +31,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
+      url: 'https://lovigin.com/portfolio/unifood',
+      lastModified: new Date(),
+      changeFrequency: 'hourly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/portfolio/voroninsfamilyllc',
+      lastModified: new Date(),
+      changeFrequency: 'hourly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/portfolio/annaloviagina',
+      lastModified: new Date(),
+      changeFrequency: 'hourly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
       url: 'https://lovigin.com/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'monthly',
