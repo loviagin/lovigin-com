@@ -7,21 +7,21 @@ const MiniContacts = () => {
   const contacts = [
     {
       title: 'Email',
-      info: 'contact@lovigin.com',
+      info: 'support@lovigin.com',
       icon: <FaEnvelope className={styles.icon} />,
-      link: 'mailto:contact@lovigin.com'
+      link: 'mailto:support@lovigin.com'
     },
     {
       title: 'Phone',
-      info: '+1 (555) 123-4567',
+      info: '+44 (786) 724-65-91',
       icon: <FaPhone className={styles.icon} />,
-      link: 'tel:+15551234567'
+      link: 'https://wa.me/message/6GRKRYVTTWMWO1'
     },
     {
       title: 'Location',
       info: 'London, United Kingdom',
       icon: <FaMapMarkerAlt className={styles.icon} />,
-      link: 'https://maps.google.com'
+      link: 'https://maps.app.goo.gl/UnAbcx5ibmvFqTtq9'
     }
   ];
 
