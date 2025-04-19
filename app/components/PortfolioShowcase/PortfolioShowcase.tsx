@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './PortfolioShowcase.module.css';
 import { projects } from '@/app/portfolio/projects';
 import Link from 'next/link';
+import MiniContacts from '../MiniContacts/MiniContacts';
 
 const PortfolioShowcase = () => {
   // Get the 3 most recent completed projects
@@ -14,9 +15,9 @@ const PortfolioShowcase = () => {
   return (
     <section className={styles.portfolio} id="portfolio">
       <div className={styles.container}>
-        <h2 className={styles.title}>Latest Projects</h2>
+        <h2 className={styles.title}>Our Portfolio</h2>
         <p className={styles.subtitle}>
-          Take a look at our most recent completed works
+          Check out our latest projects and success stories
         </p>
         <div className={styles.grid}>
           {recentProjects.map((project) => (
@@ -46,13 +47,14 @@ const PortfolioShowcase = () => {
         </div>
         <div className={styles.buttonWrapper}>
           <Link href="/portfolio" className={styles.viewAllButton}>
-            View All Works
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            View All Projects
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
             </svg>
           </Link>
         </div>
+        <MiniContacts />
       </div>
     </section>
   );
