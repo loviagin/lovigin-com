@@ -80,7 +80,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            <Link href="/products" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>Products</span>
             </Link>
             <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
@@ -89,9 +89,9 @@ const Header = () => {
             {/* <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>News</span>
             </Link> */}
-            <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            {/* <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>About</span>
-            </Link>
+            </Link> */}
             <Link href="/contacts" className={`${styles.navLink} ${isActive('/contacts') ? styles.active : ''}`}>
               <span>Contacts</span>
             </Link>

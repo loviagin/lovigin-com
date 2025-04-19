@@ -44,12 +44,12 @@ export const projects: Project[] = [
         tags: ['UI/UX', 'WEB', 'IOS'],
         screenshots: [
             '/portfolio/irisprophoto.webp',
-            '/projects/irisprophoto/photo1.webp',
-            '/projects/irisprophoto/photo2.webp',
-            '/projects/irisprophoto/photo3.webp',
-            '/projects/irisprophoto/photo4.webp',
-            '/projects/irisprophoto/photo5.webp',
-            '/projects/irisprophoto/photo6.webp',
+            '/portfolio/irisprophoto/photo1.webp',
+            '/portfolio/irisprophoto/photo2.webp',
+            '/portfolio/irisprophoto/photo3.webp',
+            '/portfolio/irisprophoto/photo4.webp',
+            '/portfolio/irisprophoto/photo5.webp',
+            '/portfolio/irisprophoto/photo6.webp',
         ],
         links: [
             {
@@ -109,7 +109,7 @@ export const projects: Project[] = [
         ],
         client: {
             name: 'Voronin\'s Family LLC',
-            logo: '/projects/voroninsfamilyllc.webp',
+            logo: '/portfolio/logo/voroninsfamilyllc.webp',
             link: 'https://voroninsfamilyllc.com'
         },
         timeline: {
