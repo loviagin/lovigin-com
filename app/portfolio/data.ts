@@ -45,4 +45,13 @@ export const portfolioItems: PortfolioItem[] = [
         status: 'in-progress',
         date: '2025-03-29'
     },
+    {
+        id: 'busmanager',
+        title: 'Bus Manager',
+        description: 'A web application for managing bus routes and schedules.',
+        image: '/portfolio/busmanager.webp',
+        tags: ['UI/UX', 'WEB'],
+        status: 'in-progress',
+        date: '2025-03-12'
+    },
 ]; 

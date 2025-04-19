@@ -199,13 +199,37 @@ export const projects: Project[] = [
         links: [
             {
                 title: 'Web site',
-                url: 'https://annaloviagina.art'
+                url: 'https://annaloviagina.art/en'
             }
         ],
         timeline: {
             start: '2025-03-29',
             end: '2025-04-29',
             duration: '1 month'
+        },
+    },
+    {
+        id: 'busmanager',
+        title: 'Bus Manager',
+        shortDescription: 'A web application for managing bus routes and schedules.',
+        status: 'in-progress',
+        date: '2025-03-12',
+        tags: ['UI/UX', 'WEB'],
+        screenshots: [
+            '/portfolio/busmanager.webp',
+            '/portfolio/busmanager/picture1.webp',
+            '/portfolio/busmanager/picture2.webp',
+        ],
+        links: [
+            {
+                title: 'Web site',
+                url: 'https://busmanager.space'
+            }
+        ],
+        timeline: {
+            start: '2025-03-12',
+            end: '2025-04-29',
+            duration: 'In progress'
         },
     },
 ]; 
