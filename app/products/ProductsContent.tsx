@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import styles from './ProductsContent.module.css';
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 
 interface Product {
     id: string;
@@ -81,7 +82,13 @@ export default function ProductsContent() {
                         style={{ '--product-color': product.color } as React.CSSProperties}
                     >
                         <div className={styles.productImage}>
-                            <img src={product.image} alt={product.title} />
+                            <Image
+                                src={product.image}
+                                alt={product.title}
+                                width={400}
+                                height={400}
+                                style={{ objectFit: 'cover' }}
+                            />
                             <div className={styles.imageOverlay} />
                         </div>
                         <div className={styles.productInfo}>
