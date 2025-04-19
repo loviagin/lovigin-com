@@ -47,6 +47,8 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -82,6 +84,29 @@ const Hero = () => {
     };
   }, [isMobile]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNextSlide();
+    }
+    if (isRightSwipe) {
+      handlePrevSlide();
+    }
+  };
+
   const handleNextSlide = () => {
     setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -115,12 +140,17 @@ const Hero = () => {
   };
 
   const renderSlide = (slide: typeof slides[0]) => (
-    <div className={styles.slide}>
+    <div 
+      className={styles.slide}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className={styles.leftColumn}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className={styles.title}
         >
           {slide.title}
@@ -129,7 +159,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className={styles.subtitle}
         >
           {slide.subtitle}
@@ -138,7 +168,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className={styles.description}
         >
           {slide.description}
@@ -147,7 +177,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           <a href='#about' className={styles.ctaButton}>
             {slide.buttonText}
@@ -159,7 +189,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className={styles.stats}
         >
           {slide.stats.map((stat, index) => (
@@ -178,7 +208,7 @@ const Hero = () => {
       <div className={styles.heroContent}>
         <div className={styles.slidesContainer}>
           {isMobile ? (
-            renderSlide(slides[0])
+            renderSlide(slides[currentSlide])
           ) : (
             <>
               <motion.div
@@ -197,34 +227,32 @@ const Hero = () => {
           )}
         </div>
 
-        {!isMobile && (
-          <div className={styles.navigation}>
-            <button className={styles.arrowButton} onClick={handlePrevSlide}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
+        <div className={styles.navigation}>
+          <button className={styles.arrowButton} onClick={handlePrevSlide}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
 
-            <div className={styles.controls}>
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.controlDot} ${currentSlide === index ? styles.active : ''}`}
-                  onClick={() => {
-                    setDirection(index > currentSlide ? 1 : -1);
-                    setCurrentSlide(index);
-                  }}
-                />
-              ))}
-            </div>
-
-            <button className={styles.arrowButton} onClick={handleNextSlide}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
+          <div className={styles.controls}>
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.controlDot} ${currentSlide === index ? styles.active : ''}`}
+                onClick={() => {
+                  setDirection(index > currentSlide ? 1 : -1);
+                  setCurrentSlide(index);
+                }}
+              />
+            ))}
           </div>
-        )}
+
+          <button className={styles.arrowButton} onClick={handleNextSlide}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div className={styles.background}>
