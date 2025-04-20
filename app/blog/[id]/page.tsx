@@ -5,12 +5,48 @@ import Link from 'next/link';
 import { getPostById } from '../data';
 import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-    title: 'Blog Post | LOVIGIN LTD',
-    description: 'Read our latest blog post',
-};
+interface Props {
+    params: { id: string };
+}
 
-export default function BlogPost({ params }: { params: { id: string } }) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const post = getPostById(params.id);
+
+    if (!post) {
+        return {
+            title: 'Post Not Found | LOVIGIN LTD',
+            description: 'The requested blog post could not be found.',
+        };
+    }
+
+    return {
+        title: `${post.title} | LOVIGIN Blog`,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: 'article',
+            publishedTime: new Date(post.date).toISOString(),
+            authors: [post.author.name],
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
+    };
+}
+
+export default function BlogPost({ params }: Props) {
     const post = getPostById(params.id);
 
     if (!post) {
