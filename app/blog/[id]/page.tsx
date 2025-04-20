@@ -5,16 +5,17 @@ import Link from 'next/link';
 import { getPostById } from '../data';
 import { notFound } from 'next/navigation';
 
-interface Props {
-    params: { id: string };
-}
+type Props = {
+    params: Promise<{ id: string }>;
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const post = getPostById(params.id);
+    const resolvedParams = await params;
+    const post = getPostById(resolvedParams.id);
 
     if (!post) {
         return {
-            title: 'Post Not Found | LOVIGIN LTD',
+            title: 'Post Not Found | LOVIGIN Blog',
             description: 'The requested blog post could not be found.',
         };
     }
@@ -46,8 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function BlogPost({ params }: Props) {
-    const post = getPostById(params.id);
+export default async function BlogPost({ params }: Props) {
+    const resolvedParams = await params;
+    const post = getPostById(resolvedParams.id);
 
     if (!post) {
         notFound();
