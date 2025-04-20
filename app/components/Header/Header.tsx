@@ -91,9 +91,9 @@ const Header = () => {
             <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Portfolio</span>
             </Link>
-            {/* <Link href="/#" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
-              <span>News</span>
-            </Link> */}
+            <Link href="/blog" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+              <span>Blog</span>
+            </Link>
             {/* <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
               <span>About</span>
             </Link> */}

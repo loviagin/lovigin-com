@@ -1,0 +1,208 @@
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    padding: 0 0 4rem 0;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 2rem 0 2rem;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--radial-gradient);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.headerSection {
+    position: relative;
+    width: 100%;
+    padding: 8rem 0;
+    background-color: var(--hero-color);
+    color: #ffffff;
+    z-index: 2;
+}
+
+.headerSection .content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.backLink:hover {
+    color: #ffffff;
+}
+
+.postHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.category {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.date {
+    font-size: 1rem;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.authorAvatar {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.authorRole {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.postContent {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featuredImage {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+}
+
+.postBody {
+    padding: 3rem;
+    color: var(--foreground);
+    line-height: 1.8;
+}
+
+.postBody h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1.5rem;
+    color: var(--foreground);
+}
+
+.postBody p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.postBody a {
+    color: var(--hero-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.postBody a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 2rem 1rem 0 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .postBody {
+        padding: 2rem 1.5rem;
+    }
+    
+    .postBody h2 {
+        font-size: 1.75rem;
+    }
+    
+    .postBody p {
+        font-size: 1rem;
+    }
+} 
