@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './PriceCalculator.module.css';
+import OrderForm from '@/app/components/OrderForm/OrderForm';
 
 type WebsiteType = 'landing' | 'corporate' | 'store';
 
@@ -42,6 +43,8 @@ const websiteTypeLabels: Record<WebsiteType, string> = {
 export default function PriceCalculator() {
     const [websiteType, setWebsiteType] = useState<WebsiteType>('landing');
     const [optionCounts, setOptionCounts] = useState<Record<string, number>>({});
+
+    const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
 
     const calculateTotalPrice = () => {
         const base = basePrice[websiteType];
@@ -155,11 +158,22 @@ export default function PriceCalculator() {
                     </div>
                     <div className={styles.buttonsWrapper}>
                         {/* <button className={styles.actionButton}>Continue to order</button> */}
-                        <button className={styles.secondaryButton}>Get the price</button>
+                        <button
+                            className={styles.secondaryButton}
+                            onClick={() => setIsOrderFormOpen(true)}
+                        >Get the price</button>
                     </div>
                 </div>
                 <p className={styles.priceNote}>* This price may vary. Discounts apply to large orders.</p>
             </div>
+
+            {isOrderFormOpen && (
+                <OrderForm
+                    serviceTitle="Web Development"
+                    isOpen={isOrderFormOpen}
+                    onClose={() => setIsOrderFormOpen(false)}
+                />
+            )}
         </section>
     );
 } 

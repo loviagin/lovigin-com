@@ -15,7 +15,7 @@ export default function Hero() {
   const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
 
   return (
-    <div className={styles.pageWrapper}>
+    <section className={styles.pageWrapper}>
       {/* Promo banner */}
       <div className={styles.promo}>
         <div className={styles.promoContent}>
@@ -88,6 +88,6 @@ export default function Hero() {
           onClose={() => setIsOrderFormOpen(false)}
         />
       )}
-    </div>
+    </section>
   );
 } 

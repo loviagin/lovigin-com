@@ -289,7 +289,7 @@
         padding-top: 5rem;
         padding-bottom: 3rem;
     }
-    
+
     .header {
         margin-bottom: 2rem;
     }
@@ -349,7 +349,7 @@
     .header {
         padding: 0 1.5rem;
     }
-    
+
     .price {
         font-size: 3rem;
     }
@@ -365,12 +365,12 @@
         flex-direction: column;
         width: 100%;
     }
-    
+
     .typeButton {
         width: 100%;
         text-align: center;
     }
-    
+
     .price {
         font-size: 2.5rem;
     }
@@ -382,4 +382,4 @@
     .header {
         padding: 0 1rem;
     }
-} 
+}
