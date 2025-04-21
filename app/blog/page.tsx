@@ -1,7 +1,7 @@
 import styles from './page.module.css';
 import { Metadata } from 'next';
 import BlogPost from './BlogPost';
-import { blogPosts } from './data';
+import { getSortedPosts } from './data';
 
 export const metadata: Metadata = {
     title: 'Blog | LOVIGIN LTD',
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
+    const posts = getSortedPosts();
+
     return (
         <main className={styles.container}>
             <div className={styles.background}>
@@ -22,7 +24,7 @@ export default function Blog() {
             </div>
             <div className={styles.content}>
                 <div className={styles.blogGrid}>
-                    {blogPosts.map(post => (
+                    {posts.map(post => (
                         <BlogPost
                             key={post.id}
                             {...post}
