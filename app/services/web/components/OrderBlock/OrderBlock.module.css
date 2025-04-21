@@ -238,13 +238,35 @@
         padding: 4rem 0;
     }
 
+    .wrapper {
+        padding: 0 1.5rem;
+    }
+
     .title {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
+        word-break: break-word;
     }
 
     .subtitle {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
         margin-bottom: 2rem;
+        word-break: break-word;
+    }
+
+    .timeEstimate {
+        font-size: 1.1rem;
+        margin: 2rem 0 2rem;
+    }
+
+    .timeBoxes {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .timeBox {
+        font-size: 1.25rem;
+        padding: 0.4rem 0.8rem;
+        min-width: 2rem;
     }
 
     .buttons {
@@ -263,6 +285,7 @@
 
     .priceItem {
         margin-bottom: 1.5rem;
+        padding-right: 0;
     }
 
     .priceItem span:first-child {
@@ -284,21 +307,32 @@
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .subtitle {
-        font-size: 2.5rem;
-    }
-
-    .priceItem {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+        font-size: 2rem;
     }
 
     .timeBox {
-        margin: 0.25rem;
+        font-size: 1.1rem;
+        padding: 0.3rem 0.6rem;
+        min-width: 1.8rem;
+    }
+
+    .priceItem {
+        flex-direction: row;
+        text-align: left;
+        gap: 0.5rem;
+        padding-right: 0;
+    }
+
+    .priceItem span:first-child {
+        font-size: 1.1rem;
+    }
+
+    .price {
+        font-size: 1.5rem;
     }
 
     .image {
