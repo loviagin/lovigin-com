@@ -2,20 +2,19 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 6rem 2rem;
+  padding: 8rem 2rem;
   position: relative;
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: start;
 }
 
 .pageWrapper {
-  min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   position: relative;
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 120px 0 0;
   color: #fff;
 }
 
@@ -85,7 +84,7 @@
 }
 
 .main {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 .headline {
@@ -118,7 +117,7 @@
 .deviceImage {
   width: 100%;
   height: 280px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 16px;
   object-fit: contain;
   background: transparent;
@@ -152,7 +151,7 @@
 .buttons {
   display: flex;
   gap: 1.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -191,7 +190,8 @@
 }
 
 .techStack {
-  margin-top: 1rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
   width: 100%;
 }
 
@@ -228,13 +228,8 @@
 @media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 2rem;
-  }
-
-  .headline,
-  .services {
-    max-width: 100%;
+    gap: 1rem;
+    padding: 3rem 2rem 0;
   }
 
   .promo {
@@ -242,23 +237,27 @@
     top: 0;
     left: 0;
     transform: none;
-    padding: 0 2rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
     justify-content: flex-start;
+    width: fit-content;
   }
 
   .rightContent {
-    margin-left: -1rem;
+    padding: 0;
+    margin: 0;
   }
 
   .deviceImage {
-    height: 320px;
-    width: 100%;
+    height: 240px;
+    margin-top: 1rem;
     object-position: left;
-    margin-top: 2rem;
+    padding: 0;
   }
 
   .techStack {
-    margin-top: 1.5rem;
+    margin-top: 0;
+    padding: 2rem 0 4rem 0;
     width: 100%;
   }
 }
@@ -271,11 +270,11 @@
 
 @media (max-width: 768px) {
   .container {
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 0;
   }
 
   .pageWrapper {
-    padding: 100px 0 60px;
+    padding: 100px 0 0;
   }
 
   .headline {
@@ -294,28 +293,28 @@
   .promo {
     padding: 1.5rem 2rem;
     margin-bottom: 1.5rem;
+    justify-content: flex-start;
+    width: fit-content;
   }
 
   .rightContent {
-    margin-left: -1rem;
-  }
-
-  .deviceImage {
-    margin-top: 2rem;
+    padding: 0;
+    margin: 0;
   }
 
   .techStack {
-    margin-top: 1rem;
+    padding: 2rem 0 6rem 0;
+    margin-top: 0;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 0;
   }
 
   .pageWrapper {
-    padding: 80px 0 40px;
+    padding: 80px 0 0;
   }
 
   .headline {
@@ -354,12 +353,8 @@
     font-size: 0.9rem;
   }
 
-  .deviceImage {
-    padding-left: 1rem;
-  }
-
   .techStack {
-    padding: 0 1rem;
+    padding: 0 0 6rem 0;
     left: 1rem;
     margin-top: 1rem;
   }

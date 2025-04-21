@@ -1,0 +1,385 @@
+.container {
+    padding: 0;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: calc(100% + 2rem);
+    background: linear-gradient(180deg, transparent 0%, #0a0a0a 25%);
+    z-index: -1;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+}
+
+.selectedType {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.typeLineWrapper {
+    position: relative;
+    margin-left: 2rem;
+    flex-grow: 1;
+}
+
+.typeSelector {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 1rem);
+    display: flex;
+    gap: 1rem;
+    padding-left: 4rem;
+}
+
+.typeLine {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.typeButton {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+}
+
+.typeButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.typeButton.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-color: transparent;
+    color: #fff;
+}
+
+.content {
+    padding: 0 2rem;
+}
+
+.calculatorGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.column {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.column:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.columnTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.includesList {
+    list-style: none;
+    padding: 0;
+}
+
+.includesItem {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.optionItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.optionName {
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.counterButton {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.counterButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.counterButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.counterValue {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #3b82f6;
+    margin-right: 0.5rem;
+}
+
+.priceSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.priceWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #d1d1d1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.buttonsWrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.actionButton {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.secondaryButton {
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.actionButton:hover,
+.secondaryButton:hover {
+    transform: translateY(-2px);
+}
+
+.actionButton:hover {
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.priceNote {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}
+
+.optionsColumn .columnTitle {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.25rem;
+}
+
+.optionsColumn .optionItem {
+    margin-bottom: 0.5rem;
+    padding: 0;
+}
+
+.optionsColumn .counter {
+    gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .header {
+        margin-bottom: 2rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .typeLineWrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .typeSelector {
+        position: static;
+        margin-bottom: 1rem;
+        padding-left: 0;
+        background: none;
+    }
+
+    .typeLine {
+        position: relative;
+        top: auto;
+        transform: none;
+    }
+
+    .calculatorGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .priceSection {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .buttonsWrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .content {
+        padding: 0 1.5rem;
+    }
+
+    .header {
+        padding: 0 1.5rem;
+    }
+    
+    .price {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .typeSelector {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .typeButton {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+    }
+
+    .content {
+        padding: 0 1rem;
+    }
+
+    .header {
+        padding: 0 1rem;
+    }
+} 
