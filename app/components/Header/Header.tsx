@@ -71,7 +71,7 @@ const Header = () => {
                 <span>Services</span>
               </Link>
               <div className={`${styles.submenu} ${isSubmenuOpen ? styles.active : ''}`}>
-                <Link href="/#services" className={styles.submenuLink} onClick={handleLinkClick}>
+                <Link href="/services/web" className={styles.submenuLink} onClick={handleLinkClick}>
                   <span>– Web Development</span>
                   <p className={styles.submenuDescription}>Reactive corporate websites, landing pages, online stores and more</p>
                 </Link>

@@ -1,0 +1,366 @@
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.pageWrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+  color: #fff;
+}
+
+.pageWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
+             radial-gradient(circle at 70% 20%, rgba(255, 58, 58, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.promo {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.promoContent {
+  padding: 1.2rem 1.8rem;
+  background: rgba(255, 58, 58, 0.1);
+  border: 1px solid rgba(255, 58, 58, 0.3);
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(255, 58, 58, 0.15);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: fit-content;
+}
+
+.promoContent::before {
+  content: '🥚';
+  font-size: 1.2rem;
+}
+
+.promoContent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(255, 58, 58, 0.2);
+  border-color: rgba(255, 58, 58, 0.4);
+}
+
+.leftContent {
+  position: relative;
+  z-index: 2;
+}
+
+.rightContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-left: -1rem;
+}
+
+.main {
+  margin-bottom: 4rem;
+}
+
+.headline {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #d1d1d1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 600px;
+}
+
+.services {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  max-width: 600px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #3b82f6 0%, #ff3a3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.deviceImage {
+  width: 100%;
+  height: 280px;
+  margin-top: 2rem;
+  border-radius: 16px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.serviceTypes {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.serviceType {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.serviceType:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.orderButton {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.orderButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.learnMore {
+  padding: 1rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learnMore:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.techStack {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.techTitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.techImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.techImage {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.techImage:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  .headline,
+  .services {
+    max-width: 100%;
+  }
+
+  .promo {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 0 2rem;
+    justify-content: flex-start;
+  }
+
+  .rightContent {
+    margin-left: -1rem;
+  }
+
+  .deviceImage {
+    height: 320px;
+    width: 100%;
+    object-position: left;
+    margin-top: 2rem;
+  }
+
+  .techStack {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+
+  .pageWrapper {
+    padding: 100px 0 60px;
+  }
+
+  .headline {
+    font-size: 3.5rem;
+  }
+
+  .services {
+    font-size: 1.2rem;
+  }
+
+  .techImages {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .promo {
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rightContent {
+    margin-left: -1rem;
+  }
+
+  .deviceImage {
+    margin-top: 2rem;
+  }
+
+  .techStack {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .pageWrapper {
+    padding: 80px 0 40px;
+  }
+
+  .headline {
+    font-size: 3.25rem;
+  }
+
+  .services {
+    font-size: 1.1rem;
+  }
+
+  .serviceType {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .orderButton,
+  .learnMore {
+    width: 100%;
+    text-align: center;
+  }
+
+  .techImages {
+    grid-template-columns: 1fr;
+  }
+
+  .promo {
+    padding: 0.5rem 1rem;
+  }
+
+  .promoContent {
+    padding: 1rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .deviceImage {
+    padding-left: 1rem;
+  }
+
+  .techStack {
+    padding: 0 1rem;
+    left: 1rem;
+    margin-top: 1rem;
+  }
+} 

@@ -12,7 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://lovigin.com/contacts',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'weekly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/services/web',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
@@ -20,6 +27,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://lovigin.com/blog',
       lastModified: new Date(),
       changeFrequency: 'hourly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/blog/1',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/blog/2',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
@@ -33,28 +54,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://lovigin.com/portfolio/irisprophoto',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'monthly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
       url: 'https://lovigin.com/portfolio/unifood',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'monthly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
       url: 'https://lovigin.com/portfolio/voroninsfamilyllc',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'monthly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
       url: 'https://lovigin.com/portfolio/annaloviagina',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'monthly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
@@ -68,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://lovigin.com/products/communa',
       lastModified: new Date(),
-      changeFrequency: 'hourly',
+      changeFrequency: 'weekly',
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
@@ -79,7 +100,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
-
     {
       url: 'https://lovigin.com/terms-of-service',
       lastModified: new Date(),
@@ -87,7 +107,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: ['https://lovigin.com/favicon.ico'],
     },
-
     {
       url: 'https://lovigin.com/cookie-policy',
       lastModified: new Date(),
