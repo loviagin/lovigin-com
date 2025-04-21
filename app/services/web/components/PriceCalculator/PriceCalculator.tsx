@@ -154,6 +154,7 @@ export default function PriceCalculator() {
 
                 <div className={styles.priceSection}>
                     <div className={styles.priceWrapper}>
+                        <div className={styles.oldPrice}>${calculateTotalPrice() + 198}</div>
                         <div className={styles.price}>${calculateTotalPrice()}</div>
                     </div>
                     <div className={styles.buttonsWrapper}>
