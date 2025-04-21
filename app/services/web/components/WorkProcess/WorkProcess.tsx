@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './WorkProcess.module.css';
 
 const steps = [
@@ -10,8 +11,7 @@ const steps = [
     items: [
       'We discuss all the details via messenger or your personal account',
       'You fill out a short brief to define the scope and goals',
-      'We sign an official contract',
-      'Payment second stage via any card, PayPal, or Payoneer'
+      'We sign an official contract'
     ]
   },
   {
@@ -63,6 +63,16 @@ const steps = [
 ];
 
 export default function WorkProcess() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSupportClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.header}>
@@ -72,7 +82,12 @@ export default function WorkProcess() {
 
       <div className={styles.steps}>
         {steps.map((step, index) => (
-          <div key={step.number} className={styles.step}>
+          <div 
+            key={step.number} 
+            className={styles.step}
+            onClick={step.number === 5 ? handleSupportClick : undefined}
+            style={{ cursor: step.number === 5 ? 'pointer' : 'default' }}
+          >
             <div className={styles.stepLeft}>
               <div className={styles.stepNumber}>
                 <span>{step.number}</span>
@@ -95,6 +110,41 @@ export default function WorkProcess() {
           </div>
         ))}
       </div>
+
+      {isModalOpen && (
+        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+          <div className={styles.modal} onClick={e => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={handleCloseModal}>
+              ×
+            </button>
+            <h3 className={styles.supportTitle}>Extended Technical Support</h3>
+            <p className={styles.supportDescription}>
+              Keep your website running smoothly with our comprehensive technical support package:
+            </p>
+            <ul className={styles.supportList}>
+              <li>Regular technical updates and security patches</li>
+              <li>24/7 website availability monitoring</li>
+              <li>Performance optimization and speed improvements</li>
+              <li>Backup management and disaster recovery</li>
+              <li>Technical consultation and support</li>
+            </ul>
+            <div className={styles.pricing}>
+              <div className={styles.priceOption}>
+                <span className={styles.price}>$99</span>
+                <span className={styles.period}>per month</span>
+              </div>
+              <div className={styles.priceOption}>
+                <span className={styles.price}>$89</span>
+                <span className={styles.period}>per month (6 months)</span>
+              </div>
+              <div className={styles.priceOption}>
+                <span className={styles.price}>$80</span>
+                <span className={styles.period}>per month (yearly)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 } 
