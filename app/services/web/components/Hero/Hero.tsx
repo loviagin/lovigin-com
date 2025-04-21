@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from './Hero.module.css';
 import Image from 'next/image';
 import OrderForm from '@/app/components/OrderForm/OrderForm';
+import Link from 'next/link';
 
 const logos = [
   { name: 'Google', src: '/logo/google.webp' },
@@ -18,9 +19,11 @@ export default function Hero() {
     <section className={styles.pageWrapper}>
       {/* Promo banner */}
       <div className={styles.promo}>
-        <div className={styles.promoContent}>
-        We have discounts - Landing from $800 in honor of Easter Monday
-        </div>
+        <Link href={'#cta-1'}>
+          <div className={styles.promoContent}>
+            We have discounts - Landing from $800 in honor of Easter Monday
+          </div>
+        </Link>
       </div>
 
       <div className={styles.container}>
@@ -42,7 +45,7 @@ export default function Hero() {
 
             {/* Action buttons */}
             <div className={styles.buttons}>
-              <button 
+              <button
                 className={styles.orderButton}
                 onClick={() => setIsOrderFormOpen(true)}
               >

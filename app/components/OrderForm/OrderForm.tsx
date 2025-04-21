@@ -82,8 +82,14 @@ const OrderForm: React.FC<OrderFormProps> = ({ serviceTitle, isOpen, onClose }) 
 
   if (!isOpen) return null;
 
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={styles.modalOverlay}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
       <div className={styles.modal}>
         <button className={styles.closeButton} onClick={onClose}>×</button>
         <h2>Order {serviceTitle}</h2>

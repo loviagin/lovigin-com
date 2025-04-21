@@ -204,6 +204,7 @@
     align-items: center;
     gap: 2rem;
     margin-bottom: 1.5rem;
+    padding-top: 1.25rem;
 }
 
 .priceWrapper {
