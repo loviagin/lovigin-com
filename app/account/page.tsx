@@ -1,19 +1,21 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import OrderForm from '../components/OrderForm/OrderForm';
 import OrderList from '../components/OrderList/OrderList';
 
 export default function AccountPage() {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
+    const router = useRouter();
 
     // Редирект на страницу входа, если пользователь не авторизован
-    // if (status === 'unauthenticated') {
-    //     router.push('/account/login');
-    //     return null;
-    // }
+    if (status === 'unauthenticated') {
+        router.push('/account/login');
+        return null;
+    }
 
     return (
         <main className={styles.container}>
