@@ -39,15 +39,48 @@ export async function POST(req: Request) {
       password: hashedPassword,
     });
 
-    // Отправляем приветственное письмо через Resend
+    // Отправляем письмо клиенту
     await resend.emails.send({
       from: 'LOVIGIN <noreply@lovigin.com>',
       to: email,
       subject: 'Добро пожаловать в LOVIGIN',
       html: `
-        <h1>Добро пожаловать, ${firstName} ${lastName}!</h1>
-        <p>Спасибо за регистрацию в LOVIGIN. Теперь вы можете создавать заказы и отслеживать их статус.</p>
-        <p>Если у вас есть вопросы, не стесняйтесь обращаться к нам.</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+          <div style="background-color: #1a1a1a; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0;">LOVIGIN</h1>
+          </div>
+          <div style="padding: 20px; background-color: #ffffff;">
+            <h2 style="color: #333333;">Добро пожаловать, ${firstName} ${lastName}!</h2>
+            <p style="color: #666666;">Спасибо за регистрацию в LOVIGIN. Теперь вы можете создавать заказы и отслеживать их статус.</p>
+            <p style="color: #666666;">Если у вас есть вопросы, не стесняйтесь обращаться к нам.</p>
+          </div>
+          <div style="text-align: center; padding: 20px; background-color: #1a1a1a; color: #ffffff;">
+            <p style="margin: 0;">© 2024 LOVIGIN. Все права защищены.</p>
+          </div>
+        </div>
+      `,
+    });
+
+    // Отправляем уведомление администратору
+    await resend.emails.send({
+      from: 'LOVIGIN <noreply@lovigin.com>',
+      to: 'admin@lovigin.com', // Замените на реальный email администратора
+      subject: 'Новый пользователь зарегистрирован',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+          <div style="background-color: #1a1a1a; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0;">LOVIGIN</h1>
+          </div>
+          <div style="padding: 20px; background-color: #ffffff;">
+            <h2 style="color: #333333;">Новый пользователь</h2>
+            <p style="color: #666666;">Имя: ${firstName} ${lastName}</p>
+            <p style="color: #666666;">Email: ${email}</p>
+            <p style="color: #666666;">Дата регистрации: ${new Date().toLocaleString()}</p>
+          </div>
+          <div style="text-align: center; padding: 20px; background-color: #1a1a1a; color: #ffffff;">
+            <p style="margin: 0;">© 2024 LOVIGIN. Все права защищены.</p>
+          </div>
+        </div>
       `,
     });
 
