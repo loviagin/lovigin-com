@@ -1,7 +1,7 @@
 'use client';
 
 import Hero from "./components/Hero/Hero";
-import OrderBlock from "./components/OrderBlock/OrderBlock";
+import OrderBlock from "./components/CTA-1/OrderBlock";
 import PriceCalculator from "./components/PriceCalculator/PriceCalculator";
 import WorkProcess from "./components/WorkProcess/WorkProcess";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";

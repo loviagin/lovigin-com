@@ -122,6 +122,8 @@ export default function WorkProcess() {
               Keep your website running smoothly with our comprehensive technical support package:
             </p>
             <ul className={styles.supportList}>
+              <li>Free domain renewal for the entire tech support period</li>
+              <li>Free hosting renewal for the entire period</li>
               <li>Regular technical updates and security patches</li>
               <li>24/7 website availability monitoring</li>
               <li>Performance optimization and speed improvements</li>

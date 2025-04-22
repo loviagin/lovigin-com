@@ -26,7 +26,7 @@
   right: 0;
   bottom: 0;
   background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
-    radial-gradient(circle at 70% 20%, rgba(255, 58, 58, 0.08) 0%, transparent 60%);
+    radial-gradient(circle at 70% 20%, rgba(87, 255, 58, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -45,12 +45,12 @@
 
 .promoContent {
   padding: 1.2rem 1.8rem;
-  background: rgba(255, 58, 58, 0.1);
-  border: 1px solid rgba(255, 58, 58, 0.3);
+  background: rgba(87, 255, 58, 0.08);
+  border: 1px solid rgba(87, 255, 58, 0.3);
   border-radius: 16px;
   color: #fff;
   font-weight: 500;
-  box-shadow: 0 8px 32px rgba(255, 58, 58, 0.15);
+  box-shadow: 0 8px 32px rgba(87, 255, 58, 0.08);
   transform: translateY(0);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
@@ -61,14 +61,13 @@
 }
 
 .promoContent::before {
-  content: '🥚';
+  content: '🌸';
   font-size: 1.2rem;
 }
 
 .promoContent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(255, 58, 58, 0.2);
-  border-color: rgba(255, 58, 58, 0.4);
+  box-shadow: 0 12px 40px rgba(87, 255, 58, 0.2);
 }
 
 .leftContent {

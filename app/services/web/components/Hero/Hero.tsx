@@ -21,7 +21,7 @@ export default function Hero() {
       <div className={styles.promo}>
         <Link href={'#cta-1'}>
           <div className={styles.promoContent}>
-            We have discounts - Landing from $800 in honor of Easter Monday
+            We have spring discounts - Landing from $800
           </div>
         </Link>
       </div>

@@ -7,12 +7,7 @@ import OrderForm from '@/app/components/OrderForm/OrderForm';
 
 function getTimeUntilEndOfDay() {
     const now = new Date();
-    const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59); // Today at 23:59:59
-
-    // Проверяем, что сегодня 21 апреля
-    if (now.getDate() !== 21 || now.getMonth() !== 3) { // 3 = апрель (месяцы начинаются с 0)
-        return null;
-    }
+    const targetDate = new Date(2025, 3, 27, 23, 59, 59); // April 27, 2024 at 23:59:59
 
     if (now > targetDate) {
         return null;
@@ -20,11 +15,12 @@ function getTimeUntilEndOfDay() {
 
     const diff = targetDate.getTime() - now.getTime();
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    return { hours, minutes, seconds };
+    return { days, hours, minutes, seconds };
 }
 
 export default function OrderBlock() {
@@ -44,14 +40,14 @@ export default function OrderBlock() {
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <div className={styles.leftColumn}>
-                        <h2 className={styles.title}>We have discounts in honor of
-                            <span className={styles.subtitle}> Easter Monday</span></h2>
+                        <h2 className={styles.title}><span className={styles.subtitle}>Spring</span> is the best time for updates!</h2>
 
                         <div className={styles.timeEstimate}>
                             {timeLeft ? (
                                 <>
-                                    Complete your website by the end of Monday with our promotion{' '}
+                                    Until the end of the week - discount on all sites{' '}
                                     <span className={styles.timeBoxes}>
+                                        <span className={styles.timeBox}>{String(timeLeft.days).padStart(2, '0')}</span> days{' '}
                                         <span className={styles.timeBox}>{String(timeLeft.hours).padStart(2, '0')}</span> hours{' '}
                                         <span className={styles.timeBox}>{String(timeLeft.minutes).padStart(2, '0')}</span> minutes{' '}
                                         <span className={styles.timeBox}>{String(timeLeft.seconds).padStart(2, '0')}</span> sec
@@ -74,7 +70,7 @@ export default function OrderBlock() {
                             <div className={styles.priceItem}>
                                 <span>Corporate site</span>
                                 <span className={styles.priceWrapper}>
-                                    from <span className={styles.price}>$1100</span>
+                                    from <span className={styles.price}>$1400</span>
                                 </span>
                             </div>
                             <div className={styles.priceItem}>
@@ -92,7 +88,7 @@ export default function OrderBlock() {
                                 className={styles.button}
                                 onClick={() => setIsOrderFormOpen(true)}
                             >
-                                Fast contact Us
+                                Submit request
                             </button>
                         </div>
                     </div>
@@ -100,8 +96,8 @@ export default function OrderBlock() {
                     <div className={styles.rightColumn}>
                         <div className={styles.imageContainer}>
                             <Image
-                                src="/easter.webp"
-                                alt="Easter promotion"
+                                src="/spring2025.webp"
+                                alt="Springpromotion"
                                 width={600}
                                 height={400}
                                 className={styles.image}

@@ -14,7 +14,7 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
-               radial-gradient(circle at 70% 20%, rgba(255, 58, 58, 0.08) 0%, transparent 60%);
+               radial-gradient(circle at 70% 20%, rgba(87, 255, 58, 0.08) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -56,7 +56,7 @@
 .subtitle {
     font-size: 3.5rem;
     line-height: 1.1;
-    background: linear-gradient(135deg, #ff4444 0%, #dc2626 100%);
+    background: linear-gradient(135deg, #5aff44 0%, #26dc5d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;

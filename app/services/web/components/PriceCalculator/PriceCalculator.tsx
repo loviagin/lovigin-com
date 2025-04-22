@@ -13,26 +13,72 @@ interface Option {
     maxCount?: number;
 }
 
-const baseIncludes = [
-    '1 page & 6 sections + Privacy page',
+const baseIncludes: Record<WebsiteType, string[]> = {
+    landing: [
+        '1 page & 6 sections + Privacy page',
+        'A contact form'
+    ],
+    corporate: [
+        '3 pages & 18 sections',
+        'A contact form',
+        'An order form',
+        'Google map',
+    ],
+    store: [
+        'Product catalog',
+        'Shopping cart',
+        'Payment integration',
+        'Admin panel for product management',
+    ],
+};
+
+const commonFeatures = [
+    'SEO setup',
     'Adaptive for tablets & mobile',
+    'Speed optimization',
+    'Free domain name .com or similar',
+    'Tech support for 3 months then by prices',
+    'Hosting for the entire period of tech support'
 ];
 
 const basePrice = {
     landing: 800,
-    corporate: 1200,
-    store: 1500,
+    corporate: 1400,
+    store: 2100,
 };
 
-const additionalOptions: Option[] = [
-    { id: 'extra-section', label: '+1 more section', price: 100, maxCount: 10 },
-];
+const additionalOptions: Record<WebsiteType, Option[]> = {
+    landing: [
+        { id: 'extra-section', label: '+1 more section', price: 100, maxCount: 10 },
+    ],
+    corporate: [
+        { id: 'extra-page', label: '+1 more unique page & 6 sections', price: 300, maxCount: 10 },
+        { id: 'extra-section', label: '+1 more unique section', price: 50, maxCount: 50 },
+    ],
+    store: [
+        { id: 'extra-product', label: '+100 products', price: 200, maxCount: 10 },
+        { id: 'product-filters', label: 'Advanced product filters', price: 250, maxCount: 1 },
+    ],
+};
 
-const extraFeatures: Option[] = [
-    { id: 'live-chat', label: 'Live chat', price: 150, maxCount: 1 },
-    { id: 'contact-form', label: 'Contact form', price: 100, maxCount: 1 },
-    { id: 'google-map', label: 'Google map', price: 50, maxCount: 1 },
-];
+const extraFeatures: Record<WebsiteType, Option[]> = {
+    landing: [
+        { id: 'live-chat', label: 'Live chat', price: 150, maxCount: 1 },
+        { id: 'payment-integration', label: 'Payment integration', price: 100, maxCount: 1 },
+        { id: 'google-map', label: 'Google map', price: 50, maxCount: 1 },
+    ],
+    corporate: [
+        { id: 'live-chat', label: 'Live chat', price: 150, maxCount: 1 },
+        { id: 'blog', label: 'Blog section', price: 300, maxCount: 1 },
+        { id: 'newsletter', label: 'Newsletter subscription', price: 200, maxCount: 1 },
+    ],
+    store: [
+        { id: 'live-chat', label: 'Live chat', price: 150, maxCount: 1 },
+        { id: 'product-reviews', label: 'Product reviews system', price: 200, maxCount: 1 },
+        { id: 'wishlist', label: 'Wishlist functionality', price: 150, maxCount: 1 },
+        { id: 'loyalty-program', label: 'Loyalty program', price: 300, maxCount: 1 },
+    ],
+};
 
 const websiteTypeLabels: Record<WebsiteType, string> = {
     landing: 'Landing page',
@@ -49,7 +95,7 @@ export default function PriceCalculator() {
     const calculateTotalPrice = () => {
         const base = basePrice[websiteType];
         const optionsPrice = Object.entries(optionCounts).reduce((total, [optionId, count]) => {
-            const option = [...additionalOptions, ...extraFeatures].find(opt => opt.id === optionId);
+            const option = [...additionalOptions[websiteType], ...extraFeatures[websiteType]].find(opt => opt.id === optionId);
             return total + (option?.price || 0) * count;
         }, 0);
 
@@ -59,7 +105,7 @@ export default function PriceCalculator() {
     const updateOptionCount = (optionId: string, increment: boolean) => {
         setOptionCounts(prev => {
             const currentCount = prev[optionId] || 0;
-            const option = [...additionalOptions, ...extraFeatures].find(opt => opt.id === optionId);
+            const option = [...additionalOptions[websiteType], ...extraFeatures[websiteType]].find(opt => opt.id === optionId);
             const maxCount = option?.maxCount || 1;
 
             if (increment && currentCount >= maxCount) return prev;
@@ -99,7 +145,7 @@ export default function PriceCalculator() {
                     <div className={styles.column}>
                         <h3 className={styles.columnTitle}>Includes:</h3>
                         <ul className={styles.includesList}>
-                            {baseIncludes.map((item, index) => (
+                            {baseIncludes[websiteType].map((item, index) => (
                                 <li key={index} className={styles.includesItem}>
                                     <span>✓</span> {item}
                                 </li>
@@ -109,7 +155,7 @@ export default function PriceCalculator() {
 
                     <div className={`${styles.column} ${styles.optionsColumn}`}>
                         <h3 className={styles.columnTitle}>Options</h3>
-                        {additionalOptions.map(option => (
+                        {additionalOptions[websiteType].map(option => (
                             <div key={option.id} className={styles.optionItem}>
                                 <span className={styles.optionName}>{option.label}</span>
                                 <div className={styles.counter}>
@@ -137,7 +183,7 @@ export default function PriceCalculator() {
 
                     <div className={styles.column}>
                         <h3 className={styles.columnTitle}>Extra</h3>
-                        {extraFeatures.map(extra => (
+                        {extraFeatures[websiteType].map(extra => (
                             <div key={extra.id} className={styles.includesItem}>
                                 <input
                                     type="checkbox"
@@ -147,6 +193,17 @@ export default function PriceCalculator() {
                                     onChange={() => updateOptionCount(extra.id, !optionCounts[extra.id])}
                                 />
                                 <label htmlFor={extra.id}>{extra.label}</label>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className={styles.commonFeaturesSection}>
+                    <h3 className={styles.commonFeaturesTitle}>Common features for all websites:</h3>
+                    <div className={styles.commonFeaturesGrid}>
+                        {commonFeatures.map((item, index) => (
+                            <div key={index} className={styles.commonFeaturesItem}>
+                                <span>✓</span> {item}
                             </div>
                         ))}
                     </div>

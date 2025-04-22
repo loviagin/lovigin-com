@@ -107,6 +107,43 @@
     margin-bottom: 2rem;
 }
 
+.commonFeaturesSection {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.commonFeaturesTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.commonFeaturesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.commonFeaturesItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.commonFeaturesItem span {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
 .column {
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
@@ -333,6 +370,11 @@
         gap: 1.5rem;
     }
 
+    .commonFeaturesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
     .priceSection {
         flex-direction: column;
         align-items: flex-start;
@@ -359,6 +401,19 @@
         padding: 0 1.5rem;
     }
 
+    .commonFeaturesSection {
+        padding: 1.5rem;
+    }
+
+    .commonFeaturesTitle {
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .commonFeaturesGrid {
+        gap: 1rem;
+    }
+
     .price {
         font-size: 3rem;
     }
@@ -378,6 +433,19 @@
     .typeButton {
         width: 100%;
         text-align: center;
+    }
+
+    .commonFeaturesSection {
+        padding: 1.25rem;
+    }
+
+    .commonFeaturesGrid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .commonFeaturesItem {
+        font-size: 0.9rem;
     }
 
     .price {
