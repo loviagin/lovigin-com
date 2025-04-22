@@ -8,10 +8,31 @@
     pointer-events: auto;
 }
 
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--radial-gradient);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .heroSection {
     position: relative;
     width: 100%;
-    padding: 8rem 0 4rem;
+    padding: 8rem 0;
     background-color: var(--hero-color);
     color: #ffffff;
     z-index: 2;
@@ -44,151 +65,60 @@
     backdrop-filter: blur(10px);
 }
 
-.loginSection {
+.content {
     position: relative;
     z-index: 2;
-    max-width: 500px;
+    max-width: 1400px;
     width: 100%;
-    margin: 4rem auto 0;
-    padding: 0 2rem;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.loginForm {
-    background: var(--background);
+.tabs {
+    background: rgba(255, 255, 255, 0.03);
     border-radius: var(--radius);
-    padding: 2.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
     backdrop-filter: blur(10px);
-    color: var(--foreground);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.formGroup {
-    margin-bottom: 1.5rem;
-}
-
-.label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--foreground);
-}
-
-.input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--background);
-    color: var(--foreground);
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-.input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.rememberMe {
+.tabsList {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--muted-foreground);
-    cursor: pointer;
-}
-
-.checkbox {
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.formGroup:last-of-type {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 1rem;
     margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
 }
 
-.forgotPassword {
-    font-size: 0.9rem;
-    color: var(--primary);
-    text-decoration: none;
-    transition: color 0.2s;
+.tabContent {
+    color: var(--foreground);
 }
 
-.forgotPassword:hover {
-    color: var(--primary-hover);
+.tabContent h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
 }
 
-.submitButton {
-    width: 100%;
-    padding: 1rem;
-    background: var(--hero-color);
-    color: #ffffff;
-    border: none;
-    border-radius: var(--radius);
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.submitButton:hover {
-    background: #1a202c;
-}
-
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 0 3rem 0;
-    }
-
+@media (max-width: 768px) {
     .heroSection {
         padding: 6rem 0;
     }
 
     .title {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .tabs {
+        padding: 1rem;
+    }
+
+    .tabsList {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
-
-@media (max-width: 768px) {
-    .loginSection {
-        max-width: 100%;
-        padding: 0 1.5rem;
-    }
-
-    .title {
-        font-size: 2.4rem;
-    }
-
-    .loginForm {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 0 3.5rem 0;
-    }
-
-    .heroSection {
-        padding: 4rem 0;
-    }
-
-    .title {
-        font-size: 2rem;
-    }
-
-    .loginSection {
-        padding: 0 1rem;
-    }
-
-    .loginForm {
-        padding: 1.5rem;
-    }
-} 

@@ -1,0 +1,266 @@
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    padding: 0 0 4rem 0;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+  
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--radial-gradient);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    padding: 8rem 0 4rem;
+    background-color: var(--hero-color);
+    color: #ffffff;
+    z-index: 2;
+}
+
+.heroContent {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.loginSection {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    width: 100%;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+}
+
+.loginForm {
+    background: var(--background);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--foreground);
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+    text-align: left;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    color: black;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formGroup:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.forgotPassword {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgotPassword:hover {
+    color: var(--primary-hover);
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1rem;
+    background: var(--hero-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 1rem;
+}
+
+.submitButton:hover {
+    background: #1a202c;
+}
+
+.registerButton {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: var(--hero-color);
+    border: 1px solid var(--hero-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 2rem;
+}
+
+.registerButton:hover {
+    background: var(--hero-color);
+    color: #ffffff;
+}
+
+.registerLink {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--foreground);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.registerLink:hover {
+    background: var(--hero-color);
+    color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 0 3rem 0;
+    }
+
+    .heroSection {
+        padding: 6rem 0;
+    }
+
+    .title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .loginSection {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .loginForm {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0 3.5rem 0;
+    }
+
+    .heroSection {
+        padding: 4rem 0;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .loginSection {
+        padding: 0 1rem;
+    }
+
+    .loginForm {
+        padding: 1.5rem;
+    }
+} 

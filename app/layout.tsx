@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import { AuthProvider } from '@/components/AuthProvider';
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -36,9 +37,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${nunito.variable}`}>
-      <body>        <Header />
-        {children}
-        <Footer />
+      <body>
+        <AuthProvider>
+          <Header />
+          {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

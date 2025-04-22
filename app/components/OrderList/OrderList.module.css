@@ -1,0 +1,102 @@
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.orderCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.orderCard:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.orderTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.pending {
+  background: rgba(234, 179, 8, 0.1);
+  color: #eab308;
+  border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.inProgress {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.cancelled {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.orderDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .orderDetails {
+    grid-template-columns: 1fr;
+  }
+} 

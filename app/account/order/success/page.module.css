@@ -1,0 +1,21 @@
+.successContainer {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 24px;
+  color: white;
+}
+
+.successContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2563eb;
+}
+
+.successContainer p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+} 

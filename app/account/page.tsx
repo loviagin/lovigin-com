@@ -1,48 +1,55 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
 import styles from './page.module.css';
-import { Metadata } from 'next';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import OrderForm from '../components/OrderForm/OrderForm';
+import OrderList from '../components/OrderList/OrderList';
 
-export const metadata: Metadata = {
-    title: 'Login | LOVIGIN LTD',
-    description: 'Sign in to your account',
-};
+export default function AccountPage() {
+    const { data: session } = useSession();
 
-export default function Login() {
+    // Редирект на страницу входа, если пользователь не авторизован
+    // if (status === 'unauthenticated') {
+    //     router.push('/account/login');
+    //     return null;
+    // }
+
     return (
         <main className={styles.container}>
+            <div className={styles.background}>
+                <div className={styles.gradient} />
+            </div>
             <div className={styles.heroSection}>
                 <div className={styles.heroContent}>
-                    <h1 className={styles.title}>Welcome Back</h1>
-                    <p className={styles.subtitle}>Sign in to your account</p>
+                    <h1 className={styles.title}>
+                        Добро пожаловать, {session?.user?.name || 'Пользователь'}
+                    </h1>
+                    <p className={styles.subtitle}>
+                        Управляйте своими заказами и данными
+                    </p>
                 </div>
             </div>
-            <div className={styles.loginSection}>
-                <form className={styles.loginForm}>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="email" className={styles.label}>Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className={styles.input}
-                            placeholder="Enter your email"
-                            required
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="password" className={styles.label}>Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className={styles.input}
-                            placeholder="Enter your password"
-                            required
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        
-                    </div>
-                    <button type="submit" className={styles.submitButton}>Sign In</button>
-                </form>
+            <div className={styles.content}>
+                <Tabs defaultValue="new-order" className={styles.tabs}>
+                    <TabsList className={styles.tabsList}>
+                        <TabsTrigger value="new-order">Новый заказ</TabsTrigger>
+                        <TabsTrigger value="my-orders">Мои заказы</TabsTrigger>
+                        <TabsTrigger value="profile">Личные данные</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="new-order" className={styles.tabContent}>
+                        <OrderForm />
+                    </TabsContent>
+                    <TabsContent value="my-orders" className={styles.tabContent}>
+                        <h2>Ваши заказы</h2>
+                        <OrderList />
+                    </TabsContent>
+                    <TabsContent value="profile" className={styles.tabContent}>
+                        <h2>Личные данные</h2>
+                        {/* Здесь будет форма с личными данными */}
+                    </TabsContent>
+                </Tabs>
             </div>
         </main>
     );
-} 
+}
