@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { hash } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import User from '@/models/User';
 import connectDB from '@/lib/mongodb';
 import { Resend } from 'resend';
@@ -8,9 +8,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, password } = await req.json();
+    const { firstName, lastName, email, password } = await req.json();
 
-    if (!name || !email || !password) {
+    if (!firstName || !lastName || !email || !password) {
       return NextResponse.json(
         { error: 'Все поля обязательны для заполнения' },
         { status: 400 }
@@ -29,11 +29,12 @@ export async function POST(req: Request) {
     }
 
     // Хешируем пароль
-    const hashedPassword = await hash(password, 12);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Создаем пользователя
     const user = await User.create({
-      name,
+      firstName,
+      lastName,
       email,
       password: hashedPassword,
     });
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
       to: email,
       subject: 'Добро пожаловать в LOVIGIN',
       html: `
-        <h1>Добро пожаловать, ${name}!</h1>
+        <h1>Добро пожаловать, ${firstName} ${lastName}!</h1>
         <p>Спасибо за регистрацию в LOVIGIN. Теперь вы можете создавать заказы и отслеживать их статус.</p>
         <p>Если у вас есть вопросы, не стесняйтесь обращаться к нам.</p>
       `,
