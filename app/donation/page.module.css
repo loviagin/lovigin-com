@@ -131,6 +131,54 @@
 
 .paypalContainer {
   margin-top: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.paypalContainer :global(.paypal-button-label) {
+  color: #fff !important;
+}
+
+.paypalContainer :global(.paypal-button-text) {
+  color: #fff !important;
+}
+
+.paypalContainer :global(.paypal-button) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.paypalContainer :global(.paypal-button:hover) {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.paypalContainer :global(.paypal-button-label-container) {
+  background: transparent !important;
+}
+
+.paypalContainer :global(.paypal-button-text) {
+  color: #fff !important;
+}
+
+.paypalContainer :global(.paypal-button-logo) {
+  filter: brightness(0) invert(1) !important;
+}
+
+.paypalContainer :global(.paypal-button-row) {
+  background: transparent !important;
+}
+
+.paypalContainer :global(.paypal-button-tagline) {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.paypalContainer :global(.paypal-button-spinner) {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  border-top-color: #fff !important;
 }
 
 .rightContent {
