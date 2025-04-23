@@ -8,6 +8,8 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 export default function DonationPage() {
   const [amount, setAmount] = useState('10');
   const [currency, setCurrency] = useState('USD');
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [donatorName, setDonatorName] = useState('');
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
@@ -76,7 +78,8 @@ export default function DonationPage() {
                   onApprove={(data, actions) => {
                     return actions.order!.capture().then((details) => {
                       const name = details.payer?.name?.given_name || "Anonymous";
-                      alert(`Thank you for your donation, ${name}!`);
+                      setDonatorName(name);
+                      setShowThankYou(true);
                     });
                   }}
                 />
@@ -95,6 +98,24 @@ export default function DonationPage() {
           />
         </div>
       </div>
+
+      {showThankYou && (
+        <div className={styles.thankYouOverlay}>
+          <div className={styles.thankYouModal}>
+            <h2 className={styles.thankYouTitle}>Thank You!</h2>
+            <p className={styles.thankYouMessage}>
+              {donatorName}, your generous donation of {currency}{amount} means a lot to us.
+              We truly appreciate your support!
+            </p>
+            <button 
+              className={styles.thankYouButton}
+              onClick={() => setShowThankYou(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
