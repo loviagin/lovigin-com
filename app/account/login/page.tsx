@@ -81,9 +81,9 @@ export default function Login() {
                         Sign In
                     </button>
                 </form>
-                <Link href="/account/order" className={styles.registerLink}>
+                {/* <Link href="/account/order" className={styles.registerLink}>
                     Don&apos;t have an account? Place an order & register
-                </Link>
+                </Link> */}
             </div>
         </main>
     );
