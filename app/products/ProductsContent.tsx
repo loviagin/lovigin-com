@@ -17,6 +17,15 @@ interface Product {
 
 const products: Product[] = [
     {
+        id: 'all-banks',
+        title: 'All Banks – Manage Accounts',
+        description: 'A simple way to manage all your accounts in one app',
+        image: '/projects/all-banks/screenshot.webp',
+        categories: ['iOS'],
+        features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
+        color: '#FF6B6B',
+    },
+    {
         id: 'communa',
         title: 'Communa – Chatting and Friends',
         description: 'The app for chatting in forums and making friends',

@@ -83,6 +83,54 @@ With love and appreciation,
             avatar: '/projects/communa.webp'
         }
     },
+    {
+        id: '3',
+        title: 'Meet – All Banks',
+        excerpt: 'All Banks — convenient management of all accounts in one application',
+        content: `
+<h2>Introducing All Banks — a simple way to manage all your accounts in one app</h2>
+<p>We at <strong>LOVIGIN</strong> are excited to present our new product — <strong>All Banks</strong>, a smart and minimalistic app for managing bank accounts.</p>
+
+<p><strong>All Banks</strong> is the perfect solution for anyone tired of juggling multiple banking apps. Add accounts in different currencies, group them by bank, track your total balance in any currency, and gain a full picture of your finances — all in one place.</p>
+
+<h3>Already available:</h3>
+<ul>
+  <li>Manage multiple banks and accounts</li>
+  <li>Support for all major currencies (including RUB, USD, EUR and more)</li>
+  <li>Total balance conversion using live exchange rates</li>
+  <li>Clean navigation and fast access to information</li>
+  <li>Minimal interface with no ads or clutter</li>
+</ul>
+
+<h3>Coming soon:</h3>
+<p>We’re actively working on the following features:</p>
+<ul>
+  <li>Cryptocurrency accounts (BTC, ETH, TON and more)</li>
+  <li>Loan and installment tracking with reminders</li>
+  <li>Smart notifications and automatic purchase detection</li>
+  <li>In-depth analytics and financial statistics</li>
+  <li>iCloud sync for security and convenience</li>
+  <br />
+  <li><strong>And Android version is coming soon!</strong></li>
+</ul>
+<br />
+<p>The app is already available on the App Store. We’re developing it with real user needs in mind — and we welcome your feedback!</p>
+
+<hr>
+
+<p><strong>Try All Banks now — and take full control of your finances.</strong></p>
+<p><a href="https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251">Download on the App Store</a></p>
+         `,
+        date: 'April 24, 2025',
+        timestamp: new Date('2025-04-24').getTime(),
+        image: '/projects/all-banks.webp',
+        category: 'Products',
+        author: {
+            name: 'Ilia Loviagin',
+            role: 'Senior Developer',
+            avatar: '/blog/all-banks.webp'
+        }
+    },
 ];
 
 export const getPostById = (id: string): BlogPost | undefined => {
