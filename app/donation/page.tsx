@@ -85,6 +85,12 @@ export default function DonationPage() {
                 />
               </PayPalScriptProvider>
             </div>
+
+            <div className={styles.otherPaymentMethods}>
+              <a href="https://lovigin.ru/donation/" className={styles.otherPaymentLink}>
+                Other payment methods
+              </a>
+            </div>
           </div>
         </div>
 
