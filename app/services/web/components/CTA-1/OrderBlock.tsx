@@ -7,7 +7,7 @@ import OrderForm from '@/app/components/OrderForm/OrderForm';
 
 function getTimeUntilEndOfDay() {
     const now = new Date();
-    const targetDate = new Date(2025, 3, 27, 23, 59, 59); // April 27, 2024 at 23:59:59
+    const targetDate = new Date(2025, 4, 7, 23, 59, 59); // April 27, 2024 at 23:59:59
 
     if (now > targetDate) {
         return null;
@@ -40,7 +40,7 @@ export default function OrderBlock() {
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <div className={styles.leftColumn}>
-                        <h2 className={styles.title}><span className={styles.subtitle}>Spring</span> is the best time for updates!</h2>
+                    <h2 className={styles.title}>Empower <span className={styles.subtitle}>your business</span> with a modern digital solution</h2>
 
                         <div className={styles.timeEstimate}>
                             {timeLeft ? (
@@ -96,7 +96,7 @@ export default function OrderBlock() {
                     <div className={styles.rightColumn}>
                         <div className={styles.imageContainer}>
                             <Image
-                                src="/spring2025.webp"
+                                src="/tulips.webp"
                                 alt="Springpromotion"
                                 width={600}
                                 height={400}
