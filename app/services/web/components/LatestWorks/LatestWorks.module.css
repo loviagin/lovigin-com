@@ -106,13 +106,13 @@
 
 .cardTitle {
     font-size: 1.5rem;
-    color: var(--foreground);
+    color: #d8d7d7;
     font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
 .cardDescription {
-    color: var(--foreground);
+    color: #d8d7d7;
     opacity: 0.8;
     line-height: 1.6;
     margin-bottom: 1rem;

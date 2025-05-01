@@ -366,3 +366,25 @@
         font-size: 0.95rem;
     }
 }
+
+@media (prefers-color-scheme: light) {
+    .socialLink[href*="whatsapp"] svg {
+        color: #25D366;
+    }
+
+    .socialLink[href*="facebook"] svg {
+        color: #1877F2;
+    }
+
+    .socialLink[href*="telegram"] svg {
+        color: #0088CC;
+    }
+
+    .socialLink[href*="instagram"] svg {
+        color: #E4405F;
+    }
+
+    .socialLink[href*="mailto"] svg {
+        color: #EA4335;
+    }
+}
