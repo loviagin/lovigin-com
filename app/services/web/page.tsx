@@ -7,6 +7,7 @@ import WorkProcess from "./components/WorkProcess/WorkProcess";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import FAQ from "./components/FAQ/FAQ";
 import CTA from "./components/CTA-2/CTA";
+import LatestWorks from "./components/LatestWorks/LatestWorks";
 
 export default function WebServices() {
     return (
@@ -18,6 +19,8 @@ export default function WebServices() {
             <WhyChooseUs />
             <FAQ />
             <CTA />
+            <LatestWorks />
+
         </main>
     );
 }

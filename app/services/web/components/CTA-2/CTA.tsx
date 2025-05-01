@@ -1,8 +1,14 @@
+'use client';
+
 import styles from './CTA.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import OrderForm from '@/app/components/OrderForm/OrderForm';
 
 export default function CTA() {
+    const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+
     return (
         <section className={styles.container}>
             <div className={styles.wrapper}>
@@ -35,17 +41,25 @@ export default function CTA() {
                         </div>
 
                         <div className={styles.actions}>
-                            <Link href="/order" className={styles.actionButton}>
+                            <button className={styles.actionButton} onClick={() => setIsOrderFormOpen(true)}>
                                 Place order
-                            </Link>
+                            </button>
                             <span className={styles.orText}>or</span>
-                            <Link href="/contact" className={styles.actionButton}>
-                                First contact Us
+                            <Link href="#works" className={styles.actionButton}>
+                                See our works
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {isOrderFormOpen && (
+                <OrderForm
+                    serviceTitle="Web Development"
+                    isOpen={isOrderFormOpen}
+                    onClose={() => setIsOrderFormOpen(false)}
+                />
+            )}
         </section>
     );
 } 

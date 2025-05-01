@@ -1,0 +1,801 @@
+  .progressBar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      position: relative;
+      padding: 0 20px;
+  }
+
+  .progressBar::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+  }
+
+  .step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 0 10px;
+  }
+
+  .stepNumber {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  .step:hover .stepNumber {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+  }
+
+  .step.active .stepNumber {
+      background: #0070f3;
+      color: white;
+      border-color: #0070f3;
+  }
+
+  .stepTitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      text-align: center;
+      font-weight: 500;
+      margin-top: 0.5rem;
+  }
+
+  .step.active .stepTitle {
+      color: #0070f3;
+  }
+
+  .form {
+      background: transparent;
+      border-radius: 12px;
+      padding: 2rem;
+  }
+
+  .stepContent {
+      min-height: 400px;
+  }
+
+  /* Service Selection */
+  .serviceSelection {
+      text-align: center;
+  }
+
+  .serviceSelection h2 {
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+
+  .serviceGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+  }
+
+  .serviceCard {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+  }
+
+  .serviceCard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .serviceCard.selected {
+      border-color: #0070f3;
+      background: #f0f7ff;
+  }
+
+  .serviceCard h3 {
+      margin: 0 0 0.5rem 0;
+      color: #333;
+      font-size: 1rem;
+      font-weight: 600;
+  }
+
+  .serviceCard p {
+      margin: 0;
+      color: #666;
+      font-size: 0.875rem;
+  }
+
+  /* Options Section */
+  .optionsSection {
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  .optionsSection h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+
+  .optionsGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+  }
+
+  .optionsGroup h3 {
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.25rem;
+      font-weight: 600;
+  }
+
+  .optionItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+  }
+
+  .optionItem span {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.9rem;
+  }
+
+  .optionItem input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+  }
+
+  /* Brief Section */
+  .briefSection {
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  .briefSection h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+
+  .briefForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .briefItem {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+
+  .briefItem label {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.1rem;
+  }
+
+  .briefItem textarea {
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      resize: vertical;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+  }
+
+  .briefItem textarea:focus {
+      outline: none;
+      border-color: #0070f3;
+      box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  }
+
+  .briefItem textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Contact Section */
+  .contactSection {
+      max-width: 600px;
+      margin: 0 auto;
+  }
+
+  .contactSection h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+
+  .contactForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .formGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+
+  .formGroup label {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+  }
+
+  .formGroup input,
+  .formGroup select {
+      padding: 0.75rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+  }
+
+  .formGroup select {
+      cursor: pointer;
+  }
+
+  /* Registration Section */
+  .registrationSection {
+      max-width: 600px;
+      margin: 0 auto;
+  }
+
+  .registrationSection h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8rem;
+      font-weight: 600;
+  }
+
+  .registrationForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .checkboxLabel {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+  }
+
+  .checkboxLabel input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+  }
+
+  /* Navigation */
+  .navigation {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .backButton {
+      margin-right: auto;
+  }
+
+  .backButton,
+  .nextButton,
+  .submitButton {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .backButton {
+      background: white;
+      border: 1px solid #e0e0e0;
+      color: #666;
+  }
+
+  .backButton:hover {
+      background: #f5f5f5;
+  }
+
+  .nextButton,
+  .submitButton {
+      background: #0070f3;
+      color: white;
+      border: none;
+  }
+
+  .nextButton:hover,
+  .submitButton:hover {
+      background: #0051b3;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .progressBar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+      }
+
+      .progressBar::before {
+          display: none;
+      }
+
+      .step {
+          flex-direction: row;
+          gap: 1rem;
+          padding: 0;
+      }
+
+      .stepNumber {
+          margin-bottom: 0;
+      }
+
+      .serviceGrid {
+          grid-template-columns: 1fr;
+      }
+
+      .optionsGrid {
+          grid-template-columns: 1fr;
+      }
+
+      .contactSection,
+      .registrationSection,
+      .briefSection,
+      .optionsSection {
+          padding: 0 1rem;
+      }
+  }
+
+  .multiselect {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+  }
+
+  .multiselectOption {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .multiselectOption:hover {
+      background: rgba(255, 255, 255, 0.1);
+  }
+
+  .multiselectOption input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+  }
+
+  .registrationActions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+  }
+
+  .skipButton {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight: 500;
+  }
+
+  .skipButton:hover {
+      background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Form elements styling */
+  .select {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+  }
+
+  .select option {
+      background: #1a1a1a;
+      color: white;
+  }
+
+  .input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+  }
+
+  .textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+      min-height: 100px;
+      resize: vertical;
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Focus states */
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+      outline: none;
+      border-color: #0070f3;
+      box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  }
+
+  .orderTitle {
+      font-size: 2rem;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+      margin: 4rem 0 0;
+  }
+
+  .subcategoryGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+  }
+
+  .subcategoryCard {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 100%;
+  }
+
+  .subcategoryCard:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+  }
+
+  .subcategoryCard.selected {
+      background: rgba(0, 112, 243, 0.1);
+      border-color: #0070f3;
+  }
+
+  .subcategoryCard h4 {
+      margin: 0 0 0.5rem 0;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 500;
+  }
+
+  .subcategoryCard p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+  }
+
+  .customInput {
+      margin-top: 2rem;
+  }
+
+  .customInput textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+      resize: vertical;
+  }
+
+  .customInput textarea:focus {
+      outline: none;
+      border-color: #0070f3;
+      box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  }
+
+  .customInput textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  .monthCounter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      width: 120px;
+      padding: 0.25rem;
+  }
+
+  .counterButton {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .counterButton:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .counterButton:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+  }
+
+  .monthCounter span {
+      color: white;
+      font-size: 0.9rem;
+      min-width: 30px;
+      text-align: center;
+  }
+
+  .submitButton {
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+  }
+
+  .additionalInfoSection {
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  .additionalInfoSection h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8rem;
+      font-weight: 600;
+  }
+
+  .additionalInfoForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .fileUploadSection {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .fileUploadSection h3 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+  }
+
+  .fileUpload {
+      position: relative;
+      margin-bottom: 1rem;
+  }
+
+  .fileInput {
+      display: none;
+  }
+
+  .fileUploadButton {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+  }
+
+  .fileUploadButton:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .uploadedFiles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+  }
+
+  .uploadedFile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      font-size: 0.9rem;
+  }
+
+  .removeFileButton {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0;
+      transition: color 0.3s ease;
+  }
+
+  .removeFileButton:hover {
+      color: white;
+  }
+
+  .inputError {
+      border-color: #ff4d4f !important;
+      background: rgba(255, 77, 79, 0.1) !important;
+  }
+
+  .errorMessage {
+      background-color: rgba(255, 0, 0, 0.1);
+      color: #ff4444;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid #ff4444;
+  }
+
+  .successMessage {
+      background-color: rgba(0, 255, 0, 0.1);
+      color: #00c851;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid #00c851;
+  }
+
+  .loadingMessage {
+      background-color: rgba(0, 0, 255, 0.1);
+      color: #33b5e5;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid #33b5e5;
+  }
+
+  .nextButton:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: rgba(0, 112, 243, 0.5) !important;
+  }
+
+  .supportMonthCounter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      width: 100%;
+      padding: 0.5rem;
+      margin: 1rem 0;
+  }
+
+  .supportMonthCounter .counterButton {
+      flex: 1;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .supportMonthCounter .counterButton:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .supportMonthCounter .counterButton:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+  }
+
+  .supportMonthCounter span {
+      color: white;
+      font-size: 1.1rem;
+      min-width: 60px;
+      text-align: center;
+      font-weight: 500;
+  }
