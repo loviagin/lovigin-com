@@ -6,6 +6,7 @@ import PriceCalculator from "./components/PriceCalculator/PriceCalculator";
 import WorkProcess from "./components/WorkProcess/WorkProcess";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import FAQ from "./components/FAQ/FAQ";
+import CTA from "./components/CTA-2/CTA";
 
 export default function WebServices() {
     return (
@@ -16,6 +17,7 @@ export default function WebServices() {
             <OrderBlock />
             <WhyChooseUs />
             <FAQ />
+            <CTA />
         </main>
     );
 }
