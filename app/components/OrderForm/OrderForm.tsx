@@ -6,7 +6,8 @@ import {
   FaTelegram, 
   FaWhatsapp, 
   FaMailBulk, 
-  FaFacebookMessenger
+  FaFacebookMessenger,
+  FaInstagram
 } from 'react-icons/fa';
 
 interface OrderFormProps {
@@ -16,10 +17,11 @@ interface OrderFormProps {
 }
 
 const messengers = [
-  { id: 'telegram', name: 'Telegram', icon: <FaTelegram /> },
   { id: 'whatsapp', name: 'WhatsApp', icon: <FaWhatsapp /> },
-  { id: 'email', name: 'Email', icon: <FaMailBulk /> },
   { id: 'messenger', name: 'Facebook Messenger', icon: <FaFacebookMessenger /> },
+  { id: 'telegram', name: 'Telegram', icon: <FaTelegram /> },
+  { id: 'instagram', name: 'Instagram', icon: <FaInstagram /> },
+  { id: 'email', name: 'Email', icon: <FaMailBulk /> },
 ];
 
 const OrderForm: React.FC<OrderFormProps> = ({ serviceTitle, isOpen, onClose }) => {

@@ -12,7 +12,7 @@ const LatestWorks = () => {
     .slice(0, 3);
 
   return (
-    <section className={styles.latestWorks} id="works">
+    <section className={styles.latestWorks}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Our Latest Works</h2>

@@ -8,6 +8,7 @@ import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import FAQ from "./components/FAQ/FAQ";
 import CTA from "./components/CTA-2/CTA";
 import LatestWorks from "./components/LatestWorks/LatestWorks";
+import Contact from "./components/Contact/Contact";
 
 export default function WebServices() {
     return (
@@ -20,7 +21,7 @@ export default function WebServices() {
             <FAQ />
             <CTA />
             <LatestWorks />
-
+            <Contact />
         </main>
     );
 }

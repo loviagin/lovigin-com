@@ -1,6 +1,5 @@
 .latestWorks {
     padding: 6rem 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.2) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -12,7 +11,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--radial-gradient);
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(10, 10, 10, 0.8) 100%);
     opacity: 0.5;
     z-index: 1;
 }
