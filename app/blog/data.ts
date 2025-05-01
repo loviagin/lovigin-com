@@ -131,6 +131,33 @@ With love and appreciation,
             avatar: '/blog/all-banks.webp'
         }
     },
+    {
+        id: '4',
+        title: 'Happy International Workers’ Day!',
+        excerpt: 'All Banks — convenient management of all accounts in one application',
+        content: `
+        <h2>🌍 Happy International Workers’ Day! 💻⚙️</h2>
+
+<p>Today, on <strong>May 1st</strong>, we celebrate those who build, create, and move the world forward — developers, designers, engineers, support teams, freelancers, founders, and everyone who puts heart and soul into their work.</p>
+
+<p>At <strong>LOVIGIN</strong>, we believe that <em>technology empowers people</em>, but behind every great product are humans who care, think, and build. Today is a day to recognize your effort, creativity, and persistence.</p>
+
+<p>Whether you're writing code, designing interfaces, fixing bugs, launching startups, or supporting users — <strong>you are shaping the future</strong>. And that deserves a moment of pride.</p>
+
+<p>💪 <strong>Happy Labor Day! Thank you for doing what you do.</strong></p>
+
+<p><em>– The LOVIGIN Team</em></p>
+`,
+        date: 'May 1, 2025',
+        timestamp: new Date('2025-05-01').getTime(),
+        image: '/blog/labor.webp',
+        category: 'News',
+        author: {
+            name: 'Ilia Loviagin',
+            role: 'Senior Developer',
+            avatar: '/blog/all-banks.webp'
+        }
+    }
 ];
 
 export const getPostById = (id: string): BlogPost | undefined => {
