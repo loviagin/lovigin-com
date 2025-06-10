@@ -94,6 +94,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
+      url: 'https://lovigin.com/products/all-banks',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/products/gohood',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
       url: 'https://lovigin.com/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'monthly',

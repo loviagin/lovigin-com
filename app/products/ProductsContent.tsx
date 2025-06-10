@@ -17,6 +17,15 @@ interface Product {
 
 const products: Product[] = [
     {
+        id: 'gohood',
+        title: 'Go Hood – Smart housing search with a selection of neighborhoods',
+        description: 'Hotels, apartments, houses, cottages, hostels, apartments and other housing options in Russia and abroad with a selection of areas',
+        image: '/projects/gohood/screenshot.webp',
+        categories: ['Web'],
+        features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
+        color: '#FF6B6B',
+    },
+    {
         id: 'all-banks',
         title: 'All Banks – Manage Accounts',
         description: 'A simple way to manage all your accounts in one app',
