@@ -1,0 +1,25 @@
+.commentsSection {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .commentsSection {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .sectionTitle {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}

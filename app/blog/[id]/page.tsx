@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getPostById } from '../data';
 import { notFound } from 'next/navigation';
+import CommentsSection from '../components/CommentsSection';
 
 type Props = {
     params: Promise<{ id: string }>;
@@ -102,6 +103,9 @@ export default async function BlogPost({ params }: Props) {
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
                 </article>
+                
+                {/* Comments Section */}
+                <CommentsSection postId={resolvedParams.id} />
             </div>
         </main>
     );
