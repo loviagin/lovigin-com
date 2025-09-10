@@ -100,8 +100,10 @@ export async function POST(request: NextRequest) {
         if (process.env.RESEND_API_KEY) {
             try {
             const postTitle = await getPostTitle(postId);
-            const approveUrl = `https://lovigin.com/api/comments/moderate?action=approve&id=${newComment._id}`;
-            const rejectUrl = `https://lovigin.com/api/comments/moderate?action=reject&id=${newComment._id}`;
+            const baseUrl = 'https://lovigin.com';
+            const approveUrl = `${baseUrl}/api/comments/moderate?action=approve&id=${newComment._id}`;
+            const rejectUrl = `${baseUrl}/api/comments/moderate?action=reject&id=${newComment._id}`;
+            const postUrl = `${baseUrl}/blog/${postId}`;
 
             console.log('Comment notification data:', {
                 postId,
@@ -202,7 +204,7 @@ export async function POST(request: NextRequest) {
                             <p>Comment requires moderation</p>
                         </div>
                         
-                        <h2>Post: ${postTitle}</h2>
+                        <h2>Post: <a href="${postUrl}" style="color: #2563eb; text-decoration: none;">${postTitle}</a></h2>
                         
                         <div class="author-info">
                             <strong>Author:</strong> ${author.name}<br>
