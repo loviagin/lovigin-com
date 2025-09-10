@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
             await comment.save();
             
             // Перенаправляем на страницу результата
-            return NextResponse.redirect(`https://lovigin.com}/api/comments/moderate-result?action=approve&message=Comment approved successfully`);
+            return NextResponse.redirect(`https://lovigin.com/api/comments/moderate-result?action=approve&message=Comment approved successfully`);
         } else if (action === 'reject') {
             await Comment.findByIdAndDelete(commentId);
             
