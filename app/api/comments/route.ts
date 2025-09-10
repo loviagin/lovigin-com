@@ -100,9 +100,16 @@ export async function POST(request: NextRequest) {
         if (process.env.RESEND_API_KEY) {
             try {
             const postTitle = await getPostTitle(postId);
-            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-            const approveUrl = `${baseUrl}/api/comments/moderate?action=approve&id=${newComment._id}`;
-            const rejectUrl = `${baseUrl}/api/comments/moderate?action=reject&id=${newComment._id}`;
+            const approveUrl = `https://lovigin.com/api/comments/moderate?action=approve&id=${newComment._id}`;
+            const rejectUrl = `https://lovigin.com/api/comments/moderate?action=reject&id=${newComment._id}`;
+
+            console.log('Comment notification data:', {
+                postId,
+                postTitle,
+                commentId: newComment._id,
+                authorName: author.name,
+                authorEmail: author.email
+            });
 
             const emailContent = `
                 <!DOCTYPE html>

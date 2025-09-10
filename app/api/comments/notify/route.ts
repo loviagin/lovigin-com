@@ -14,6 +14,15 @@ export async function POST(request: Request) {
     const rejectUrl = `${baseUrl}/api/comments/moderate?action=reject&id=${commentId}`;
     const postUrl = `${baseUrl}/blog/${postId}`;
 
+    console.log('Generated URLs:', {
+      baseUrl,
+      postUrl,
+      approveUrl,
+      rejectUrl,
+      postId,
+      commentId
+    });
+
     const emailContent = `
       <!DOCTYPE html>
       <html>
