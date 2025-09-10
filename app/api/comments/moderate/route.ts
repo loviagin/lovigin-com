@@ -38,14 +38,12 @@ export async function GET(request: NextRequest) {
             await comment.save();
             
             // Перенаправляем на страницу результата
-            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-            return NextResponse.redirect(`${baseUrl}/api/comments/moderate-result?action=approve&message=Comment approved successfully`);
+            return NextResponse.redirect(`https://lovigin.com}/api/comments/moderate-result?action=approve&message=Comment approved successfully`);
         } else if (action === 'reject') {
             await Comment.findByIdAndDelete(commentId);
             
             // Перенаправляем на страницу результата
-            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-            return NextResponse.redirect(`${baseUrl}/api/comments/moderate-result?action=reject&message=Comment rejected and deleted successfully`);
+            return NextResponse.redirect(`https://lovigin.com/api/comments/moderate-result?action=reject&message=Comment rejected and deleted successfully`);
         }
 
     } catch (error) {

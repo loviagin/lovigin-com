@@ -9,9 +9,10 @@ export async function POST(request: Request) {
     const { commentId, postId, authorName, authorEmail, content, postTitle } = body;
 
     // Создаем ссылки для модерации
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = 'https://lovigin.com';
     const approveUrl = `${baseUrl}/api/comments/moderate?action=approve&id=${commentId}`;
     const rejectUrl = `${baseUrl}/api/comments/moderate?action=reject&id=${commentId}`;
+    const postUrl = `${baseUrl}/blog/${postId}`;
 
     const emailContent = `
       <!DOCTYPE html>
@@ -95,6 +96,14 @@ export async function POST(request: Request) {
             color: #6c757d;
             font-size: 14px;
           }
+          .post-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+          }
+          .post-link:hover {
+            text-decoration: underline;
+          }
         </style>
       </head>
       <body>
@@ -104,7 +113,7 @@ export async function POST(request: Request) {
             <p>Comment requires moderation</p>
           </div>
           
-          <h2>Post: ${postTitle}</h2>
+          <h2>Post: <a href="${postUrl}" class="post-link">${postTitle}</a></h2>
           
           <div class="author-info">
             <strong>Author:</strong> ${authorName}<br>
