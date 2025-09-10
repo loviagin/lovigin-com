@@ -1,0 +1,545 @@
+.enroll {
+    padding: 8rem 0 6rem;
+    background: var(--background);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.enroll::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--radial-gradient);
+    z-index: 1;
+}
+
+.enroll::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+    z-index: 1;
+    animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--foreground);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.1); }
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    border-radius: var(--radius);
+    margin: 1rem auto 0;
+    animation: underlineExpand 2s ease-out;
+}
+
+@keyframes underlineExpand {
+    0% { width: 0; }
+    100% { width: 80px; }
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--foreground);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.benefitCard {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.benefitCard:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.benefitCard:nth-child(2) {
+    animation-delay: 2s;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.benefitCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.benefitCard::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.benefitCard:hover::before {
+    opacity: 1;
+}
+
+.benefitCard:hover::after {
+    opacity: 1;
+}
+
+.benefitCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.benefitIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.benefitTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.benefitText {
+    color: var(--foreground);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: var(--foreground);
+    opacity: 0.7;
+    margin: 0.5rem 0 0 0;
+    max-width: 600px;
+    padding-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    border-radius: var(--radius);
+}
+
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stepCard {
+    background: rgba(37, 99, 235, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.stepCard:hover {
+    background: rgba(37, 99, 235, 0.15);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+}
+
+.stepNumber {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 0 auto 1rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.stepText {
+    color: var(--foreground);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.formSection {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.input,
+.select {
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--foreground);
+    backdrop-filter: blur(10px);
+}
+
+.input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.input::placeholder {
+    color: var(--foreground);
+    opacity: 0.7;
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 18px 18px;
+    padding-right: 2.6rem;
+}
+
+.checkboxRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.checkboxRow input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+}
+
+.checkboxText {
+    color: var(--foreground);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.checkboxText a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.checkboxText a:hover {
+    color: #3b82f6;
+}
+
+.submitButton {
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    color: white;
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    margin-top: 1rem;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.errorMessage {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: var(--radius);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.successMessage {
+    color: #10b981;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    animation: successBounce 0.6s ease-in-out;
+}
+
+@keyframes successBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.warningMessage {
+    color: var(--foreground);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.warningMessage code {
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: #2563eb;
+}
+
+@media (max-width: 1024px) {
+    .benefitsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stepsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+    
+    .formSection {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .enroll {
+        padding: 6rem 0;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+        gap: 3rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .description {
+        font-size: 1.1rem;
+    }
+    
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+    
+    .benefitCard,
+    .stepCard {
+        padding: 1.5rem;
+    }
+    
+    .formSection {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .enroll {
+        padding: 7rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    .benefitCard,
+    .stepCard {
+        padding: 1.25rem;
+    }
+    
+    .formSection {
+        padding: 1.25rem;
+    }
+    
+    .input,
+    .select {
+        padding: 0.9rem 1rem;
+    }
+    
+    .submitButton {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+

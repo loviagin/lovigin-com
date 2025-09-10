@@ -53,7 +53,7 @@ export default function ScreenshotSlider({ screenshots, title }: ScreenshotSlide
                                         priority={index === 0}
                                         onLoad={() => handleImageLoad(index)}
                                         quality={100}
-                                        style={{ objectFit: 'cover' }}
+                                        style={{ objectFit: 'contain', objectPosition: 'center' }}
                                         unoptimized={screenshot.endsWith('.webp')}
                                     />
                                 </div>

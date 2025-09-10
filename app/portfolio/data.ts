@@ -54,4 +54,13 @@ export const portfolioItems: PortfolioItem[] = [
         status: 'in-progress',
         date: '2025-03-12'
     },
+    {
+        id: 'all-banks',
+        title: 'All Banks',
+        description: 'iOS & Android app for managing all your accounts in one place.',
+        image: '/projects/all-banks/logo.webp',
+        tags: ['UI/UX', 'IOS', 'ANDROID'],
+        status: 'completed',
+        date: '2025-04-16'
+    },
 ]; 

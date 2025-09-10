@@ -126,11 +126,11 @@ With love and appreciation,
 <hr>
 <br/>
 <p><strong>Try All Banks now — and take full control of your finances.</strong></p>
-<p><b><a style='color: var(--foreground);' href="https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251">Download on the App Store</a></b></p>
+<p><b><u><a style='color: var(--foreground);' href="https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251">Download on the App Store</a><u></b></p>
          `,
         date: 'April 24, 2025',
         timestamp: new Date('2025-04-24').getTime(),
-        image: '/projects/all-banks.webp',
+        image: '/projects/all-banks/logo.webp',
         category: 'Products',
         author: {
             name: 'Ilia Loviagin',
@@ -139,10 +139,14 @@ With love and appreciation,
         },
         archived: false,
     },
+
+
+
+
     {
         id: '4',
         title: 'Happy International Workers’ Day!',
-        excerpt: 'All Banks — convenient management of all accounts in one application',
+        excerpt: 'Today, on May 1st, we celebrate those who build, create, and move the world forward',
         content: `
         <h2>🌍 Happy International Workers’ Day! 💻⚙️</h2>
 
@@ -160,6 +164,48 @@ With love and appreciation,
         timestamp: new Date('2025-05-01').getTime(),
         image: '/blog/labor.webp',
         category: 'News',
+        author: {
+            name: 'Ilia Loviagin',
+            role: 'Senior Developer',
+            avatar: '/blog/all-banks.webp'
+        },
+        archived: false,
+    },
+
+
+
+
+
+
+    {
+        id: '5',
+        title: 'New App is live – Gift Text',
+        excerpt: 'GiftText helps you create unique greetings with AI 🎁 Write touching messages and generate beautiful images for any occasion 💌',
+        content: `
+        <h2>Gift Text – Create your own</h2>
+
+<p><strong>Gift Text</strong> helps you instantly create warm, relevant, and memorable messages for any occasion — from birthdays and anniversaries to professional thank-yous. Simply choose the event, tone, and recipient — and get a ready-to-send text that you can share in messengers or turn into a stylish card.</p>
+
+<h2>Features</h2>
+<ul>
+  <li><strong>Occasions & Formats:</strong> birthdays, weddings, love, friendship, apologies, thank-yous, business messages, holidays, and more.</li>
+  <li><strong>Personalized Style:</strong> adjust tone from formal to casual to match the situation.</li>
+  <li><strong>Instant Sharing:</strong> copy or send directly in one tap.</li>
+  <li><strong>Creative Inspiration:</strong> never run out of ideas when words are hard to find.</li>
+</ul>
+
+<br />
+<p>The app is already available on the App Store. We’re developing it with real user needs in mind — and we welcome your feedback!</p>
+
+<hr>
+<br/>
+<p><strong>Try Gift Text now — and create your own greetings.</strong></p>
+<p><b><u><a style='color: var(--foreground);' href="https://apps.apple.com/us/app/gift-text-create-your-own/id6751366964">Download on the App Store</a></u></b></p>
+`,
+        date: 'August 27, 2025',
+        timestamp: new Date('2025-08-27').getTime(),
+        image: '/projects/gift-text/logo.webp',
+        category: 'Products',
         author: {
             name: 'Ilia Loviagin',
             role: 'Senior Developer',
