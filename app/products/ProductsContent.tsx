@@ -25,7 +25,7 @@ const products: Product[] = [
         categories: ['Web'],
         features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
         color: '#FF6B6B',
-        archived: false,
+        archived: true,
     },
     {
         id: 'all-banks',
@@ -35,7 +35,7 @@ const products: Product[] = [
         categories: ['iOS'],
         features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
         color: '#FF6B6B',
-        archived: false,
+        archived: true,
     },
     {
         id: 'communa',

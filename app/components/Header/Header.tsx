@@ -42,7 +42,10 @@ const Header = () => {
   };
 
   const isActive = (path: string) => {
-    return pathname === path;
+    if (path === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(path);
   };
 
   return (
@@ -64,8 +67,8 @@ const Header = () => {
           <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
             <div className={styles.navItem}>
               <Link
-                href="/#"
-                className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}
+                href="/services/web"
+                className={`${styles.navLink} ${isActive('/services') ? styles.active : ''}`}
                 onClick={toggleSubmenu}
               >
                 <span>Services</span>
@@ -85,13 +88,13 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <Link href="/products" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`} onClick={handleLinkClick}>
+            <Link href="/products" className={`${styles.navLink} ${isActive('/products') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Products</span>
             </Link>
-            <Link href="/portfolio" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`} onClick={handleLinkClick}>
+            <Link href="/portfolio" className={`${styles.navLink} ${isActive('/portfolio') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Portfolio</span>
             </Link>
-            <Link href="/blog" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
+            <Link href="/blog" className={`${styles.navLink} ${isActive('/blog') ? styles.active : ''}`}>
               <span>Blog</span>
             </Link>
             {/* <Link href="/#about" className={`${styles.navLink} ${isActive('/#') ? styles.active : ''}`}>
