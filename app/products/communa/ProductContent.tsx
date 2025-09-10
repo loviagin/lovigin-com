@@ -30,7 +30,7 @@ export default function ProductContent() {
             '/projects/communa/picture2.webp',
             '/projects/communa/picture3.webp'
         ],
-        categories: ['Social', 'iOS'],
+        categories: ['Archived'],
         features: [
             'Real-time chat and messaging',
             'Forum discussions',
@@ -40,7 +40,6 @@ export default function ProductContent() {
         ],
         color: '#FF6B6B',
         links: {
-            website: 'https://communa.icu',
             appStore: 'https://apps.apple.com/app/communa-chatting-and-friends/id6541758055'
         }
     };
@@ -180,11 +179,11 @@ export default function ProductContent() {
                     <div className={styles.links}>
                         <h2>Links</h2>
                         <div className={styles.linksGrid}>
-                            {product.links.website && (
+                            {/* {product.links.website && (
                                 <a href={product.links.website} className={styles.link} target="_blank" rel="noopener noreferrer">
                                     Website
                                 </a>
-                            )}
+                            )} */}
                             {product.links.appStore && (
                                 <a href={product.links.appStore} className={styles.link} target="_blank" rel="noopener noreferrer">
                                     App Store

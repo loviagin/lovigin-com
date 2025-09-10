@@ -13,6 +13,7 @@ interface Product {
     categories: string[];
     features: string[];
     color: string;
+    archived: boolean;
 }
 
 const products: Product[] = [
@@ -24,6 +25,7 @@ const products: Product[] = [
         categories: ['Web'],
         features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
         color: '#FF6B6B',
+        archived: false,
     },
     {
         id: 'all-banks',
@@ -33,6 +35,7 @@ const products: Product[] = [
         categories: ['iOS'],
         features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
         color: '#FF6B6B',
+        archived: false,
     },
     {
         id: 'communa',
@@ -42,6 +45,7 @@ const products: Product[] = [
         categories: ['iOS'],
         features: ['Forums & Topics', 'Chats & Channels', 'Moments - photo & video posts', 'Find Friends mini app'],
         color: '#FF6B6B',
+        archived: true,
     },
 ];
 
@@ -91,7 +95,7 @@ export default function ProductsContent() {
                 </div>
             </div>
             <div className={styles.productsGrid}>
-                {filteredProducts.map((product) => (
+                {filteredProducts.filter(product => !product.archived).map((product) => (
                     <div
                         key={product.id}
                         className={`${styles.productCard} ${activeProduct === product.id ? styles.active : ''}`}

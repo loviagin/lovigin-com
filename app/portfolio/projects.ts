@@ -328,4 +328,67 @@ export const projects: Project[] = [
         ],
         archived: false,
     },
+
+
+
+
+
+
+    {
+        id: 'gift-text',
+        title: 'Gift Text',
+        description: 'All Banks – Manage all your accounts in one place. Take full control of your finances with All Banks, the smart and minimalistic app for managing accounts across multiple banks and currencies. Forget about juggling different apps – now you can track everything in one clear and convenient dashboard. Whether you need a clear overview of your personal finances or a simple tool to track accounts in different currencies, All Banks makes money management easier than ever. Your privacy comes first: all data is stored securely on your device and synced via iCloud – only you have access.',
+        shortDescription: 'iOS & Android app for managing all your accounts in one place.',
+        status: 'completed',
+        date: '2025-08-27',
+        tags: ['UI/UX', 'IOS', 'AI'],
+        screenshots: [
+            '/projects/all-banks/overview.webp',
+            '/projects/all-banks/picture1.webp',
+            '/projects/all-banks/picture2.webp',
+            '/projects/all-banks/picture3.webp',
+            '/projects/all-banks/picture4.webp',
+        ],
+        links: [
+            {
+                title: 'App Store',
+                url: 'https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251'
+            }
+        ],
+        stack: [
+            {
+                name: 'Swift + SwiftUI',
+                description: 'Swift programming language and SwiftUI framework'
+            },
+            {
+                name: 'Kotlin + Jetpack Compose',
+                description: 'Kotlin programming language and Jetpack Compose framework'
+            },
+            {
+                name: 'Swift Data + Room',
+                description: 'Swift Data and Room database'
+            },
+        ],
+        client: {
+            name: 'LOVIGIN LTD',
+            logo: '/favicon.webp',
+            link: 'https://lovigin.com'
+        },
+        timeline: {
+            start: '2025-04-16',
+            end: '2025-04-28',
+            duration: '12 days'
+        },
+        features: [
+            'Multiple banks & accounts – add all your accounts and group them by bank',
+            'Multi-currency support – manage balances in USD, EUR, RUB and other currencies',
+            'Total balance conversion – instantly see your overall balance in any currency with live exchange rates',
+            'Simple shopping list – keep track of your purchases and planned expenses',
+            'Clean interface – minimal design with fast navigation, no ads, and no distractions',
+            'SOON: Advanced analytics and spending statistics',
+            'SOON: Debt and installment tracking with payment reminders',
+            'SOON: Support for cryptocurrencies',
+        ],
+        archived: false,
+    },
 ]; 
