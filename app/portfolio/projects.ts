@@ -276,6 +276,7 @@ export const projects: Project[] = [
         date: '2025-04-16',
         tags: ['UI/UX', 'IOS', 'ANDROID'],
         screenshots: [
+            '/projects/all-banks/logo.webp',
             '/projects/all-banks/overview.webp',
             '/projects/all-banks/picture1.webp',
             '/projects/all-banks/picture2.webp',
@@ -343,6 +344,7 @@ export const projects: Project[] = [
         date: '2025-08-27',
         tags: ['UI/UX', 'IOS', 'AI'],
         screenshots: [
+            '/projects/gift-text/logo.webp',
             '/projects/gift-text/overview.webp',
         ],
         links: [
