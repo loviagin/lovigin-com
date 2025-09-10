@@ -6,7 +6,8 @@ import { useState } from 'react';
 export default function ContactForm() {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        contactMethod: 'email',
+        contact: '',
         message: '',
     });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
@@ -28,7 +29,7 @@ export default function ContactForm() {
 
             if (data.success) {
                 alert('Message sent successfully');
-                setFormData({ name: '', email: '', message: '' });
+                setFormData({ name: '', contactMethod: 'email', contact: '', message: '' });
             } else {
                 alert('Failed to send message');
             }
@@ -40,11 +41,12 @@ export default function ContactForm() {
         }
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
-            [name]: value
+            [name]: value,
+            ...(name === 'contactMethod' ? { contact: '' } : {})
         }));
     };
 
@@ -63,13 +65,35 @@ export default function ContactForm() {
                 />
             </div>
             <div className={styles.formGroup}>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                <select
+                    id="contactMethod"
+                    name="contactMethod"
+                    value={formData.contactMethod}
                     onChange={handleChange}
-                    placeholder="Your email"
+                    disabled={status === 'loading'}
+                >
+                    <option value="email">Email</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="telegram">Telegram</option>
+                    <option value="phone">Phone</option>
+                </select>
+            </div>
+            <div className={styles.formGroup}>
+                <input
+                    type={formData.contactMethod === 'email' ? 'email' : (formData.contactMethod === 'phone' ? 'tel' : 'text')}
+                    id="contact"
+                    name="contact"
+                    value={formData.contact}
+                    onChange={handleChange}
+                    placeholder={
+                        formData.contactMethod === 'email'
+                            ? 'Your email'
+                            : formData.contactMethod === 'whatsapp'
+                                ? 'WhatsApp number or link'
+                                : formData.contactMethod === 'telegram'
+                                    ? 'Telegram @username or link'
+                                    : 'Your phone number'
+                    }
                     required
                     disabled={status === 'loading'}
                 />

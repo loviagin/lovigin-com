@@ -28,7 +28,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ serviceTitle, isOpen, onClose }) 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    messenger: 'telegram',
+    messenger: 'whatsapp',
     messengerId: '',
     message: '',
   });

@@ -96,7 +96,7 @@
 .socialLinks {
   display: flex;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   justify-content: center;
 }
 
@@ -235,7 +235,7 @@
   opacity: 0.7;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .container {
     padding: 0 0 3rem 0;
   }
@@ -280,7 +280,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .container {
     padding: 0 0 2rem 0;
   }
@@ -322,12 +322,6 @@
     font-size: 0.95rem;
   }
 
-  .socialLinks {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
   .socialLink {
     width: 100%;
     text-align: center;
@@ -345,6 +339,14 @@
   .legalInfo {
     margin: 2rem auto 0;
     padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .socialLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }
 

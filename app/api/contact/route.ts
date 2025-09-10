@@ -5,7 +5,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
     try {
-        const { name, email, message } = await request.json();
+        const { name, contactMethod, contact, email, message } = await request.json();
+
+        // Backward compatibility: if older client sends only email
+        const resolvedMethod = contactMethod || 'email';
+        const resolvedContact = contact || email || '';
 
         const data = await resend.emails.send({
             from: 'Contact Form <support@lovigin.com>',
@@ -14,7 +18,8 @@ export async function POST(request: Request) {
             html: `
                 <h2>New Contact Form Submission</h2>
                 <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Preferred contact method:</strong> ${resolvedMethod}</p>
+                <p><strong>Contact:</strong> ${resolvedContact}</p>
                 <p><strong>Message:</strong> ${message}</p>
             `,
         });

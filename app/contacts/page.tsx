@@ -2,6 +2,7 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import ContactForm from './components/ContactForm/ContactForm';
+import { Facebook, Instagram, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Contacts | LOVIGIN LTD',
@@ -51,8 +52,17 @@ export default function ContactsPage() {
                         </Link>
                     </div>
                     <div className={styles.socialLinks}>
-                        <Link href="https://wa.me/447867246591" className={styles.socialLink}>WhatsApp</Link>
-                        <Link href="https://t.me/loviginsup" className={styles.socialLink}>Telegram</Link>
+                        <Link href="https://wa.me/447867246591" target='_blank' className={styles.socialLink}>WhatsApp</Link>
+                        <Link href="https://t.me/loviginsup" target='_blank' className={styles.socialLink}>Telegram</Link>
+                        <Link href="https://www.facebook.com/profile.php?id=61575847884183" target='_blank' className={styles.socialLink}>
+                            <Facebook />
+                        </Link>
+                        <Link href="https://www.instagram.com/lovig.in/" target='_blank' className={styles.socialLink}>
+                            <Instagram />
+                        </Link>
+                        <Link href="mailto:support@lovigin.com" target='_blank' className={styles.socialLink}>
+                            <Mail />
+                        </Link>
                     </div>
                 </div>
 

@@ -18,13 +18,13 @@ export default function Hero() {
   return (
     <section className={styles.pageWrapper}>
       {/* Promo banner */}
-      <div className={styles.promo}>
+      {/* <div className={styles.promo}>
         <Link href={'#cta-1'}>
           <div className={styles.promoContent}>
             May Day Digital Week – Limited Offer!
           </div>
         </Link>
-      </div>
+      </div> */}
 
       <div className={styles.container}>
         <div className={styles.leftContent}>

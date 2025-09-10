@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from './Services.module.css';
 import { FaCode, FaMobileAlt, FaCogs } from 'react-icons/fa';
 import OrderForm from '../OrderForm/OrderForm';
+import Link from 'next/link';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -18,7 +19,8 @@ const Services = () => {
         'Online stores',
         'Landing pages',
         'Web applications'
-      ]
+      ],
+      link: '/services/web'
     },
     {
       title: 'Mobile Apps',
@@ -72,12 +74,18 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-              <button 
-                className={styles.orderButton}
-                onClick={() => handleOrderClick(service.title)}
-              >
-                Order Now
-              </button>
+              { service.link ?
+                <Link href={service.link} className={styles.orderButton}>
+                  Order Now
+                </Link>
+                :
+                <button 
+                  className={styles.orderButton}
+                  onClick={() => handleOrderClick(service.title)}
+                >
+                  Order Now
+                </button>
+              }
             </div>
           ))}
         </div>

@@ -17,11 +17,13 @@
 }
 
 .formGroup input,
-.formGroup textarea {
+.formGroup textarea,
+.formGroup select {
     padding: 1rem 1.5rem;
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius);
     font-size: 1rem;
+    font-family: inherit;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.05);
     color: var(--foreground);
@@ -34,11 +36,35 @@
 }
 
 .formGroup input:focus,
-.formGroup textarea:focus {
+.formGroup textarea:focus,
+.formGroup select:focus {
     outline: none;
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     background: var(--radial-gradient);
+}
+
+/* Make select visually consistent with inputs */
+.formGroup select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 18px 18px;
+    padding-right: 2.6rem;
+    cursor: pointer;
+}
+
+.formGroup select option {
+    color: var(--foreground);
+    background: var(--background, #0b0b0b);
+}
+
+.formGroup select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .formGroup textarea {
@@ -69,10 +95,12 @@
 @media (max-width: 1024px) {
 
     .formGroup input,
-    .formGroup textarea {
+    .formGroup textarea,
+    .formGroup select {
         padding: 0.9rem 1.2rem;
         font-size: 0.95rem;
     }
+    .formGroup select { padding-right: 2.4rem; }
 
     .submitButton {
         padding: 1rem;
@@ -83,10 +111,12 @@
 @media (max-width: 768px) {
 
     .formGroup input,
-    .formGroup textarea {
+    .formGroup textarea,
+    .formGroup select {
         padding: 0.8rem 1rem;
         font-size: 0.9rem;
     }
+    .formGroup select { padding-right: 2.2rem; }
 
     .submitButton {
         padding: 0.9rem;
@@ -97,10 +127,12 @@
 @media (max-width: 480px) {
 
     .formGroup input,
-    .formGroup textarea {
+    .formGroup textarea,
+    .formGroup select {
         padding: 0.7rem 0.9rem;
         font-size: 0.85rem;
     }
+    .formGroup select { padding-right: 2rem; }
 
     .submitButton {
         padding: 0.8rem;
