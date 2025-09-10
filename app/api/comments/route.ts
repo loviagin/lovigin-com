@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Comment from '@/models/Comment';
+import { getPostById } from '@/app/blog/data';
+
+async function getPostTitle(postId: string): Promise<string> {
+    const post = getPostById(postId);
+    return post ? post.title : 'Unknown Post';
+}
 
 // GET - получить комментарии для поста
 export async function GET(request: NextRequest) {
@@ -81,6 +87,30 @@ export async function POST(request: NextRequest) {
                 parentCommentId,
                 { $push: { replies: newComment._id } }
             );
+        }
+
+        // Отправляем уведомление на email
+        try {
+            const notificationResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/comments/notify`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    commentId: newComment._id,
+                    postId: postId,
+                    authorName: author.name,
+                    authorEmail: author.email,
+                    content: content.trim(),
+                    postTitle: await getPostTitle(postId)
+                }),
+            });
+
+            if (!notificationResponse.ok) {
+                console.error('Failed to send notification email');
+            }
+        } catch (error) {
+            console.error('Error sending notification:', error);
         }
 
         return NextResponse.json(
