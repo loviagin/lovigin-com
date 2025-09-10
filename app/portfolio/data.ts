@@ -63,4 +63,13 @@ export const portfolioItems: PortfolioItem[] = [
         status: 'completed',
         date: '2025-04-16'
     },
+    {
+        id: 'gift-text',
+        title: 'Gift Text',
+        description: 'iOS app for creating unique greetings with AI.',
+        image: '/projects/gift-text/logo.webp',
+        tags: ['UI/UX', 'IOS', 'AI'],
+        status: 'completed',
+        date: '2025-08-27'
+    },
 ]; 

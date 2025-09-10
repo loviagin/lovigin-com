@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, Suspense } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -38,7 +38,7 @@ function useProjectContext() {
     return { project, platform, terms };
 }
 
-export default function EnrollTesterPage() {
+function EnrollTesterPageContent() {
     const { project, platform, terms } = useProjectContext();
 
     const [name, setName] = useState('');
@@ -201,6 +201,14 @@ export default function EnrollTesterPage() {
                 </section>
             </div>
         </main>
+    );
+}
+
+export default function EnrollTesterPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <EnrollTesterPageContent />
+        </Suspense>
     );
 }
 
