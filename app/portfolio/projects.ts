@@ -31,6 +31,7 @@ export interface Project {
         description: string;
     }[];
     features?: string[];
+    archived: boolean;
 }
 
 export const projects: Project[] = [
@@ -140,7 +141,8 @@ export const projects: Project[] = [
             'Notification system',
             'Admin panel',
             'Google Analytics',
-        ]
+        ],
+        archived: false,
     },
     {
         id: 'unifood',
@@ -163,6 +165,7 @@ export const projects: Project[] = [
             end: '2025-04-05',
             duration: '1 month'
         },
+        archived: false,
     },
     {
         id: 'voroninsfamilyllc',
@@ -185,6 +188,7 @@ export const projects: Project[] = [
             end: '2024-11-13',
             duration: '2 weeks'
         },
+        archived: false,
     },
     {
         id: 'annaloviagina',
@@ -207,6 +211,7 @@ export const projects: Project[] = [
             end: '2025-04-29',
             duration: '1 month'
         },
+        archived: false,
     },
     {
         id: 'busmanager',
@@ -231,5 +236,6 @@ export const projects: Project[] = [
             end: '2025-04-29',
             duration: 'In progress'
         },
+        archived: false,
     },
 ]; 

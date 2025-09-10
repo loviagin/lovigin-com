@@ -23,7 +23,7 @@ export default function Portfolio() {
                 <PortfolioContent />
             </div>
             <div className={styles.disclaimer}>
-                <p>Note: This portfolio showcases only those projects that clients have permitted to be displayed publicly.</p>
+                <p>Note: The portfolio contains only those projects whose publication has not been prohibited by clients.</p>
             </div>
         </main>
     );

@@ -12,6 +12,7 @@ export interface BlogPost {
         role: string;
         avatar: string;
     };
+    archived: boolean;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -51,7 +52,8 @@ Join us on this journey and be part of something bigger. Sign up today and explo
             name: 'John Doe',
             role: 'Senior Developer',
             avatar: '/projects/communa.webp'
-        }
+        },
+        archived: true,
     },
     {
         id: '2',
@@ -81,8 +83,13 @@ With love and appreciation,
             name: 'Ilia Loviagin',
             role: 'Senior Developer',
             avatar: '/projects/communa.webp'
-        }
+        },
+        archived: false,
     },
+
+
+
+    //All Banks
     {
         id: '3',
         title: 'Meet – All Banks',
@@ -101,8 +108,8 @@ With love and appreciation,
   <li>Clean navigation and fast access to information</li>
   <li>Minimal interface with no ads or clutter</li>
 </ul>
-
-<h3>Coming soon:</h3>
+</br>
+<h3>Coming soon</h3>
 <p>We’re actively working on the following features:</p>
 <ul>
   <li>Cryptocurrency accounts (BTC, ETH, TON and more)</li>
@@ -117,9 +124,9 @@ With love and appreciation,
 <p>The app is already available on the App Store. We’re developing it with real user needs in mind — and we welcome your feedback!</p>
 
 <hr>
-
+<br/>
 <p><strong>Try All Banks now — and take full control of your finances.</strong></p>
-<p><a href="https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251">Download on the App Store</a></p>
+<p><b><a style='color: var(--foreground);' href="https://apps.apple.com/us/app/all-banks-manage-accouns/id6744983251">Download on the App Store</a></b></p>
          `,
         date: 'April 24, 2025',
         timestamp: new Date('2025-04-24').getTime(),
@@ -129,7 +136,8 @@ With love and appreciation,
             name: 'Ilia Loviagin',
             role: 'Senior Developer',
             avatar: '/blog/all-banks.webp'
-        }
+        },
+        archived: false,
     },
     {
         id: '4',
@@ -156,7 +164,8 @@ With love and appreciation,
             name: 'Ilia Loviagin',
             role: 'Senior Developer',
             avatar: '/blog/all-banks.webp'
-        }
+        },
+        archived: false,
     }
 ];
 

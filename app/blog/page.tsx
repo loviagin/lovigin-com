@@ -24,7 +24,7 @@ export default function Blog() {
             </div>
             <div className={styles.content}>
                 <div className={styles.blogGrid}>
-                    {posts.map(post => (
+                    {posts.filter(post => !post.archived).map(post => (
                         <BlogPost
                             key={post.id}
                             {...post}
