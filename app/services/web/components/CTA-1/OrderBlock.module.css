@@ -14,7 +14,7 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
-               radial-gradient(circle at 70% 20%, rgba(255, 58, 235, 0.08) 0%, transparent 60%);
+               var(--radial-gradient);
     pointer-events: none;
 }
 
@@ -56,7 +56,8 @@
 .subtitle {
     font-size: 3.5rem;
     line-height: 1.1;
-    background: linear-gradient(135deg, #F5628E 0%, #F5628E 100%);
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
+                var(--radial-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;
@@ -195,6 +196,194 @@
     height: auto;
     max-height: 600px;
     object-fit: contain;
+}
+
+/* Animated Stats Widget */
+.statsContainer {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.statCard {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    backdrop-filter: blur(8px);
+}
+
+.statHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.statDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, #8bff9c, #22c55e);
+    box-shadow: 0 0 12px rgba(34,197,94,0.8);
+}
+
+.progressWrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.progressTrack {
+    position: relative;
+    flex: 1;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.progressBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7);
+    background-size: 200% 100%;
+    animation: shimmerProgress 2.2s infinite linear;
+}
+
+.statValue {
+    min-width: 48px;
+    text-align: right;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.statGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.statMini {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.25rem;
+}
+
+.statNumber {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.sparkline {
+    position: relative;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+}
+
+.sparklineFill,
+.sparklineFillAlt {
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            rgba(59,130,246,0.0) 0px,
+            rgba(59,130,246,0.0) 8px,
+            rgba(59,130,246,0.3) 8px,
+            rgba(59,130,246,0.3) 12px
+        ),
+        linear-gradient(135deg, rgba(59,130,246,0.4), rgba(168,85,247,0.4));
+    background-size: 40px 100%, 200% 100%;
+    animation: sparklineMove 3s linear infinite;
+}
+
+.sparklineFillAlt {
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            rgba(34,197,94,0.0) 0px,
+            rgba(34,197,94,0.0) 8px,
+            rgba(34,197,94,0.35) 8px,
+            rgba(34,197,94,0.35) 12px
+        ),
+        linear-gradient(135deg, rgba(34,197,94,0.45), rgba(99,102,241,0.4));
+}
+
+.kpis {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.kpiItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
+.kpiBadge {
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0b0b0b;
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
+}
+
+.kpiText {
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+}
+
+@keyframes shimmerProgress {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes sparklineMove {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 40px 0, 200% 0; }
+}
+
+@media (max-width: 1024px) {
+    .statsContainer {
+        max-width: 100%;
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 480px) {
+    .statsContainer {
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 1024px) {

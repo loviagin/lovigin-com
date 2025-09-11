@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './OrderBlock.module.css';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import OrderForm from '@/app/components/OrderForm/OrderForm';
 
@@ -26,6 +25,82 @@ function getTimeUntilEndOfDay() {
 export default function OrderBlock() {
     const [timeLeft, setTimeLeft] = useState(getTimeUntilEndOfDay());
     const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+
+    function AnimatedStats() {
+        const [conversion, setConversion] = useState(0);
+        const [leads, setLeads] = useState(0);
+        const [aov, setAov] = useState(0);
+
+        useEffect(() => {
+            const targetConversion = 72;
+            const targetLeads = 1500;
+            const targetAov = 2120;
+
+            const durationMs = 1200;
+            const steps = 60;
+            const interval = Math.floor(durationMs / steps);
+            let tick = 0;
+
+            const timer = setInterval(() => {
+                tick += 1;
+                const progress = Math.min(tick / steps, 1);
+                setConversion(Math.round(targetConversion * progress));
+                setLeads(Math.round(targetLeads * progress));
+                setAov(Math.round(targetAov * progress));
+                if (progress >= 1) clearInterval(timer);
+            }, interval);
+
+            return () => clearInterval(timer);
+        }, []);
+
+        return (
+            <div className={styles.statsContainer}>
+                <div className={styles.statCard}>
+                    <div className={styles.statHeader}>
+                        <span className={styles.statDot} />
+                        Conversion rate
+                    </div>
+                    <div className={styles.progressWrap}>
+                        <div className={styles.progressTrack}>
+                            <div
+                                className={styles.progressBar}
+                                style={{ width: `${conversion}%` }}
+                            />
+                        </div>
+                        <div className={styles.statValue}>{conversion}%</div>
+                    </div>
+                </div>
+
+                <div className={styles.statGrid}>
+                    <div className={styles.statMini}>
+                        <div className={styles.statLabel}>Leads / month</div>
+                        <div className={styles.statNumber}>{leads}</div>
+                        <div className={styles.sparkline}>
+                            <span className={styles.sparklineFill} />
+                        </div>
+                    </div>
+                    <div className={styles.statMini}>
+                        <div className={styles.statLabel}>Avg. order</div>
+                        <div className={styles.statNumber}>${aov}</div>
+                        <div className={styles.sparkline}>
+                            <span className={styles.sparklineFillAlt} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.kpis}>
+                    <div className={styles.kpiItem}>
+                        <span className={styles.kpiBadge}>SEO</span>
+                        <span className={styles.kpiText}>Top-10 keywords growing</span>
+                    </div>
+                    <div className={styles.kpiItem}>
+                        <span className={styles.kpiBadge}>Sessions</span>
+                        <span className={styles.kpiText}>Duration +60%</span>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -55,7 +130,7 @@ export default function OrderBlock() {
                                 </>
                             ) : (
                                 <span className={styles.expiredMessage}>
-                                    Unfortunately, the promotion has ended
+                                    {/* Unfortunately, the promotion has ended */}
                                 </span>
                             )}
                         </div>
@@ -95,14 +170,7 @@ export default function OrderBlock() {
 
                     <div className={styles.rightColumn}>
                         <div className={styles.imageContainer}>
-                            <Image
-                                src="/tulips.webp"
-                                alt="Springpromotion"
-                                width={600}
-                                height={400}
-                                className={styles.image}
-                                priority
-                            />
+                            <AnimatedStats />
                         </div>
                     </div>
                 </div>

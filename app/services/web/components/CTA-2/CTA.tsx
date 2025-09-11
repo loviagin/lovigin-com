@@ -15,7 +15,7 @@ export default function CTA() {
                 <div className={styles.content}>
                     <div className={styles.imageContainer}>
                         <Image 
-                            src="/tree.webp"
+                            src="/icons/web.webp"
                             alt="Discount picture"
                             width={300}
                             height={300}

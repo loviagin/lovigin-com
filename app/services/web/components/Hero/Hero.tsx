@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import styles from './Hero.module.css';
 import Image from 'next/image';
 import OrderForm from '@/app/components/OrderForm/OrderForm';
-import Link from 'next/link';
 
 const logos = [
   { name: 'Google', src: '/logo/google.webp' },
   { name: 'PayPal', src: '/logo/paypal.webp' },
+  { name: 'Stripe', src: '/logo/stripe.webp' },
   { name: 'Digital Ocean', src: '/logo/digitalocean.webp' },
+  { name: 'Google Cloud', src: '/logo/google-cloud.webp' },
 ];
 
 export default function Hero() {

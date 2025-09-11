@@ -14,7 +14,7 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
-               radial-gradient(circle at 70% 20%, rgba(58, 255, 97, 0.08) 0%, transparent 60%);
+               var(--radial-gradient);
     pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
 
 .imageContainer {
     width: 100%;
-    max-width: 400px;
+    max-width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
