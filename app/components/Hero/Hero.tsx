@@ -11,6 +11,7 @@ const slides = [
     subtitle: 'Innovative digital solutions for forward-thinking businesses',
     description: 'We design and develop smart, scalable digital products that accelerate growth, streamline operations, and keep you ahead of the competition.',
     buttonText: 'Discover More',
+    buttonLink: '#about',
     stats: [
       { value: '10+', label: 'Industries served' },
       { value: '300K+', label: 'End users engaged' },
@@ -23,6 +24,7 @@ const slides = [
     subtitle: 'Tailored mobile and web apps built around your needs',
     description: 'From concept to launch, we build high-performance platforms that seamlessly integrate into your workflow and evolve with your business.',
     buttonText: 'Start Your Project',
+    buttonLink: '#about',
     stats: [
       { value: '30+', label: 'Apps in production' },
       { value: '4.9★', label: 'Average client rating' },
@@ -35,6 +37,7 @@ const slides = [
     subtitle: 'Data-driven automation with real-world impact',
     description: 'We bring artificial intelligence into your operations to cut costs, enhance productivity, and turn data into actionable insights — at scale.',
     buttonText: 'Explore AI Use Cases',
+    buttonLink: '#about',
     stats: [
       { value: '10x', label: 'Efficiency boost' },
       { value: '90%', label: 'Less manual workload' },
@@ -179,7 +182,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <a href='#about' className={styles.ctaButton}>
+          <a href={slide.buttonLink} className={styles.ctaButton}>
             {slide.buttonText}
           </a>
         </motion.div>

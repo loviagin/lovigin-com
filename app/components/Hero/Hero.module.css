@@ -73,7 +73,7 @@
 
 .description {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   opacity: 0.8;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .ctaButton {
-  padding: 0.9rem 2.2rem;
+  padding: 1rem 2.2rem;
   font-size: 1rem;
   font-weight: 600;
   color: white;

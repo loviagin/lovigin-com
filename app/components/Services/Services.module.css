@@ -49,7 +49,8 @@
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
+    var(--radial-gradient);
     backdrop-filter: blur(10px);
     border-radius: var(--radius);
     padding: 2.5rem;
