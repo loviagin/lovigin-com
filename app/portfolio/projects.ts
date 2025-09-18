@@ -190,10 +190,10 @@ export const projects: Project[] = [
             '/portfolio/voroninsfamilyllc.webp',
         ],
         links: [
-            {
-                title: 'Web site',
-                url: 'https://voroninsfamilyllc.com'
-            }
+            // {
+            //     title: 'Web site',
+            //     url: 'https://voroninsfamilyllc.com'
+            // }
         ],
         timeline: {
             start: '2024-10-26',
