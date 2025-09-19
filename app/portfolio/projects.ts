@@ -351,6 +351,10 @@ export const projects: Project[] = [
             {
                 title: 'App Store',
                 url: 'https://apps.apple.com/us/app/gift-text-create-your-own/id6751366964'
+            },
+            {
+                title: 'Web site',
+                url: 'https://lovigin.com/gift-text'
             }
         ],
         // stack: [
