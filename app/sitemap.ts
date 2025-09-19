@@ -87,13 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
-      url: 'https://lovigin.com/products/communa',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-      images: ['https://lovigin.com/favicon.ico'],
-    },
-    {
       url: 'https://lovigin.com/products/all-banks',
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -123,6 +116,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://lovigin.com/cookie-policy',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/gift-text',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,

@@ -1,5 +1,5 @@
 /* Modern Design System */
-:root {
+:global(:root) {
   /* Colors */
   --primary-50: #fdf2f8;
   --primary-100: #fce7f3;
