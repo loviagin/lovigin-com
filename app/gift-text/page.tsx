@@ -110,7 +110,7 @@ export default function Home() {
           <div className={styles.featuresGrid}>
             <div className={styles.featureCard}>
               <div className={styles.featureNumber}>01</div>
-              <div className={styles.featureIcon}>🎯</div>
+              <div className={styles.featureIcon}>📱</div>
               <h3 className={styles.featureTitle}>Enter who you want to greet</h3>
               <p className={styles.featureDescription}>
                 Enter the name of the person you want to greet
