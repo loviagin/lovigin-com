@@ -235,9 +235,6 @@
 .phoneImg {
   width: 300px;
   height: auto;
-  border-radius: 40px;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  filter: drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3));
 }
 
 .messageBubbles {
@@ -255,11 +252,14 @@
   background: white;
   border-radius: 1.5rem;
   padding: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 1rem;
   animation: messageFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 .messageBubble1 {
@@ -755,6 +755,25 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .heroContent {
+    gap: 4rem;
+  }
+  
+  .phoneContainer {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .phoneImg {
+    width: 280px;
+  }
+}
+
 @media (max-width: 1024px) {
   .heroContent {
     grid-template-columns: 1fr;
@@ -775,9 +794,65 @@
     width: 250px;
   }
   
+  .messageBubble1 {
+    top: 15%;
+    right: -40px;
+  }
+  
+  .messageBubble2 {
+    bottom: 25%;
+    left: -50px;
+  }
+  
+  .messageBubble3 {
+    top: 55%;
+    right: -30px;
+  }
+  
   .featuresAdditional {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+  
+  .phoneContainer {
+    width: 350px;
+    height: 450px;
+    padding: 2rem 0;
+  }
+  
+  .phoneImg {
+    width: 220px;
+  }
+  
+  .messageBubble1 {
+    top: 15%;
+    right: -30px;
+  }
+  
+  .messageBubble2 {
+    bottom: 25%;
+    left: -40px;
+  }
+  
+  .messageBubble3 {
+    top: 55%;
+    right: -25px;
+  }
+  
+  .messageBubble1,
+  .messageBubble2,
+  .messageBubble3 {
+    padding: 1.25rem;
+  }
+  
+  .bubbleText {
+    font-size: 0.9rem;
   }
 }
 
@@ -824,11 +899,27 @@
   
   .phoneContainer {
     width: 300px;
-    height: 300px;
+    height: 400px;
+    padding: 2.5rem 0;
   }
   
   .phoneImg {
     width: 200px;
+  }
+  
+  .messageBubble1 {
+    top: 10%;
+    right: -20px;
+  }
+  
+  .messageBubble2 {
+    bottom: 20%;
+    left: -30px;
+  }
+  
+  .messageBubble3 {
+    top: 50%;
+    right: -15px;
   }
   
   .messageBubble1,
@@ -839,6 +930,47 @@
   
   .bubbleText {
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+  
+  .phoneContainer {
+    width: 280px;
+    height: 380px;
+    padding: 3rem 0;
+  }
+  
+  .phoneImg {
+    width: 180px;
+  }
+  
+  .messageBubble1 {
+    top: 5%;
+    right: -15px;
+  }
+  
+  .messageBubble2 {
+    bottom: 15%;
+    left: -25px;
+  }
+  
+  .messageBubble3 {
+    top: 45%;
+    right: -10px;
+  }
+  
+  .messageBubble1,
+  .messageBubble2,
+  .messageBubble3 {
+    padding: 0.875rem;
+  }
+  
+  .bubbleText {
+    font-size: 0.8rem;
   }
 }
 
@@ -865,11 +997,53 @@
   
   .phoneContainer {
     width: 250px;
-    height: 250px;
+    height: 350px;
+    padding: 3.5rem 0;
   }
   
   .phoneImg {
     width: 150px;
+  }
+  
+  .messageBubble1 {
+    top: 0%;
+    right: -10px;
+  }
+  
+  .messageBubble2 {
+    bottom: 10%;
+    left: -20px;
+  }
+  
+  .messageBubble3 {
+    top: 40%;
+    right: -5px;
+  }
+  
+  .messageBubble1,
+  .messageBubble2,
+  .messageBubble3 {
+    padding: 0.75rem;
+  }
+  
+  .bubbleText {
+    font-size: 0.75rem;
+  }
+  
+  .bubbleIcon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .phoneContainer {
+    width: 220px;
+    height: 320px;
+    padding: 4rem 0;
+  }
+  
+  .phoneImg {
+    width: 130px;
   }
   
   .messageBubble1,
@@ -879,10 +1053,10 @@
   }
   
   .bubbleText {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   
   .bubbleIcon {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
