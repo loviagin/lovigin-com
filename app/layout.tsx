@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { AuthProvider } from '@/components/AuthProvider';
+import Script from "next/script";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -43,6 +44,15 @@ export default function RootLayout({
           {children}
           <Footer />
         </AuthProvider>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VB02GRN07D"></Script>
+        <Script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VB02GRN07D');
+          `}
+        </Script>
       </body>
     </html>
   );
