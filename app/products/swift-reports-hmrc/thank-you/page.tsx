@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import { FaCheckCircle, FaGithub, FaEnvelope, FaClock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa';
@@ -18,7 +18,7 @@ interface PaymentStatus {
     };
 }
 
-export default function ThankYouPage() {
+function ThankYouContent() {
     const searchParams = useSearchParams();
     const sessionId = searchParams.get('session_id');
     
@@ -246,5 +246,32 @@ export default function ThankYouPage() {
                 </div>
             </div>
         </main>
+    );
+}
+
+export default function ThankYouPage() {
+    return (
+        <Suspense fallback={
+            <main className={styles.container}>
+                <div className={styles.background}>
+                    <div className={styles.gradient} />
+                </div>
+                
+                <div className={styles.content}>
+                    <div className={styles.successCard}>
+                        <div className={styles.successIcon}>
+                            <FaSpinner className={styles.spinner} />
+                        </div>
+                        
+                        <h1 className={styles.title}>Loading...</h1>
+                        <p className={styles.subtitle}>
+                            Please wait while we load your payment status.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        }>
+            <ThankYouContent />
+        </Suspense>
     );
 }
