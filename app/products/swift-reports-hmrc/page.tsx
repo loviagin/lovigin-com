@@ -1,13 +1,21 @@
-import { Metadata } from 'next';
+"use client";
+
+import { useState } from 'react';
 import styles from './page.module.css';
 import { FaRocket, FaChartBar, FaUsers, FaLock, FaFileAlt, FaEnvelope, FaSyncAlt, FaBolt, FaTint, FaCode, FaShieldAlt, FaCreditCard, FaDatabase, FaFolderOpen, FaSync, FaEnvelopeOpen, FaBook, FaCheckCircle, FaUser, FaClock, FaDollarSign, FaCheck, FaGift, FaHeadset } from 'react-icons/fa';
-
-export const metadata: Metadata = {
-    title: 'Swift Reports HMRC – RTI Submissions Made Easy',
-    description: 'Production-ready Swift server for HMRC RTI submissions with IRmark calculation and GovTalk XML handling',
-}
+import OrderFormPopup from '../../components/OrderFormPopup/OrderFormPopup';
 
 export default function HMRCReportsPage() {
+    const [isOrderPopupOpen, setIsOrderPopupOpen] = useState(false);
+
+    const handleBuyClick = () => {
+        setIsOrderPopupOpen(true);
+    };
+
+    const handleClosePopup = () => {
+        setIsOrderPopupOpen(false);
+    };
+
     return (
         <main className={styles.container}>
             {/* Hero Section */}
@@ -38,10 +46,10 @@ export default function HMRCReportsPage() {
                         </div>
                     </div>
                     <div className={styles.heroActions}>
-                        <a href="mailto:support@lovigin.com?subject=Swift Reports HMRC Purchase Request&body=Hi, I would like to purchase access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]" className={styles.buyBtn}>
+                        <button onClick={handleBuyClick} className={styles.buyBtn}>
                             <FaCreditCard />
                             Buy Access
-                        </a>
+                        </button>
                         <div className={styles.priceBox}>
                             <span className={styles.price}>$15</span>
                             <span className={styles.priceText}>one-time + 1 year updates</span>
@@ -314,10 +322,10 @@ export default function HMRCReportsPage() {
                                 Email support
                             </div>
                         </div>
-                        <a href="mailto:support@lovigin.com?subject=Swift Reports HMRC Purchase Request&body=Hi, I would like to purchase access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]" className={styles.buyBtn}>
+                        <button onClick={handleBuyClick} className={styles.buyBtn}>
                             <FaCreditCard />
                             Buy Access Now
-                        </a>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -400,16 +408,21 @@ export default function HMRCReportsPage() {
                     <div className={styles.ctaContent}>
                         <h2>Ready to Get Started?</h2>
                         <p>Join developers who are already using our HMRC integration</p>
-                        <a 
-                            href="mailto:support@lovigin.com?subject=Swift Reports HMRC Access Request&body=Hi, I would like to get access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]"
-                            className={styles.buyBtn}
-                        >
+                        <button onClick={handleBuyClick} className={styles.buyBtn}>
                             <FaRocket />
                             Request Access Now
-                        </a>
+                        </button>
                     </div>
                 </div>
             </section>
+
+            {/* Order Form Popup */}
+            <OrderFormPopup
+                isOpen={isOrderPopupOpen}
+                onClose={handleClosePopup}
+                productName="Swift Reports HMRC"
+                productPrice={15}
+            />
         </main>
     );
 }
