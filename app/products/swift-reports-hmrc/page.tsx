@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import styles from './page.module.css';
-import { FaRocket, FaChartBar, FaUsers, FaLock, FaFileAlt, FaEnvelope, FaSyncAlt, FaBolt, FaTint, FaCode, FaShieldAlt, FaCreditCard, FaDatabase } from 'react-icons/fa';
+import { FaRocket, FaChartBar, FaUsers, FaLock, FaFileAlt, FaEnvelope, FaSyncAlt, FaBolt, FaTint, FaCode, FaShieldAlt, FaCreditCard, FaDatabase, FaFolderOpen, FaSync, FaEnvelopeOpen, FaBook, FaCheckCircle, FaUser, FaClock, FaDollarSign, FaCheck, FaGift, FaHeadset } from 'react-icons/fa';
 
 export const metadata: Metadata = {
     title: 'Swift Reports HMRC – RTI Submissions Made Easy',
@@ -287,76 +287,126 @@ export default function HMRCReportsPage() {
                 </div>
             </section>
 
-            {/* Access Section */}
-            <section className={styles.access}>
-                <div className={styles.accessCard}>
-                    <div className={styles.accessHeader}>
-                        <h2>Get Access to Private Repository</h2>
-                        <div className={styles.priceDisplay}>
-                            <span className={styles.priceAmount}>$15</span>
-                            <span className={styles.pricePeriod}>one-time payment</span>
-                        </div>
+            {/* Pricing Section */}
+            <section className={styles.pricing}>
+                <div className={styles.pricingContainer}>
+                    <div className={styles.pricingHeader}>
+                        <h2>
+                            <FaDollarSign />
+                            Get Started Today
+                        </h2>
+                        <p>One-time payment, lifetime access</p>
                     </div>
-                    
-                    <div className={styles.accessContent}>
-                        <div className={styles.benefits}>
-                            <h3>What you get:</h3>
-                            <ul>
-                                <li>✅ Access to private GitHub repository</li>
-                                <li>✅ Complete source code</li>
-                                <li>✅ 1 year of updates and bug fixes</li>
-                                <li>✅ Email support</li>
-                                <li>✅ Documentation and examples</li>
-                            </ul>
-                        </div>
-
-                        <div className={styles.requirements}>
-                            <h3>Requirements:</h3>
-                            <ul>
-                                <li>📧 Valid email address</li>
-                                <li>🐙 GitHub account</li>
-                                <li>💳 Payment method (Stripe)</li>
-                            </ul>
-                        </div>
-
-                        <div className={styles.steps}>
-                            <h3>How to get access:</h3>
-                            <div className={styles.stepsList}>
-                                <div className={styles.step}>
-                                    <div className={styles.stepNumber}>1</div>
-                                    <div className={styles.stepContent}>
-                                        <h4>Make Payment</h4>
-                                        <p>Complete the $15 one-time payment via Stripe</p>
-                                    </div>
-                                </div>
-                                <div className={styles.step}>
-                                    <div className={styles.stepNumber}>2</div>
-                                    <div className={styles.stepContent}>
-                                        <h4>Provide GitHub Username</h4>
-                                        <p>Send your GitHub username to our support team</p>
-                                    </div>
-                                </div>
-                                <div className={styles.step}>
-                                    <div className={styles.stepNumber}>3</div>
-                                    <div className={styles.stepContent}>
-                                        <h4>Get Repository Access</h4>
-                                        <p>We'll add you to the private repository within 24 hours</p>
-                                    </div>
-                                </div>
+                    <div className={styles.priceCard}>
+                        <div className={styles.priceAmount}>$15</div>
+                        <div className={styles.priceDescription}>one-time payment</div>
+                        <div className={styles.priceFeatures}>
+                            <div className={styles.priceFeature}>
+                                <FaCheck />
+                                Complete source code
+                            </div>
+                            <div className={styles.priceFeature}>
+                                <FaGift />
+                                1 year of updates
+                            </div>
+                            <div className={styles.priceFeature}>
+                                <FaHeadset />
+                                Email support
                             </div>
                         </div>
+                        <a href="mailto:support@lovigin.com?subject=Swift Reports HMRC Purchase Request&body=Hi, I would like to purchase access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]" className={styles.buyBtn}>
+                            <FaCreditCard />
+                            Buy Access Now
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-                        <div className={styles.accessActions}>
-                            <a 
-                                href="mailto:support@lovigin.com?subject=Swift Reports HMRC Access Request&body=Hi, I would like to get access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]"
-                                className={styles.requestBtn}
-                            >
-                                Request Access
-                            </a>
-                            <p className={styles.accessNote}>
-                                After payment, email us your GitHub username to get repository access
-                            </p>
+            {/* Benefits Section */}
+            <section className={styles.benefitsSection}>
+                <div className={styles.benefitsContainer}>
+                    <div className={styles.benefitsHeader}>
+                        <h2>What You Get</h2>
+                        <p>Everything you need to integrate HMRC reporting</p>
+                    </div>
+                    <div className={styles.benefitsGrid}>
+                        <div className={styles.benefitCard}>
+                            <div className={styles.benefitIcon}>
+                                <FaFolderOpen />
+                            </div>
+                            <h3>Complete Source Code</h3>
+                            <p>Full Swift Vapor project with all HMRC integration code</p>
                         </div>
+                        <div className={styles.benefitCard}>
+                            <div className={styles.benefitIcon}>
+                                <FaSync />
+                            </div>
+                            <h3>1 Year Updates</h3>
+                            <p>Receive updates and bug fixes for a full year</p>
+                        </div>
+                        <div className={styles.benefitCard}>
+                            <div className={styles.benefitIcon}>
+                                <FaBook />
+                            </div>
+                            <h3>Documentation</h3>
+                            <p>Comprehensive docs and code examples</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Process Section */}
+            <section className={styles.process}>
+                <div className={styles.processContainer}>
+                    <div className={styles.processHeader}>
+                        <h2>How It Works</h2>
+                        <p>Get access in 3 simple steps</p>
+                    </div>
+                    <div className={styles.processSteps}>
+                        <div className={styles.processStep}>
+                            <div className={styles.stepNumber}>
+                                <FaCreditCard />
+                            </div>
+                            <div className={styles.stepContent}>
+                                <h3>Make Payment</h3>
+                                <p>Complete the $15 one-time payment</p>
+                            </div>
+                        </div>
+                        <div className={styles.processStep}>
+                            <div className={styles.stepNumber}>
+                                <FaUser />
+                            </div>
+                            <div className={styles.stepContent}>
+                                <h3>Provide GitHub</h3>
+                                <p>Enter your GitHub username in the order form</p>
+                            </div>
+                        </div>
+                        <div className={styles.processStep}>
+                            <div className={styles.stepNumber}>
+                                <FaCheckCircle />
+                            </div>
+                            <div className={styles.stepContent}>
+                                <h3>Get Access</h3>
+                                <p>Repository access within a few minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className={styles.cta}>
+                <div className={styles.ctaContainer}>
+                    <div className={styles.ctaContent}>
+                        <h2>Ready to Get Started?</h2>
+                        <p>Join developers who are already using our HMRC integration</p>
+                        <a 
+                            href="mailto:support@lovigin.com?subject=Swift Reports HMRC Access Request&body=Hi, I would like to get access to the Swift Reports HMRC repository. My GitHub username is: [YOUR_GITHUB_USERNAME]"
+                            className={styles.buyBtn}
+                        >
+                            <FaRocket />
+                            Request Access Now
+                        </a>
                     </div>
                 </div>
             </section>

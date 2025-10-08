@@ -117,6 +117,11 @@
     background: linear-gradient(135deg, #c0392b, #e67e22);
 }
 
+.priceCard .buyBtn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .priceBox {
     display: flex;
     flex-direction: column;
@@ -146,27 +151,30 @@
 
 /* Hero Visual */
 .heroVisual {
-    display: flex;
+    display: flex !important;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
 }
 
 .codePreview {
-    background: #1e293b;
+    background: #1e293b !important;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 600px;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .codeHeader {
     background: #334155;
     padding: 1rem;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 1rem;
+    visibility: visible !important;
 }
 
 .codeDots {
@@ -201,6 +209,8 @@
 .codeContent {
     padding: 1.5rem;
     overflow-x: auto;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .codeContent pre {
@@ -209,6 +219,8 @@
     font-size: 0.875rem;
     line-height: 1.6;
     color: #e2e8f0;
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* Features Section */
@@ -427,50 +439,321 @@
     font-size: 0.875rem;
 }
 
-/* Access Section */
-.access {
-    background: #1e293b;
-    padding: 6rem 2rem;
-    color: white;
+/* Pricing Section */
+.pricing {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.accessCard {
-    max-width: 800px;
+.pricingContainer {
+    max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 3rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-.accessHeader {
-    text-align: center;
+.pricingHeader h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pricingHeader p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 3rem;
 }
 
-.accessHeader h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0 0 1.5rem 0;
+.priceCard {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
-.priceDisplay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+.priceCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4ade80, #22d3ee, #a855f7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.priceCard:hover::before {
+    opacity: 1;
+}
+
+.priceCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .priceAmount {
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #4ade80;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #4ade80, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.pricePeriod {
-    color: #94a3b8;
+.priceDescription {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.priceFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.priceFeature {
     font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.priceFeature:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(8px);
+}
+
+/* Benefits Section */
+.benefitsSection {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.benefitsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.benefitsHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.benefitsHeader h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.benefitsHeader p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.benefitCard {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.benefitCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefitIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.benefitCard h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.benefitCard p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Process Section */
+.process {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.processContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.processHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.processHeader h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.processHeader p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.processSteps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.processStep {
+    text-align: center;
+    position: relative;
+}
+
+.processStep::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    right: -1rem;
+    width: 2rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.processStep:last-child::after {
+    display: none;
+}
+
+.stepNumber {
+    background: #10b981;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.stepContent h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+}
+
+.stepContent p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* CTA Section */
+.cta {
+    padding: 6rem 0;
+    background: #f8fafc;
+}
+
+.ctaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.ctaContent h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.ctaContent p {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: #10b981;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background: #059669;
+    transform: translateY(-2px);
 }
 
 .accessContent {
@@ -480,45 +763,13 @@
     margin-bottom: 3rem;
 }
 
-.benefits,
-.requirements {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.benefits h3,
-.requirements h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1.5rem 0;
-    color: #4ade80;
-}
-
-.benefits ul,
-.requirements ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.benefits li,
-.requirements li {
-    padding: 0.75rem 0;
-    color: #e2e8f0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-}
 
 .steps {
     grid-column: 1 / -1;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #e2e8f0;
 }
 
 .steps h3 {
@@ -530,7 +781,7 @@
 
 .stepsList {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .step {
@@ -556,14 +807,14 @@
 
 .stepContent h4 {
     margin: 0 0 0.5rem 0;
-    color: white;
+    color: #1e293b;
     font-size: 1rem;
     font-weight: 600;
 }
 
 .stepContent p {
     margin: 0;
-    color: #94a3b8;
+    color: #64748b;
     font-size: 0.875rem;
     line-height: 1.5;
 }
@@ -592,99 +843,288 @@
 }
 
 .accessNote {
-    color: #94a3b8;
+    color: #64748b;
     font-size: 0.875rem;
     margin: 0;
     line-height: 1.5;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+
+/* Планшетная адаптация для Hero Section */
+@media (min-width: 768px) and (max-width: 991px) {
     .hero {
         grid-template-columns: 1fr;
         gap: 3rem;
-        padding: 3rem 2rem;
+        padding: 6rem 2rem;
+        text-align: center;
     }
-    
+
+    .heroContent {
+        order: 1;
+    }
+
+    .heroVisual {
+        order: 2;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
     .title {
         font-size: 3rem;
+        margin-bottom: 2rem;
     }
-    
+
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .stats {
         justify-content: center;
-    }
-    
-    .accessContent {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .stepsList {
-        flex-direction: column;
         gap: 1.5rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
     }
-    
-    .step {
-        flex-direction: column;
+
+    .stat {
+        min-width: 110px;
+    }
+
+    .statNumber {
+        font-size: 1.5rem;
+    }
+
+    .statLabel {
+        font-size: 0.8rem;
+    }
+
+    .heroActions {
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .buyBtn {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .priceBox {
+        align-items: center;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .priceText {
+        font-size: 0.8rem;
         text-align: center;
+    }
+
+    .codePreview {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .codeContent {
+        padding: 1.2rem;
+    }
+
+    .codePreview {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .codeContent {
+        padding: 1.2rem;
+    }
+
+    .codeContent pre {
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 }
 
+/* ДЕСКТОПНАЯ АДАПТАЦИЯ ДЛЯ ПЕРВОГО БЛОКА */
+@media (min-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 4rem !important;
+        padding: 6rem 2rem !important;
+        text-align: left !important;
+    }
+
+    .heroContent {
+        order: 1 !important;
+    }
+
+    .heroVisual {
+        order: 2 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .codePreview {
+        max-width: 600px !important;
+        margin: 0 !important;
+    }
+}
+
+/* Мобильная адаптация для Hero Section */
 @media (max-width: 768px) {
     .container {
         padding: 0;
     }
-    
+
     .hero {
-        padding: 2rem 1rem;
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        padding: 4rem 1rem !important;
+        min-height: auto !important;
+        text-align: center !important;
     }
-    
+
+    .heroContent {
+        order: 1 !important;
+    }
+
+    .heroVisual {
+        display: none !important;
+    }
+
     .title {
-        font-size: 2.5rem;
+        font-size: 2.8rem !important;
+        margin-bottom: 2rem !important;
+        line-height: 1.2 !important;
     }
-    
+
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem !important;
+        margin-bottom: 2.5rem !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
     }
-    
+
     .stats {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        margin-bottom: 2.5rem !important;
+        align-items: center !important;
     }
-    
+
+    .stat {
+        min-width: auto !important;
+        text-align: center !important;
+    }
+
+    .statNumber {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .statLabel {
+        font-size: 0.9rem !important;
+    }
+
     .heroActions {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
     }
-    
+
+    .buyBtn {
+        padding: 1.2rem 2rem !important;
+        font-size: 1.1rem !important;
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+
+    .priceBox {
+        align-items: center !important;
+    }
+
+    .price {
+        font-size: 1.6rem !important;
+    }
+
+    .priceText {
+        font-size: 0.9rem !important;
+        text-align: center !important;
+    }
+
+    .pricingHeader h2 {
+        font-size: 2rem !important;
+    }
+
+    .priceFeatures {
+        gap: 0.5rem !important;
+    }
+
+    .priceCard {
+        padding: 1.5rem !important;
+    }
+
+    .buyBtn {
+        font-size: 0.9rem !important;
+    }
+
     .features,
     .apiDocs,
     .techStack,
     .access {
         padding: 4rem 1rem;
     }
-    
+
     .sectionHeader h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    
+
+    .benefitsHeader h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .processHeader h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .processSteps {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .processStep {
+        text-align: center !important;
+    }
+
+    .stepNumber {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        font-size: 1rem !important;
+    }
+
     .featuresGrid {
         grid-template-columns: 1fr;
     }
-    
+
     .techItems {
         grid-template-columns: 1fr;
     }
-    
+
     .accessCard {
         padding: 2rem;
     }
-    
+
     .accessHeader h2 {
         font-size: 2rem;
     }
-    
+
     .priceAmount {
         font-size: 3rem;
     }
