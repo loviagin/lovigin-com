@@ -21,7 +21,7 @@ const products: Product[] = [
         id: 'swift-reports-hmrc',
         title: 'Swift Reports HMRC – RTI Submissions Made Easy',
         description: 'Production-ready Swift server for HMRC RTI submissions with IRmark calculation',
-        image: '/projects/swift-reports-hmrc/screenshot.webp',
+        image: '/projects/swift-reports-sender.webp',
         categories: ['Backend', 'Swift'],
         features: ['EPS & FPS Submissions', 'IRmark Calculation', 'XML Canonicalization', 'GovTalk Integration', 'Polling Support'],
         color: '#007AFF',
