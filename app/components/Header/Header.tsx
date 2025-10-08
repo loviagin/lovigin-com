@@ -88,9 +88,9 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            {/* <Link href="/products" className={`${styles.navLink} ${isActive('/products') ? styles.active : ''}`} onClick={handleLinkClick}>
+            <Link href="/products" className={`${styles.navLink} ${isActive('/products') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Products</span>
-            </Link> */}
+            </Link> 
             <Link href="/portfolio" className={`${styles.navLink} ${isActive('/portfolio') ? styles.active : ''}`} onClick={handleLinkClick}>
               <span>Portfolio</span>
             </Link>

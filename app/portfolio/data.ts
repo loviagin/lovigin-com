@@ -72,4 +72,13 @@ export const portfolioItems: PortfolioItem[] = [
         status: 'completed',
         date: '2025-08-27'
     },
+    {
+        id: 'learnsy',
+        title: 'Learnsy',
+        description: 'Learn new skills and share your knowledge.',
+        image: '/projects/learnsy/logo.webp',
+        tags: ['UI/UX', 'IOS', 'AI'],
+        status: 'in-progress',
+        date: '2025-09-01'
+    },
 ]; 

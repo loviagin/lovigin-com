@@ -393,4 +393,64 @@ export const projects: Project[] = [
         // ],
         archived: false,
     },
+
+
+
+
+
+
+    {
+        id: 'learnsy',
+        title: 'Learnsy',
+        description: 'Learn new skills and share your knowledge',
+        shortDescription: 'Learn new skills and share your knowledge',
+        status: 'in-progress',
+        date: '2025-09-01',
+        tags: ['UI/UX', 'IOS', 'AI'],
+        screenshots: [
+            '/projects/learnsy/logo.webp',
+            '/projects/learnsy/screen1.webp',
+        ],
+        links: [
+            {
+                title: 'App Store',
+                url: 'https://apps.apple.com/us/app/learnsy-grow-new-skills/id6502553074'
+            },
+        ],
+        // stack: [
+        //     {
+        //         name: 'Swift + SwiftUI',
+        //         description: 'Swift programming language and SwiftUI framework'
+        //     },
+        //     {
+        //         name: 'Kotlin + Jetpack Compose',
+        //         description: 'Kotlin programming language and Jetpack Compose framework'
+        //     },
+        //     {
+        //         name: 'Swift Data + Room',
+        //         description: 'Swift Data and Room database'
+        //     },
+        // ],
+        client: {
+            name: 'LOVIGIN LTD',
+            logo: '/favicon.webp',
+            link: 'https://lovigin.com'
+        },
+        timeline: {
+            start: '2025-09-01',
+            end: '2025-10-30',
+            duration: 'In progress'
+        },
+        // features: [
+        //     'Multiple banks & accounts – add all your accounts and group them by bank',
+        //     'Multi-currency support – manage balances in USD, EUR, RUB and other currencies',
+        //     'Total balance conversion – instantly see your overall balance in any currency with live exchange rates',
+        //     'Simple shopping list – keep track of your purchases and planned expenses',
+        //     'Clean interface – minimal design with fast navigation, no ads, and no distractions',
+        //     'SOON: Advanced analytics and spending statistics',
+        //     'SOON: Debt and installment tracking with payment reminders',
+        //     'SOON: Support for cryptocurrencies',
+        // ],
+        archived: false,
+    },
 ]; 

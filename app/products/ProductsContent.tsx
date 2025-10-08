@@ -18,14 +18,34 @@ interface Product {
 
 const products: Product[] = [
     {
+        id: 'swift-reports-hmrc',
+        title: 'Swift Reports HMRC – RTI Submissions Made Easy',
+        description: 'Production-ready Swift server for HMRC RTI submissions with IRmark calculation',
+        image: '/projects/swift-reports-hmrc/screenshot.webp',
+        categories: ['Backend', 'Swift'],
+        features: ['EPS & FPS Submissions', 'IRmark Calculation', 'XML Canonicalization', 'GovTalk Integration', 'Polling Support'],
+        color: '#007AFF',
+        archived: false,
+    },
+    {
+        id: 'learnsy',
+        title: 'Learnsy – Grow your skills',
+        description: 'Learn new skills and share your knowledge',
+        image: '/projects/learnsy/screenshot.webp',
+        categories: ['iOS'],
+        features: ['Search for skills', 'Share your knowledge', 'Learn new skills', 'Chat with other learners'],
+        color: '#FF6B0B',
+        archived: false,
+    },
+    {
         id: 'gohood',
-        title: 'Go Hood – Smart housing search with a selection of neighborhoods',
-        description: 'Hotels, apartments, houses, cottages, hostels, apartments and other housing options in Russia and abroad with a selection of areas',
+        title: 'Go Hood – Smart cities and countries search',
+        description: 'Smart search for cities and countries with detailed descriptions of transportation, culture, and other points of interest, as well as districts',
         image: '/projects/gohood/screenshot.webp',
         categories: ['Web'],
-        features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
+        features: ['AI-powered search', 'Detailed descriptions of transportation, culture, and other points of interest', 'Districts search'],
         color: '#FF6B6B',
-        archived: true,
+        archived: false,
     },
     {
         id: 'all-banks',
@@ -35,7 +55,7 @@ const products: Product[] = [
         categories: ['iOS'],
         features: ['Manage multiple banks and accounts', 'Support for all major currencies', 'Total balance conversion using live exchange rates', 'Clean navigation and fast access to information', 'Minimal interface with no ads or clutter'],
         color: '#FF6B6B',
-        archived: true,
+        archived: false,
     },
     {
         id: 'communa',
@@ -109,7 +129,15 @@ export default function ProductsContent() {
                                 alt={product.title}
                                 width={400}
                                 height={400}
-                                style={{ objectFit: 'cover' }}
+                                quality={95}
+                                priority={false}
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                                style={{ 
+                                    objectFit: 'cover',
+                                    width: '100%',
+                                    height: '100%'
+                                }}
                             />
                             <div className={styles.imageOverlay} />
                         </div>

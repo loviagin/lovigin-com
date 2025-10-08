@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
-      url: 'https://lovigin.com/blog/1',
+      url: 'https://lovigin.com/blog/3',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
@@ -39,6 +39,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://lovigin.com/blog/2',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+
+    {
+      url: 'https://lovigin.com/blog/4',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+
+    {
+      url: 'https://lovigin.com/blog/5',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
@@ -80,6 +96,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ['https://lovigin.com/favicon.ico'],
     },
     {
+      url: 'https://lovigin.com/portfolio/busmanager',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/portfolio/learnsy',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/portfolio/all-banks',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/portfolio/gift-text',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
       url: 'https://lovigin.com/products',
       lastModified: new Date(),
       changeFrequency: 'hourly',
@@ -95,6 +139,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://lovigin.com/products/gohood',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+      images: ['https://lovigin.com/favicon.ico'],
+    },
+    {
+      url: 'https://lovigin.com/products/learnsy',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
