@@ -92,7 +92,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* Features Section */}
-            <section className={styles.features}>
+            <section className={styles.features} id="features">
                 <div className={styles.sectionHeader}>
                     <h2>Key Features</h2>
                     <p>Everything you need for HMRC RTI submissions</p>
@@ -144,7 +144,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* API Documentation */}
-            <section className={styles.apiDocs}>
+            <section className={styles.apiDocs} id="api-docs">
                 <div className={styles.sectionHeader}>
                     <h2>API Documentation</h2>
                     <p>Simple REST API for HMRC submissions</p>
@@ -232,7 +232,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* Tech Stack */}
-            <section className={styles.techStack}>
+            <section className={styles.techStack} id="tech-stack">
                 <div className={styles.sectionHeader}>
                     <h2>Technology Stack</h2>
                     <p>Built with modern Swift technologies</p>
@@ -296,7 +296,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* Pricing Section */}
-            <section className={styles.pricing}>
+            <section className={styles.pricing} id='get-started'>
                 <div className={styles.pricingContainer}>
                     <div className={styles.pricingHeader}>
                         <h2>
