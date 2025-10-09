@@ -331,7 +331,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* Benefits Section */}
-            <section className={styles.benefitsSection}>
+            <section className={styles.benefitsSection} id="benefits">
                 <div className={styles.benefitsContainer}>
                     <div className={styles.benefitsHeader}>
                         <h2>What You Get</h2>
@@ -364,7 +364,7 @@ export default function HMRCReportsPage() {
             </section>
 
             {/* Process Section */}
-            <section className={styles.process}>
+            <section className={styles.process} id="how-it-works">
                 <div className={styles.processContainer}>
                     <div className={styles.processHeader}>
                         <h2>How It Works</h2>
