@@ -90,7 +90,7 @@ export default function ContactsPage() {
                         <p><strong>Company name:</strong> LOVIGIN LTD</p>
                         <p><strong>Company number:</strong> 16203160</p>
                         <p><strong>Registered office address:</strong> 86-90 Paul Street London EC2A 4NE, United Kingdom</p>
-                        {/* <p><strong>Регистрационный номер ICO:</strong> ZA123456</p> */}
+                        <p><strong>ICO Registration:</strong> <a href="https://ico.org.uk/ESDWebPages/Entry/ZC026591" target="_blank" rel="noopener noreferrer">ZC026591</a></p>
                     </div>
                 </div>
 
