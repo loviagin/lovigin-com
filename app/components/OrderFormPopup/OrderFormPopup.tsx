@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './OrderFormPopup.module.css';
-import { FaTimes, FaGithub, FaUser, FaEnvelope, FaPhone, FaWhatsapp, FaTelegram, FaCog } from 'react-icons/fa';
+import { FaTimes, FaGithub, FaUser, FaEnvelope, FaPhone, FaWhatsapp, FaTelegram, FaCog, FaCreditCard, FaUniversity, FaFileInvoice, FaGlobe } from 'react-icons/fa';
 
 interface OrderFormPopupProps {
   isOpen: boolean;
@@ -18,42 +18,87 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
     contactMethod: 'email',
     contact: '',
     githubUsername: '',
+    paymentMethod: 'card',
+    companyName: '',
+    vatNumber: '',
+    country: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    setSuccessMessage('');
 
     try {
-      // Create checkout session
-      const response = await fetch('/api/stripe/create-checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          productType: 'swift-reports-hmrc',
-        }),
-      });
+      if (formData.paymentMethod === 'card') {
+        // Create Stripe checkout session
+        const response = await fetch('/api/stripe/create-checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            productType: 'swift-reports-hmrc',
+          }),
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (result.error) {
-        throw new Error(result.error);
-      }
+        if (result.error) {
+          throw new Error(result.error);
+        }
 
-      if (result.url) {
-        // Redirect to Stripe Checkout URL
-        window.location.href = result.url;
+        if (result.url) {
+          // Redirect to Stripe Checkout URL
+          window.location.href = result.url;
+        } else {
+          throw new Error('No checkout URL received');
+        }
       } else {
-        throw new Error('No checkout URL received');
+        // Handle bank transfer or invoice
+        const response = await fetch('/api/orders/create-alternative', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            productType: 'swift-reports-hmrc',
+            productName,
+            productPrice,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.error) {
+          throw new Error(result.error);
+        }
+
+        setSuccessMessage(result.message || 'Order request submitted successfully! You will receive payment instructions via email.');
+        // Reset form after 3 seconds and close popup
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            contactMethod: 'email',
+            contact: '',
+            githubUsername: '',
+            paymentMethod: 'card',
+            companyName: '',
+            vatNumber: '',
+            country: '',
+          });
+          setSuccessMessage('');
+          onClose();
+        }, 3000);
       }
     } catch (err) {
-      console.error('Error creating checkout session:', err);
+      console.error('Error processing order:', err);
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setIsLoading(false);
@@ -89,6 +134,63 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
     }
   };
 
+  const getPaymentMethodIcon = (method: string) => {
+    switch (method) {
+      case 'card': return <FaCreditCard />;
+      case 'bank_transfer': return <FaUniversity />;
+      case 'invoice': return <FaFileInvoice />;
+      default: return <FaCreditCard />;
+    }
+  };
+
+  const isCompanyPayment = formData.paymentMethod === 'bank_transfer' || formData.paymentMethod === 'invoice';
+
+  // List of countries with flags
+  const countries = [
+    { code: 'US', name: 'United States', flag: '🇺🇸' },
+    { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
+    { code: 'CA', name: 'Canada', flag: '🇨🇦' },
+    { code: 'AU', name: 'Australia', flag: '🇦🇺' },
+    { code: 'DE', name: 'Germany', flag: '🇩🇪' },
+    { code: 'FR', name: 'France', flag: '🇫🇷' },
+    { code: 'IT', name: 'Italy', flag: '🇮🇹' },
+    { code: 'ES', name: 'Spain', flag: '🇪🇸' },
+    { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
+    { code: 'BE', name: 'Belgium', flag: '🇧🇪' },
+    { code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
+    { code: 'AT', name: 'Austria', flag: '🇦🇹' },
+    { code: 'SE', name: 'Sweden', flag: '🇸🇪' },
+    { code: 'NO', name: 'Norway', flag: '🇳🇴' },
+    { code: 'DK', name: 'Denmark', flag: '🇩🇰' },
+    { code: 'FI', name: 'Finland', flag: '🇫🇮' },
+    { code: 'IE', name: 'Ireland', flag: '🇮🇪' },
+    { code: 'PL', name: 'Poland', flag: '🇵🇱' },
+    { code: 'CZ', name: 'Czech Republic', flag: '🇨🇿' },
+    { code: 'PT', name: 'Portugal', flag: '🇵🇹' },
+    { code: 'GR', name: 'Greece', flag: '🇬🇷' },
+    { code: 'RU', name: 'Russia', flag: '🇷🇺' },
+    { code: 'JP', name: 'Japan', flag: '🇯🇵' },
+    { code: 'CN', name: 'China', flag: '🇨🇳' },
+    { code: 'IN', name: 'India', flag: '🇮🇳' },
+    { code: 'BR', name: 'Brazil', flag: '🇧🇷' },
+    { code: 'MX', name: 'Mexico', flag: '🇲🇽' },
+    { code: 'AR', name: 'Argentina', flag: '🇦🇷' },
+    { code: 'ZA', name: 'South Africa', flag: '🇿🇦' },
+    { code: 'NZ', name: 'New Zealand', flag: '🇳🇿' },
+    { code: 'SG', name: 'Singapore', flag: '🇸🇬' },
+    { code: 'HK', name: 'Hong Kong', flag: '🇭🇰' },
+    { code: 'AE', name: 'United Arab Emirates', flag: '🇦🇪' },
+    { code: 'IL', name: 'Israel', flag: '🇮🇱' },
+    { code: 'TR', name: 'Turkey', flag: '🇹🇷' },
+    { code: 'SA', name: 'Saudi Arabia', flag: '🇸🇦' },
+    { code: 'KR', name: 'South Korea', flag: '🇰🇷' },
+    { code: 'TH', name: 'Thailand', flag: '🇹🇭' },
+    { code: 'MY', name: 'Malaysia', flag: '🇲🇾' },
+    { code: 'PH', name: 'Philippines', flag: '🇵🇭' },
+    { code: 'ID', name: 'Indonesia', flag: '🇮🇩' },
+    { code: 'VN', name: 'Vietnam', flag: '🇻🇳' },
+  ].sort((a, b) => a.name.localeCompare(b.name));
+
   if (!isOpen) return null;
 
   return (
@@ -105,6 +207,24 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
+            <label htmlFor="paymentMethod">
+              {getPaymentMethodIcon(formData.paymentMethod)}
+              Payment Method
+            </label>
+            <select
+              id="paymentMethod"
+              name="paymentMethod"
+              value={formData.paymentMethod}
+              onChange={handleChange}
+              disabled={isLoading}
+            >
+              <option value="card">Credit/Debit Card (Stripe)</option>
+              <option value="bank_transfer">Bank Transfer</option>
+              <option value="invoice">Invoice</option>
+            </select>
+          </div>
+
+          <div className={styles.formGroup}>
             <label htmlFor="name">
               <FaUser />
               Full Name
@@ -120,6 +240,68 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
               disabled={isLoading}
             />
           </div>
+
+          {isCompanyPayment && (
+            <>
+              <div className={styles.formGroup}>
+                <label htmlFor="companyName">
+                  <FaUniversity />
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  placeholder="Enter company name"
+                  required={isCompanyPayment}
+                  disabled={isLoading}
+                />
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="vatNumber">
+                    <FaFileInvoice />
+                    VAT Number (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    id="vatNumber"
+                    name="vatNumber"
+                    value={formData.vatNumber}
+                    onChange={handleChange}
+                    placeholder="GB123456789"
+                    disabled={isLoading}
+                  />
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="country">
+                    <FaGlobe />
+                    Country
+                  </label>
+                  <select
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    required={isCompanyPayment}
+                    disabled={isLoading}
+                    className={styles.countrySelect}
+                  >
+                    <option value="">Select a country</option>
+                    {countries.map((country) => (
+                      <option key={country.code} value={country.name}>
+                        {country.flag} {country.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
@@ -187,18 +369,40 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
             </div>
           )}
 
+          {successMessage && (
+            <div className={styles.success}>
+              {successMessage}
+            </div>
+          )}
+
           <button 
             type="submit" 
             className={styles.submitButton}
             disabled={isLoading}
           >
-            {isLoading ? 'Processing...' : `Pay $${productPrice}`}
+            {isLoading ? 'Processing...' : formData.paymentMethod === 'card' ? `Pay $${productPrice}` : `Request ${formData.paymentMethod === 'bank_transfer' ? 'Bank Transfer' : 'Invoice'}`}
           </button>
         </form>
 
         <div className={styles.footer}>
-          <p>Secure payment powered by Stripe</p>
-          <p>You'll receive repository access within a few minutes</p>
+          {formData.paymentMethod === 'card' && (
+            <>
+              <p>Secure payment powered by Stripe</p>
+              <p>You'll receive repository access within a few minutes</p>
+            </>
+          )}
+          {formData.paymentMethod === 'bank_transfer' && (
+            <>
+              <p>Bank transfer instructions will be sent via email</p>
+              <p>Repository access will be granted after payment confirmation</p>
+            </>
+          )}
+          {formData.paymentMethod === 'invoice' && (
+            <>
+              <p>Invoice will be sent via email</p>
+              <p>Repository access will be granted after payment confirmation</p>
+            </>
+          )}
         </div>
       </div>
     </div>

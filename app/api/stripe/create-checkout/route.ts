@@ -7,7 +7,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(request: Request) {
   try {
-    const { name, contactMethod, contact, githubUsername, productType } = await request.json();
+    const { 
+      name, 
+      contactMethod, 
+      contact, 
+      githubUsername, 
+      productType,
+      companyName,
+      vatNumber,
+      country,
+    } = await request.json();
 
     // Validate required fields
     if (!name || !contact || !githubUsername) {
@@ -16,6 +25,20 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    // Build metadata object
+    const metadata: Record<string, string> = {
+      customerName: name,
+      contactMethod: contactMethod,
+      contact: contact,
+      githubUsername: githubUsername,
+      productType: productType || 'swift-reports-hmrc',
+    };
+
+    // Add optional company fields if provided
+    if (companyName) metadata.companyName = companyName;
+    if (vatNumber) metadata.vatNumber = vatNumber;
+    if (country) metadata.country = country;
 
     // Create checkout session
     const session = await stripe.checkout.sessions.create({
@@ -36,13 +59,7 @@ export async function POST(request: Request) {
       mode: 'payment',
       success_url: `${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/products/swift-reports-hmrc/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/products/swift-reports-hmrc`,
-      metadata: {
-        customerName: name,
-        contactMethod: contactMethod,
-        contact: contact,
-        githubUsername: githubUsername,
-        productType: productType || 'swift-reports-hmrc',
-      },
+      metadata,
     });
 
     return NextResponse.json({ url: session.url });
