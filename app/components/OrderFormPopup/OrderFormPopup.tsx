@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './OrderFormPopup.module.css';
-import { FaTimes, FaGithub, FaUser, FaEnvelope, FaPhone, FaWhatsapp, FaTelegram, FaCog, FaCreditCard, FaUniversity, FaFileInvoice, FaGlobe } from 'react-icons/fa';
+import { FaTimes, FaGithub, FaUser, FaEnvelope, FaPhone, FaWhatsapp, FaTelegram, FaCog, FaCreditCard, FaUniversity, FaFileInvoice, FaGlobe, FaDollarSign, FaMapMarkerAlt } from 'react-icons/fa';
 
 interface OrderFormPopupProps {
   isOpen: boolean;
@@ -21,7 +21,13 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
     paymentMethod: 'card',
     companyName: '',
     vatNumber: '',
-    country: '',
+    country: 'United Kingdom',
+    currency: 'GBP',
+    addressLine1: '',
+    addressLine2: '',
+    city: '',
+    stateProvince: '',
+    postalCode: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -91,7 +97,13 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
             paymentMethod: 'card',
             companyName: '',
             vatNumber: '',
-            country: '',
+            country: 'United Kingdom',
+            currency: 'GBP',
+            addressLine1: '',
+            addressLine2: '',
+            city: '',
+            stateProvince: '',
+            postalCode: '',
           });
           setSuccessMessage('');
           onClose();
@@ -144,6 +156,7 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
   };
 
   const isCompanyPayment = formData.paymentMethod === 'bank_transfer' || formData.paymentMethod === 'invoice';
+  const isInvoice = formData.paymentMethod === 'invoice';
 
   // List of countries with flags
   const countries = [
@@ -300,6 +313,115 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
                   </select>
                 </div>
               </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="currency">
+                  <FaDollarSign />
+                  Currency
+                </label>
+                <select
+                  id="currency"
+                  name="currency"
+                  value={formData.currency}
+                  onChange={handleChange}
+                  required={isCompanyPayment}
+                  disabled={isLoading}
+                >
+                  <option value="USD">USD ($)</option>
+                  <option value="GBP">GBP (£)</option>
+                  <option value="EUR">EUR (€)</option>
+                </select>
+              </div>
+
+              {isInvoice && (
+                <>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="addressLine1">
+                      <FaMapMarkerAlt />
+                      Address Line 1
+                    </label>
+                    <input
+                      type="text"
+                      id="addressLine1"
+                      name="addressLine1"
+                      value={formData.addressLine1}
+                      onChange={handleChange}
+                      placeholder="Street address, P.O. box"
+                      required={isInvoice}
+                      disabled={isLoading}
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="addressLine2">
+                      <FaMapMarkerAlt />
+                      Address Line 2 (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      id="addressLine2"
+                      name="addressLine2"
+                      value={formData.addressLine2}
+                      onChange={handleChange}
+                      placeholder="Apartment, suite, unit, building, floor, etc."
+                      disabled={isLoading}
+                    />
+                  </div>
+
+                  <div className={styles.formRow}>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="city">
+                        <FaMapMarkerAlt />
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange}
+                        placeholder="City"
+                        required={isInvoice}
+                        disabled={isLoading}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label htmlFor="stateProvince">
+                        <FaMapMarkerAlt />
+                        State/Province
+                      </label>
+                      <input
+                        type="text"
+                        id="stateProvince"
+                        name="stateProvince"
+                        value={formData.stateProvince}
+                        onChange={handleChange}
+                        placeholder="State or Province"
+                        required={isInvoice}
+                        disabled={isLoading}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="postalCode">
+                      <FaMapMarkerAlt />
+                      Postal/ZIP Code
+                    </label>
+                    <input
+                      type="text"
+                      id="postalCode"
+                      name="postalCode"
+                      value={formData.postalCode}
+                      onChange={handleChange}
+                      placeholder="Postal or ZIP code"
+                      required={isInvoice}
+                      disabled={isLoading}
+                    />
+                  </div>
+                </>
+              )}
             </>
           )}
 
