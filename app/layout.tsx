@@ -26,9 +26,6 @@ export const metadata: Metadata = {
     description: "Lovigin LTD is a software development company that provides custom software solutions to businesses of all sizes.",
     images: "/favicon.ico",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
@@ -44,13 +41,16 @@ export default function RootLayout({
           {children}
           <Footer />
         </AuthProvider>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VB02GRN07D"></Script>
-        <Script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VB02GRN07D"
+          strategy="afterInteractive"
+        ></Script>
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
             gtag('js', new Date());
-            gtag('config', 'G-VB02GRN07D');
+            gtag('config', 'G-VB02GRN07D', { send_page_view: true });
             gtag('config', 'AW-17637165205');
           `}
         </Script>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import { FaCheckCircle, FaGithub, FaEnvelope, FaClock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa';
@@ -21,10 +21,29 @@ interface PaymentStatus {
 function ThankYouContent() {
     const searchParams = useSearchParams();
     const sessionId = searchParams.get('session_id');
-    
+
     const [paymentStatus, setPaymentStatus] = useState<PaymentStatus | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const sentRef = useRef(false);
+
+    const sendGoogleAdsConversion = (value: number, currency: string, txId: string) => {
+        if (typeof window === 'undefined' || !(window as any).gtag) return;
+
+        const key = `ga_ads_conv_${txId}`;
+        if (sentRef.current || sessionStorage.getItem(key)) return;
+
+        (window as any).gtag('event', 'conversion', {
+            send_to: 'AW-17637165205/u3sOCMWfkrcbEJWRh9pB', // твой label
+            value,
+            currency,
+            transaction_id: txId,
+        });
+
+        sentRef.current = true;
+        sessionStorage.setItem(key, '1');
+    };
 
     useEffect(() => {
         const checkPaymentStatus = async () => {
@@ -47,9 +66,13 @@ function ThankYouContent() {
 
                 if (response.ok) {
                     setPaymentStatus(data);
-                    
+
                     // If payment is successful, send emails and add to GitHub
                     if (data.status === 'paid') {
+                        const value = Number((data.amountTotal ?? 0) / 100); // major units
+                        const currency = (data.currency || 'GBP').toUpperCase();
+                        sendGoogleAdsConversion(value, currency, sessionId);
+
                         await handleSuccessfulPayment(data);
                     }
                 } else {
@@ -68,6 +91,7 @@ function ThankYouContent() {
     const handleSuccessfulPayment = async (paymentData: PaymentStatus) => {
         try {
             // Send emails and add to GitHub
+
             const response = await fetch('/api/stripe/process-payment', {
                 method: 'POST',
                 headers: {
@@ -93,13 +117,13 @@ function ThankYouContent() {
                 <div className={styles.background}>
                     <div className={styles.gradient} />
                 </div>
-                
+
                 <div className={styles.content}>
                     <div className={styles.successCard}>
                         <div className={styles.successIcon}>
                             <FaSpinner className={styles.spinner} />
                         </div>
-                        
+
                         <h1 className={styles.title}>Checking Payment Status...</h1>
                         <p className={styles.subtitle}>
                             Please wait while we verify your payment.
@@ -117,18 +141,18 @@ function ThankYouContent() {
                 <div className={styles.background}>
                     <div className={styles.gradient} />
                 </div>
-                
+
                 <div className={styles.content}>
                     <div className={styles.successCard}>
                         <div className={styles.errorIcon}>
                             <FaExclamationTriangle />
                         </div>
-                        
+
                         <h1 className={styles.title}>Payment Status Error</h1>
                         <p className={styles.subtitle}>
                             {error}
                         </p>
-                        
+
                         <div className={styles.actions}>
                             <a href="/products/swift-reports-hmrc" className={styles.backButton}>
                                 Back to Product Page
@@ -147,18 +171,18 @@ function ThankYouContent() {
                 <div className={styles.background}>
                     <div className={styles.gradient} />
                 </div>
-                
+
                 <div className={styles.content}>
                     <div className={styles.successCard}>
                         <div className={styles.errorIcon}>
                             <FaExclamationTriangle />
                         </div>
-                        
+
                         <h1 className={styles.title}>Payment Not Completed</h1>
                         <p className={styles.subtitle}>
                             Your payment status is: {paymentStatus?.status || 'unknown'}
                         </p>
-                        
+
                         <div className={styles.actions}>
                             <a href="/products/swift-reports-hmrc" className={styles.backButton}>
                                 Try Again
@@ -176,13 +200,13 @@ function ThankYouContent() {
             <div className={styles.background}>
                 <div className={styles.gradient} />
             </div>
-            
+
             <div className={styles.content}>
                 <div className={styles.successCard}>
                     <div className={styles.successIcon}>
                         <FaCheckCircle />
                     </div>
-                    
+
                     <h1 className={styles.title}>Payment Successful!</h1>
                     <p className={styles.subtitle}>
                         Thank you for your purchase! Your payment has been processed successfully.
@@ -256,13 +280,13 @@ export default function ThankYouPage() {
                 <div className={styles.background}>
                     <div className={styles.gradient} />
                 </div>
-                
+
                 <div className={styles.content}>
                     <div className={styles.successCard}>
                         <div className={styles.successIcon}>
                             <FaSpinner className={styles.spinner} />
                         </div>
-                        
+
                         <h1 className={styles.title}>Loading...</h1>
                         <p className={styles.subtitle}>
                             Please wait while we load your payment status.
