@@ -47,6 +47,7 @@ export async function POST(request: Request) {
       name,
       contactMethod,
       contact,
+      email,
       githubUsername,
       paymentMethod,
       companyName,
@@ -87,8 +88,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate email for bank transfer and invoice if contact method is not email
+    if ((paymentMethod === 'bank_transfer' || paymentMethod === 'invoice') && contactMethod !== 'email' && !email) {
+      return NextResponse.json(
+        { error: 'Email is required for payment details when contact method is not email' },
+        { status: 400 }
+      );
+    }
+
     const paymentMethodName = paymentMethod === 'bank_transfer' ? 'Bank Transfer' : 'Invoice';
-    const customerEmail = contactMethod === 'email' ? contact : 'support@lovigin.com';
+    // Use email field if provided, otherwise use contact if it's email, otherwise fallback
+    const customerEmail = email || (contactMethod === 'email' ? contact : 'support@lovigin.com');
     const selectedBankDetails = bankDetails[currency] || bankDetails.USD;
     const currencySymbol = currency === 'USD' ? '$' : currency === 'GBP' ? '£' : '€';
     const amount = `${currencySymbol}${productPrice}`;
@@ -249,6 +259,7 @@ export async function POST(request: Request) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Contact Method:</strong> ${contactMethod}</p>
         <p><strong>Contact:</strong> ${contact}</p>
+        ${email ? `<p><strong>Email for Payment Details:</strong> ${email}</p>` : ''}
         
         ${companyName ? `<h3>Company Information</h3>` : ''}
         ${companyName ? `<p><strong>Company Name:</strong> ${companyName}</p>` : ''}
@@ -275,7 +286,7 @@ export async function POST(request: Request) {
           <h3 style="color: #92400e; margin: 0 0 10px 0;">Action Required:</h3>
           <p style="color: #92400e; margin: 0;">
             ${paymentMethod === 'bank_transfer' 
-              ? `Customer has been sent bank transfer details for ${currency}. Please monitor payment and add GitHub user "${githubUsername}" to the private repository with read access after payment confirmation.` 
+              ? `Customer has been sent bank transfer details for ${currency} to ${customerEmail}. Please monitor payment and add GitHub user "${githubUsername}" to the private repository with read access after payment confirmation.` 
               : `Please send an invoice to ${customerEmail}. After payment confirmation, add GitHub user "${githubUsername}" to the private repository with read access.`}
           </p>
         </div>

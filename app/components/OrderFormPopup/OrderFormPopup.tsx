@@ -17,6 +17,7 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
     name: '',
     contactMethod: 'email',
     contact: '',
+    email: '',
     githubUsername: '',
     paymentMethod: 'card',
     companyName: '',
@@ -93,6 +94,7 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
             name: '',
             contactMethod: 'email',
             contact: '',
+            email: '',
             githubUsername: '',
             paymentMethod: 'card',
             companyName: '',
@@ -157,6 +159,7 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
 
   const isCompanyPayment = formData.paymentMethod === 'bank_transfer' || formData.paymentMethod === 'invoice';
   const isInvoice = formData.paymentMethod === 'invoice';
+  const needsEmailForPayment = isCompanyPayment && formData.contactMethod !== 'email';
 
   // List of countries with flags
   const countries = [
@@ -462,6 +465,28 @@ export default function OrderFormPopup({ isOpen, onClose, productName = "Swift R
               />
             </div>
           </div>
+
+          {needsEmailForPayment && (
+            <div className={styles.formGroup}>
+              <label htmlFor="email">
+                <FaEnvelope />
+                Email for Payment Details
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your.email@example.com"
+                required={needsEmailForPayment}
+                disabled={isLoading}
+              />
+              <small className={styles.helpText}>
+                Payment details and instructions will be sent to this email address
+              </small>
+            </div>
+          )}
 
           <div className={styles.formGroup}>
             <label htmlFor="githubUsername">
