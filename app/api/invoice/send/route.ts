@@ -5,6 +5,49 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
+    // Support both JSON (with base64) and FormData (with file)
+    const contentType = request.headers.get('content-type') || '';
+    let pdfBase64: string | undefined;
+    let pdfFilename: string | undefined;
+    let orderData: any;
+
+    if (contentType.includes('multipart/form-data')) {
+      // Handle file upload via FormData
+      const formData = await request.formData();
+      const pdfFile = formData.get('pdf') as File | null;
+      
+      if (pdfFile) {
+        const arrayBuffer = await pdfFile.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        pdfBase64 = buffer.toString('base64');
+        pdfFilename = pdfFile.name || `Invoice-${formData.get('orderNumber') || 'invoice'}.pdf`;
+      }
+
+      // Extract other form fields
+      orderData = {
+        orderNumber: formData.get('orderNumber'),
+        customerName: formData.get('customerName'),
+        customerEmail: formData.get('customerEmail'),
+        companyName: formData.get('companyName'),
+        vatNumber: formData.get('vatNumber'),
+        addressLine1: formData.get('addressLine1'),
+        addressLine2: formData.get('addressLine2'),
+        city: formData.get('city'),
+        stateProvince: formData.get('stateProvince'),
+        postalCode: formData.get('postalCode'),
+        country: formData.get('country'),
+        productName: formData.get('productName'),
+        productPrice: formData.get('productPrice'),
+        currency: formData.get('currency'),
+      };
+    } else {
+      // Handle JSON with base64
+      const body = await request.json();
+      pdfBase64 = body.pdfBase64;
+      pdfFilename = body.pdfFilename;
+      orderData = body;
+    }
+
     const {
       orderNumber,
       customerName,
@@ -20,9 +63,7 @@ export async function POST(request: Request) {
       productName,
       productPrice,
       currency,
-      pdfBase64, // Optional: PDF file as base64 string
-      pdfFilename, // Optional: filename for PDF attachment
-    } = await request.json();
+    } = orderData;
 
     // Validate required fields
     if (!orderNumber || !customerEmail || !productName || !productPrice || !currency) {
