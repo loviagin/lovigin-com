@@ -5,6 +5,7 @@
   right: 0;
   background: transparent;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 0;
   transition: all 0.3s ease;
@@ -14,6 +15,7 @@
   padding: 0;
   background: #2d3748af; 
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -106,7 +108,7 @@
   color: #fff;
   border: 1px solid #fff;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 8px);
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -164,7 +166,7 @@
   width: 100%;
   height: 2px;
   background: #fff;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 8px);
   transition: all 0.3s ease;
 }
 
@@ -304,7 +306,7 @@
     gap: 0;
     transition: left 0.3s ease;
     padding: 0;
-    border-radius: 0 0 0 var(--radius);
+    border-radius: 0 0 0 var(--radius, 8px);
     box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
   }
