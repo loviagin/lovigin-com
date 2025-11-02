@@ -41,10 +41,8 @@ export default function RootLayout({
           {children}
           <Footer />
         </AuthProvider>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VB02GRN07D"
-          strategy="afterInteractive"
-        ></Script>
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VB02GRN07D"></Script>
+        <Script>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
