@@ -54,9 +54,6 @@ export default function ContactsPage() {
                     <div className={styles.socialLinks}>
                         <Link href="https://wa.me/447867246591" target='_blank' className={styles.socialLink}>WhatsApp</Link>
                         <Link href="https://t.me/loviginsup" target='_blank' className={styles.socialLink}>Telegram</Link>
-                        <Link href="https://www.facebook.com/profile.php?id=61575847884183" target='_blank' className={styles.socialLink}>
-                            <Facebook />
-                        </Link>
                         <Link href="https://www.instagram.com/lovig.in/" target='_blank' className={styles.socialLink}>
                             <Instagram />
                         </Link>
